@@ -1,6 +1,6 @@
 import { CodeRef } from "@/components/CodeRef"
-import { MyImage } from "@/components/MyImage"
 import { QuickLink, QuickLinks } from "@/components/QuickLinks"
+import { Screenshot } from "@/components/Screenshot"
 import { YouTube } from "@/components/YouTube"
 import { comment, head, link, script } from "@markdoc/next.js/tags"
 
@@ -34,14 +34,19 @@ const tags = {
     },
   },
   link: link,
-  image: {
-    render: MyImage,
+  screenshot: {
+    render: Screenshot,
     attributes: {
       src: {
         type: String,
         required: true,
       },
       alt: {
+        type: String,
+        required: false,
+        default: "screenshot",
+      },
+      caption: {
         type: String,
         required: false,
       },

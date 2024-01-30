@@ -23,11 +23,11 @@ After the Atlassian migration is done and Jira Cloud has migrated the data (Proj
 
 2. **In Jira Cloud** Go to the "Authentication" page and enter your Test IO API key.
 
-{% image src="/assets/migration_to_cloud/1_authentication.png" alt="screenshot" /%}
+{% screenshot src="/assets/migration_to_cloud/1_authentication.png" caption="Authenticate the Jira Cloud plugin" /%}
 
 3. **In Jira Server** Open the **"Manage apps"** section in Jira Administration, then go to the **"Maintenance page"** for Test IO plugin and open the **"Migration to Cloud"** tab.
 
-{% image src="/assets/migration_to_cloud/2_maintenance.png" alt="screenshot" /%}
+{% screenshot src="/assets/migration_to_cloud/2_maintenance.png" caption="Maintenance Page of the Test Io Jira Server plugin" /%}
 
 4. Select **cloud plugin installation**
 
@@ -37,11 +37,11 @@ After the Atlassian migration is done and Jira Cloud has migrated the data (Proj
 
 - **Partial migration** if you migrated Jira using [Choose what to migrate](https://support.atlassian.com/migration/docs/choose-what-jira-data-to-migrate-using-the-assistant/)
 
-{% image src="/assets/migration_to_cloud/1_migration.png" alt="screenshot" /%}
+{% screenshot src="/assets/migration_to_cloud/1_migration.png" caption="Select cloud plugin installation and migration type" /%}
 
 6. Select **Jira Projects** and **Configurations** to be migrated. For each configuration the target Project in Jira Cloud should be selected.
 
-{% image src="/assets/migration_to_cloud/3_migration.png" alt="screenshot" /%}
+{% screenshot src="/assets/migration_to_cloud/3_migration.png" caption="Select target Jira Project in the Cloud" /%}
 
 7. Click **Execute Migration for Test IO Issues** to proceed with the migration.
 
@@ -49,10 +49,10 @@ After the Atlassian migration is done and Jira Cloud has migrated the data (Proj
 
 Please check that the **"Issue Type & Field Mapping"** and **"Advanced Integration"** tabs are similar to the configurations in the Test IO Jira Server plugin.
 
-{% image src="/assets/migration_to_cloud/6_migration.png" alt="screenshot" /%}
+{% screenshot src="/assets/migration_to_cloud/6_migration.png" caption="Migrated configuration in the Test IO Jira Cloud plugin" /%}
 
 9. This is a **final step**. At this step, all migrated configurations should already exist in the Jira Cloud Test IO plugin, but it takes some time to migrate all Test IO bugs.
 
 In the Jira Server plugin, you can check if there are any problems with the migration. If there are **failed bugs**, please **contact your CSM** and provide the list of failed bugs.
 
-{% image src="/assets/migration_to_cloud/5_migration.png" alt="screenshot" /%}
+{% screenshot src="/assets/migration_to_cloud/5_migration.png" caption="Failed migration bugs" /%}
