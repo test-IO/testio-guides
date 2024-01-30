@@ -30,4 +30,6 @@ Please be aware that the Guides are still in development. If you find any issues
 
 Latest changes to the Test IO Guides:
 
+- January 30, 2024 - [Jira Server to Cloud migration guide](/docs/jira_plugins/migration_to_cloud) is added.
+
 - January 22, 2024 - Setting up the Test IO Guides.
