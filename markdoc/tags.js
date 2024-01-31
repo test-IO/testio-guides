@@ -33,7 +33,19 @@ const tags = {
       href: { type: String },
     },
   },
-  link: link,
+  link: {
+    ...link,
+    render: "a",
+    attributes: {
+      ...link.attributes,
+      rel: {
+        type: String,
+      },
+      target: {
+        type: String,
+      },
+    },
+  },
   screenshot: {
     render: Screenshot,
     attributes: {

@@ -5,7 +5,7 @@ description: How to perform Jira Server to Cloud plugin migration.
 
 ## Introduction
 
-Support for Atlassian Server products **ends on Feb. 15, 2024**. [Atlassian migration guide](https://www.atlassian.com/migration/assess/journey-to-cloud) has detailed instructions on how to migrate from Server to Cloud.
+Support for Atlassian Server products **ends on Feb. 15, 2024**. {% link href="https://www.atlassian.com/migration/assess/journey-to-cloud" target="_blank" %}Atlassian migration guide{% /link %} has detailed instructions on how to migrate from Server to Cloud.
 
 The Test IO Jira Server plugin provides an option to migrate data to the cloud and continue to use the Test IO Jira Cloud plugin.
 
@@ -19,7 +19,7 @@ This video provided by Atlassian shows how to migrate from Jira Server to Jira C
 
 After the Atlassian migration is done and Jira Cloud has migrated the data (Projects, Issues and so on), we can start migrating the Test IO plugin's data.
 
-1. Install the Test IO Cloud plugin from [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1217073/qa-service-for-jira?hosting=cloud&tab=overview).
+1. Install the Test IO Cloud plugin from {% link href="https://marketplace.atlassian.com/apps/1217073/qa-service-for-jira?hosting=cloud&tab=overview" target="_blank" %}Atlassian Marketplace{% /link %}.
 
 2. **In Jira Cloud** Go to the "Authentication" page and enter your Test IO API key.
 
@@ -33,9 +33,9 @@ After the Atlassian migration is done and Jira Cloud has migrated the data (Proj
 
 5. Select **migration type** depending on your Altassian Jira migration type:
 
-- **Full migration** if you migrated Jira using [Migrate all data at once](https://support.atlassian.com/migration/docs/migrate-all-jira-data-at-once-using-the-assistant/)
+- **Full migration** if you migrated Jira using {% link href="https://support.atlassian.com/migration/docs/migrate-all-jira-data-at-once-using-the-assistant/" target="_blank" %}Migrate all data at once{% /link %}
 
-- **Partial migration** if you migrated Jira using [Choose what to migrate](https://support.atlassian.com/migration/docs/choose-what-jira-data-to-migrate-using-the-assistant/)
+- **Partial migration** if you migrated Jira using {% link href="https://support.atlassian.com/migration/docs/choose-what-jira-data-to-migrate-using-the-assistant/" target="_blank" %}Choose what to migrate{% /link %}
 
 {% screenshot src="/assets/migration_to_cloud/1_migration.png" caption="Select cloud plugin installation and migration type" /%}
 
