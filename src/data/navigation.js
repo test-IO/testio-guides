@@ -8,7 +8,6 @@ const navigation = [
     links: [
       { title: "Overview", href: "/docs/integrations/overview" },
       { title: "Jira Plugins", href: "/docs/integrations/jira_plugins" },
-      { title: "Zapier integration", href: "/docs/integrations/zapier" },
     ],
   },
   {

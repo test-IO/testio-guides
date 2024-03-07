@@ -5,11 +5,11 @@ description: Learn how to automatically mark a Test IO bug as fixed when its sta
 
 ## Overview
 
+The [Mark Bug as Fixed action](/docs/zapier/actions#mark-bug-as-fixed), combined with the [Fetch Test IO Bug by External Id action](/docs/zapier/actions#fetch-test-io-bug-by-external-id), lets you build a workflow to mark a bug as fixed in Test IO when its status changes in your connected bug tracker.
+
 {% callout type="info" %}
 This integration assumes the bug has already been exported from Test IO to another bug tracker (e.g., Asana).
 {% /callout %}
-
-The [Mark Bug as Fixed action](/docs/zapier/actions#mark-bug-as-fixed), combined with the [Fetch Test IO Bug by External Id action](/docs/zapier/actions#fetch-test-io-bug-by-external-id), lets you build a workflow to mark a bug as fixed in Test IO when its status changes in your connected bug tracker.
 
 In this use case, we'll demonstrate how to sync Test IO bug statuses with Asana using the {% link href="https://zapier.com/apps/asana/integrations" target="_blank" %}Asana{% /link %} and {% link href="https://zapier.com/apps/test-io/integrations" target="_blank" %}Test IO{% /link %} Zapier apps.
 

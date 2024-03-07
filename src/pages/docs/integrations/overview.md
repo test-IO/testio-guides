@@ -24,6 +24,6 @@ Here is the list of integrations you can use:
 
 {% quick-link title="Jira Cloud Plugin" icon="shield_check" href="/docs/jira_plugins/cloud" description="Integrate Test IO platform to your Jira Cloud." /%}
 
-{% quick-link title="Zapier app" icon="shield_check" href="/docs/integrations/zapier" description="Integrate Test IO platform to million of apps using Zapier." /%}
+{% quick-link title="Zapier app" icon="shield_check" href="/docs/zapier/getting_started" description="Integrate Test IO platform to million of apps using Zapier." /%}
 
 {% /quick-links %}
