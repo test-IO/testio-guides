@@ -30,7 +30,9 @@ Please be aware that the Guides are still in development. If you find any issues
 
 Latest changes to the Test IO Guides:
 
-- March 4, 2024 - [Test IO Zapier app documentation](/docs/zapier/overview) is added.
+- May 14, 2024 - [Configure Notion as Bug Tracker](/docs/integrations/notion) is added.
+
+- March 4, 2024 - [Test IO Zapier app documentation](/docs/zapier/getting_started) is added.
 
 - January 30, 2024 - [Jira Server to Cloud migration guide](/docs/jira_plugins/migration_to_cloud) is added.
 
