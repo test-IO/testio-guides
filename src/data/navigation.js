@@ -8,7 +8,7 @@ const navigation = [
     links: [
       { title: "Overview", href: "/docs/integrations/overview" },
       { title: "Jira Plugins", href: "/docs/integrations/jira_plugins" },
-      { title: "Notion Plugin", href: "/docs/integrations/notion_plugin" },
+      { title: "Configure Notion as Bug Tracker", href: "/docs/integrations/notion" },
     ],
   },
   {
