@@ -5,7 +5,7 @@ description: How to export bugs from Test IO to Notion.
 
 ## Integration overview
 
-In this guide, we’re going to build an [internal Notion integration](https://developers.notion.com/docs/getting-started#internal-integrations) that can export bugs from Test IO to to your Notion database.
+In this guide, we’re going to build an [internal Notion integration](https://developers.notion.com/docs/getting-started#internal-integrations) that can export bugs from Test IO to your Notion database.
 
 Before diving in, let’s quickly review Notion integrations. They need to be authorized (i.e., given explicit permission) to make any changes your workspace.
 
@@ -18,7 +18,7 @@ To follow along with this guide, you will need:
 
 ### Create your integration in Notion
 
-The first step to building any internal integration is to create a new integration in Notion’s integrations dashboard: https://www.notion.com/my-integrations.
+The first step for building any internal integration is to create a new integration in Notion’s integrations dashboard: https://www.notion.com/my-integrations.
 
 1. Click `+ New integration`
 2. Enter the integration name.
