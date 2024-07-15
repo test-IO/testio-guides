@@ -63,6 +63,10 @@ const tags = {
         type: String,
         required: false,
       },
+      type: {
+        type: String,
+        required: false,
+      },
     },
   },
   code: {
@@ -108,6 +112,17 @@ const tags = {
         matches: ["warning"],
         errorLevel: "critical",
       },
+    },
+  },
+  list: {
+    attributes: {
+      type: { type: 'string' },
+    },
+    transform(node, config) {
+      const children = node.transformChildren(config);
+      if (children.length)
+        children[0].attributes.type = node.attributes.type;
+      return children;
     },
   },
 }
