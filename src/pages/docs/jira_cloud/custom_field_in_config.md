@@ -212,7 +212,8 @@ You can find the list of attributes and their corresponding terms in the Test IO
   %{url}
   ```
 - URL where the bug was found on
-  {% /table %}
+
+{% /table %}
 
 For better visualization, refer to the **template for a Description custom field** provided above:
 {% code language="xml" showLineNumbers=false %}

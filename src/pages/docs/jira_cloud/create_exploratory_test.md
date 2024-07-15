@@ -8,12 +8,15 @@ You can **access the "Create Exploratory Test" page** by clicking on the "Create
 **Step 1: Select Test IO Product and Product Section**
 
 To send your test to the appropriate Test IO Product, follow these steps:
+
 {% list type="dash" %}
 
 - **Select the Test IO Product**: From the dropdown menu, choose the specific Test IO Product you want to use for your test.
 - **Select the Product Section (if applicable)**: If the chosen Test IO Product has different sections, select the relevant Product Section from the dropdown menu.
-  {% /list %}
-  {% screenshot src="/assets/jira_cloud/create_exploratory_test/step1.png" /%}
+
+{% /list %}
+
+{% screenshot src="/assets/jira_cloud/create_exploratory_test/step1.png" /%}
 
 These dropdown options are based on the configurations set up in the Jira Cloud Plugin, ensuring that your test is properly linked to the correct Test IO Product in your Jira project.
 

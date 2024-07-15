@@ -11,7 +11,7 @@ From the Jira Cloud side, there are two possible ways to request a Bug Fix Confi
 - **Internal BFC**: A confirmation request is done for a Jira ticket created from an accepted Test IO Bug.
 - **External BFC**: A confirmation request is done for a Jira ticket originally created within Jira.
 
-**Steps to Request a Bug Fix Confirmation**
+**Steps to Request a Bug Fix Confirmation**:
 
 1. **Select a Jira Ticket**: On your Jira Cloud side, select the ticket you want to retest. Click on the Actions three dots on the Jira ticket page and select **"Confirm fix via Test IO"**.
    {% screenshot src="/assets/jira_cloud/bug_fix_confirm/2.png" /%}

@@ -116,11 +116,11 @@ const tags = {
   },
   list: {
     attributes: {
-      type: { type: 'string' },
+      type: { type: String },
     },
     transform(node, config) {
       const children = node.transformChildren(config);
-      if (children.length)
+      if (children.length && children[0].name === 'ul')
         children[0].attributes.type = node.attributes.type;
       return children;
     },

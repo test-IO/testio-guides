@@ -15,6 +15,7 @@ To preview an individual Test IO bug and view its details, follow these steps:
 1. **Select Bug**: From the Test IO Bugs -> Bug Triage section, select a specific open Test IO bug from the list.
 2. View Details: The bug details will expand on the right side, showing the following information about the Test IO Bug:
    {% list type="dash" %}
+
    - Test IO Bug title
    - **Action buttons**: Accept, Reject, Change severity, Send request, Confirm bug (action buttons availability can depend on customer pricing plan on Test IO platform).
      {% screenshot src="/assets/jira_cloud/bug_triage/action_btns.png" caption="Action buttons availability can depend on customer pricing plan on Test IO platform" /%}
@@ -30,4 +31,5 @@ To preview an individual Test IO bug and view its details, follow these steps:
      {% screenshot src="/assets/jira_cloud/bug_triage/bug_reproductions.png" caption="Bug reproductions section" /%}
    - **Comments of Bug**: Represents details about the Bug related to specific actions taken with it, ex: Rejection reason after performing a Reject action, Comment for Change Severity action, Comment for Send request action from Customer side, and Tester’s answer, Details of Bug Report confirmations from Tester’s side, etc.
      {% screenshot src="/assets/jira_cloud/bug_triage/bug_comments.png" caption="Section with Comments of Bug" /%}
-     {% /list %}
+
+   {% /list %}
