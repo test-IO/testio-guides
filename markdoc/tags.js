@@ -119,10 +119,10 @@ const tags = {
       type: { type: String },
     },
     transform(node, config) {
-      const children = node.transformChildren(config);
-      if (children.length && children[0].name === 'ul')
-        children[0].attributes.type = node.attributes.type;
-      return children;
+      const children = node.transformChildren(config)
+      if (children.length && children[0].name === "ul")
+        children[0].attributes.type = node.attributes.type
+      return children
     },
   },
 }
