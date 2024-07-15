@@ -13,7 +13,6 @@ Rapid tests are fast, they can be completed in as little as two hours and are de
 
 Focused tests involve a deep dive into a specific feature or section of your app, akin to putting a part of your software under a microscope. These tests are perfect for identifying bugs in new functionality, including edge cases. Running a focused test helps you find all potential problems in a specific segment of your software.
 
-
 ## Coverage Test
 
 Coverage tests address the challenge of ensuring your app works across various devices, browsers, and operating systems. You can specify the types of devices to test on and the areas of the product to cover. This test is mostly useful before releases or following major changes, ensuring compatibility across different platforms.
@@ -24,4 +23,3 @@ Coverage tests address the challenge of ensuring your app works across various d
 Usability tests provide feedback from a diverse group of testers, from early-stage feedback to pre-release testing, to identify usability issues in production. For better results, it is recommended to request an evaluation of a specific feature or user flow.
 
 Find more details about each test type on the ["Create Exploratory Test" page](/docs/jira_cloud/create_exploratory_test). After selecting a specific test type, information will be displayed on the right side of the page.
-

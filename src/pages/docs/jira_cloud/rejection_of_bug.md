@@ -9,7 +9,7 @@ Once you have reviewed the received Test IO bug with an open status, you can beg
 2. **Reject Bug**: In the expanded bug details on the right side, click the “Reject” button.
 3. **Select Reason**: Choose an appropriate rejection reason from the available list that best fits your case.
 4. **Add Comment**: Optionally, add a comment for more details.
-{% screenshot src="/assets/jira_cloud/bug_triage/reject_comment.png" caption="When rejecting the Test IO Bug, you can add a comment for more details" /%}
+   {% screenshot src="/assets/jira_cloud/bug_triage/reject_comment.png" caption="When rejecting the Test IO Bug, you can add a comment for more details" /%}
 5. **Confirm Rejection**: Click the “Reject” button.
 
 The bug is rejected on the Test IO side, removed from the Open bugs list, and later can be found in the "All Bugs" list with the rejection reason included in the comments.

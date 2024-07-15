@@ -13,9 +13,10 @@ The Test IO bug is accepted, and an associated **Jira ticket is created** based 
 The accepted bug is removed from the open bugs list and moved to a new **"Accepted Bugs"** section, which temporarily appears after the list of open bugs. After reloading the page, this section is no longer accessible.
 
 **Actions for Accepted Bugs**:
+
 - **Re-export**: Re-create another Jira issue ticket for the same Test IO bug.
 - **View Issue Details**: Navigate to the newly created Jira issue page.
-{% screenshot src="/assets/jira_cloud/bug_triage/jira_issue_page.png" caption="Navigate to the newly created Jira issue page" /%}
+  {% screenshot src="/assets/jira_cloud/bug_triage/jira_issue_page.png" caption="Navigate to the newly created Jira issue page" /%}
 
 Once the Test IO Bug is exported to Jira, a new Jira issue link is added as an **External link** under the Test IO bug details on the Test IO side.
 {% screenshot src="/assets/jira_cloud/bug_triage/external_link.png" caption="See an External link under the Test IO bug details on the Test IO side" /%}

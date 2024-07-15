@@ -6,6 +6,7 @@ description: Learn about Test IO exploratory tests.
 Test IO exploratory tests, created on the Jira platform or the Test IO platform, can be seamlessly viewed through the Jira Cloud Plugin. This integration allows users to access and monitor tests with various statuses, including **Customer Finalized**, **Waiting** and **Running** directly from Jira.
 
 Users can view comprehensive details of these tests, which include:
+
 - **Start and End Date**: The time frame during which the test is scheduled to run.
 - **Test IO Product and Section**: The specific product and section associated with the test.
 - **Included Features**: A list of features being tested.

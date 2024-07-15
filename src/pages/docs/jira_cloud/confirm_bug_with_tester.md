@@ -14,7 +14,7 @@ Bug Report Confirmation is an individual bug action, that helps you to triage yo
 4. **Request Additional Information (Optional)**: Choose from a range of additional information that might help you evaluate the bug better, or define your own specific requests.
 
 5. **Request Specific Attachments (Optional)**: Choose from a range of specific attachments to gain further insight.
-{% screenshot src="/assets/jira_cloud/bug_triage/confirm_bug.png" caption="How to request Bug Report Confirmation" /%}
+   {% screenshot src="/assets/jira_cloud/bug_triage/confirm_bug.png" caption="How to request Bug Report Confirmation" /%}
 
 6. **Submit Request**: Click the "Request Confirmation" button.
 
@@ -22,6 +22,7 @@ Once the bug report confirmation request is submitted successfully, a new **"Bug
 {% screenshot src="/assets/jira_cloud/bug_triage/brc_section.png" caption="A new section "Bug Report Confirmation" is added to the selected bug details" /%}
 
 The BRC can have the following statuses based on the request's progress:
+
 - **Pending**: The request has been sent and is awaiting feedback from a Test IO tester.
 - **Canceled**: The request was canceled by the customer or on the Test IO platform.
 - **Expired**: The request expired after 24 hours without being picked up by a tester.
@@ -47,4 +48,3 @@ Once a BRC request is submitted, a notification banner is displayed under the bu
 When a tester completes the bug report confirmation, the result (Confirmed, Not Confirmed, or Blocked) will be added as a comment under the selected bug, along with attachments and additional comments from the tester.
 
 Find more details about the Bug Report Confirmation feature [here](https://help.test.io/en/articles/5661827-bug-report-confirmation).
-

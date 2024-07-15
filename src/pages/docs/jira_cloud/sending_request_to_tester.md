@@ -8,9 +8,9 @@ If you require additional information from a tester to investigate a specific bu
 1. **Select Bug**: From the Bug Triage section, choose an open Test IO bug from the list.
 2. **Send Request**: In the expanded bug details, click the “Send Request” button.
 3. **Fill in Comment**: Enter the details of the request in the comment field. You can ask a question or request more information about the bug from the tester who reported the bug.
-{% screenshot src="/assets/jira_cloud/bug_triage/request_comment.png" caption="Enter the details of the request in the comment field" /%}
+   {% screenshot src="/assets/jira_cloud/bug_triage/request_comment.png" caption="Enter the details of the request in the comment field" /%}
 4. **Confirm Request**: Click the “Send” button.
 
-The bug status changes to "Question," and a notification banner is added under the bug title in Bug Triage, indicating that a response is pending from the Test IO side. The comment and the tester's response will be displayed under the Comments section of the selected bug. 
+The bug status changes to "Question," and a notification banner is added under the bug title in Bug Triage, indicating that a response is pending from the Test IO side. The comment and the tester's response will be displayed under the Comments section of the selected bug.
 The notification banner and question mark are removed upon receiving the tester's response.
 {% screenshot src="/assets/jira_cloud/bug_triage/request_banner.png" caption="The notification banner is added under the bug title in Bug Triage" /%}

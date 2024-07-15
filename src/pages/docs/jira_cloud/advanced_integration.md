@@ -7,14 +7,16 @@ Configure advanced settings for comprehensive two-way integration between Jira a
 &nbsp;
 
 **Synchronize the status of Jira issues and Test IO bugs**:
+
 1. **Configure Status and Resolution**: Set up specific Status and Resolution values for Jira tickets created from accepted Test IO bugs.
-2. **Automate Bug Resolution**: When a Jira issue created from an accepted Test IO bug reaches the defined status and resolution, the corresponding Test IO bug will automatically be marked as **"fixed"** in Test IO. This update removes the bug from the Known Bug list on the Test IO side.  
+2. **Automate Bug Resolution**: When a Jira issue created from an accepted Test IO bug reaches the defined status and resolution, the corresponding Test IO bug will automatically be marked as **"fixed"** in Test IO. This update removes the bug from the Known Bug list on the Test IO side.
 
 **Example of Advanced Integration for Known Bug Status Synchronization**
 
 Consider a Test IO bug listed among the Known Bugs on the Test IO side. A Jira issue has been created from this accepted Test IO bug.
 
 In the Advanced Integration settings for Known Bug status synchronization:
+
 - **The Status** is set to "Resolved".
 - **The Resolution** is set to "Done".
 
@@ -24,6 +26,7 @@ This process ensures that the bug is considered fixed and allows testers to repo
 {% screenshot src="/assets/jira_cloud/config/sync_status.png" caption="Synchronize the status of Jira issues and Test IO bugs" /%}
 
 **Synchronize the status of Jira issues and Test IO bug fix confirmations**:
+
 1. **Select Jira Status for Bug Fix Confirmation**: Configure a specific status to be applied to Jira tickets, whether they are created from accepted Test IO bugs or originally created within Jira.
 2. **Automatic Status Update**: When the Bug Fix Confirmation for these Jira tickets passes on the Test IO side, the selected status will automatically be applied to the corresponding Jira tickets.
 
@@ -39,7 +42,8 @@ When the Bug Fix Confirmation for this Jira ticket passes on the Test IO side, t
 {% screenshot src="/assets/jira_cloud/config/sync_fix_confirm.png" caption="Synchronize the status of Jira issues and Test IO bug fix confirmations" /%}
 
 **Synchronize comments between Jira and Test IO**:
-1. **Define a Sync Identifier**: Set up a specific string or tag to identify which comments should be synchronized between Jira and Test IO. 
+
+1. **Define a Sync Identifier**: Set up a specific string or tag to identify which comments should be synchronized between Jira and Test IO.
 2. **Automate Comment Synchronization**: Comments containing the defined identifier will be automatically synced on the Test IO side for Jira issues created from accepted Test IO bugs. This ensures that communication and updates are effectively shared with the tester who submitted the Test IO bug.
 
 **Example of comment synchronization between Jira and Test IO**
@@ -48,7 +52,7 @@ Consider a scenario where you want to ensure that specific comments made under a
 
 In the Advanced Integration settings for synchronizing comments between Jira and Test IO set up a specific string or tag, such as "@testIO", to identify which comments should be sent to Test IO.
 
-When comments in Jira contain the "@testIO" tag, they will be automatically synced with the corresponding Test IO bug on the Test IO side. For example, if a Jira ticket has a comment like "Issue replicated on multiple devices @testIO", this comment will be automatically copied to the corresponding Test IO bug.  This ensures that communication and updates are effectively shared with the tester who submitted the Test IO bug.
+When comments in Jira contain the "@testIO" tag, they will be automatically synced with the corresponding Test IO bug on the Test IO side. For example, if a Jira ticket has a comment like "Issue replicated on multiple devices @testIO", this comment will be automatically copied to the corresponding Test IO bug. This ensures that communication and updates are effectively shared with the tester who submitted the Test IO bug.
 {% screenshot src="/assets/jira_cloud/config/sync_comments.png" caption="Synchronize comments between Jira and Test IO" /%}
 
 You have now fully configured the Jira Cloud Plugin. Next, navigate to your configured Jira Project to explore and utilize the integration capabilities provided by the plugin.
