@@ -16,10 +16,11 @@ Focused tests involve a deep dive into a specific feature or section of your app
 ## Coverage Test
 
 Coverage tests address the challenge of ensuring your app works across various devices, browsers, and operating systems. You can specify the types of devices to test on and the areas of the product to cover. This test is mostly useful before releases or following major changes, ensuring compatibility across different platforms.
-{% screenshot src="/assets/jira_cloud/coverage_test.png" type="narrow" /%}
 
 ## Usability Test
 
 Usability tests provide feedback from a diverse group of testers, from early-stage feedback to pre-release testing, to identify usability issues in production. For better results, it is recommended to request an evaluation of a specific feature or user flow.
 
 Find more details about each test type on the "Create Exploratory Test" page. After selecting a specific test type, information will be displayed on the right side of the page.
+
+{% screenshot src="/assets/jira_server/test_type.png" /%}

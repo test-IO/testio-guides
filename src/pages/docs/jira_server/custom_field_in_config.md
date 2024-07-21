@@ -8,8 +8,10 @@ The Custom Text field is a powerful tool that allows you to create pre-formatted
 When working with Custom Fields, you have two options:
 
 - **Use predefined attributes**: Click on the attributes to insert them into the editor and enter any additional text.
+
 - **Enter data manually**: Type directly into the editor to input your custom content.
-  {% screenshot src="/assets/jira_cloud/config/custom_field.png" caption="Working with Custom Fields in Configuration" /%}
+
+{% screenshot src="/assets/jira_server/config/custom_field.png" /%}
 
 You can find the list of attributes and their corresponding terms in the Test IO Bug Report above:
 {% table .custom %}
@@ -19,9 +21,9 @@ You can find the list of attributes and their corresponding terms in the Test IO
 
 ---
 
-- **Actual result** /
+- **Actual results** /
   ```custom_field
-  %{actual_result}
+  %{Actual results}
   ```
 - Actual Result of the reproduction
 
@@ -29,23 +31,23 @@ You can find the list of attributes and their corresponding terms in the Test IO
 
 - **Attachments** /
   ```custom_field
-  %{attachments}
+  %{Attachments}
   ```
 - Screenshots/Screencasts attached to the bug report
 
 ---
 
-- **Bug ID** /
+- **Tester** /
   ```custom_field
-  %{test IO_idx}
+  %{Tester}
   ```
-- Test IO bug ID
+- The name of the Tester
 
 ---
 
 - **Bug description** /
   ```custom_field
-  %{bug_description}
+  %{Bug_description}
   ```
 - - The location of the bug (The URL where the bug has been found)
   - The reproduction steps
@@ -55,65 +57,25 @@ You can find the list of attributes and their corresponding terms in the Test IO
 
 ---
 
-- **Bug type** /
+- **test IO Bug url** /
   ```custom_field
-  %{bug_type}
+  %{test IO Bug url}
   ```
-- The type of the bug
-
----
-
-- **Date of submission** /
-  ```custom_field
-  %{submission_date}
-  ```
-- Bug submission date
+- The URL of the bug
 
 ---
 
 - **Devices and Browser** /
   ```custom_field
-  %{environment}
+  %{Devices & Browser}
   ```
 - The Device and Browser the bug was found on
 
 ---
 
-- **Environment URL** /
+- **Expected results** /
   ```custom_field
-  %{environment_url}
-  ```
-- Test environment URL
-
----
-
-- **Environment password** /
-  ```custom_field
-  %{environment_password}
-  ```
-- Test environment password
-
----
-
-- **Environment title** /
-  ```custom_field
-  %{environment_title}
-  ```
-- Test environment title
-
----
-
-- **Environment username** /
-  ```custom_field
-  %{environment_username}
-  ```
-- Test environment username
-
----
-
-- **Expected result** /
-  ```custom_field
-  %{expected_result}
+  %{Expected results}
   ```
 - Expected Result of the reproduction
 
@@ -121,39 +83,15 @@ You can find the list of attributes and their corresponding terms in the Test IO
 
 - **Feature** /
   ```custom_field
-  %{feature}
+  %{Feature}
   ```
 - Feature tested
 
 ---
 
-- **Further instructions** /
-  ```custom_field
-  %{environment_access}
-  ```
-- Further instructions for accessing the test environment
-
----
-
-- **Product title** /
-  ```custom_field
-  %{product_title}
-  ```
-- The Product where the bug was found
-
----
-
-- **Section title** /
-  ```custom_field
-  %{section_title}
-  ```
-- The Product Section where the bug was found
-
----
-
 - **Severity** /
   ```custom_field
-  %{severity}
+  %{Severity}
   ```
 - Bug severity
 
@@ -161,80 +99,135 @@ You can find the list of attributes and their corresponding terms in the Test IO
 
 - **Steps** /
   ```custom_field
-  %{steps}
+  %{Steps}
   ```
 - Reproduction steps
 
 ---
 
-- **Test IO Bug url** /
+- **Date of submission** /
   ```custom_field
-  %{bug_url}
+  %{Date of submission}
   ```
-- The URL of the bug
-
----
-
-- **Test IO testcycle url** /
-  ```custom_field
-  %{test_cycle_url}
-  ```
-- The URL of the Test Cycle
+- Bug submission date
 
 ---
 
 - **Testcycle ID** /
   ```custom_field
-  %{test_cycle_id}
+  %{Testcycle ID}
   ```
 - The ID of the Test Cycle
 
 ---
 
-- **Tester** /
+- **test IO testcycle url** /
   ```custom_field
-  %{author}
+  %{test IO testcycle url}
   ```
-- The name of the Tester
+- The URL of the Test Cycle
+
+---
+
+- **Bug ID** /
+  ```custom_field
+  %{Bug ID}
+  ```
+- Test IO bug ID
 
 ---
 
 - **Title of the bug** /
   ```custom_field
-  %{title}
+  %{Title of the bug}
   ```
 - The title of Test IO bug
 
 ---
 
-- **URL where the bug occurred** /
+- **Environment** /
   ```custom_field
-  %{url}
+  %{Environment}
   ```
-- URL where the bug was found on
+- Full information about environmental details including Title, URL, Username, Password, and Instructions
+
+---
+
+- **Environment title** /
+  ```custom_field
+  %{Environment_title}
+  ```
+- Test environment title
+
+---
+
+- **Environment URL** /
+  ```custom_field
+  %{Environment_url}
+  ```
+- Test environment URL
+
+---
+
+- **Environment Instructions** /
+  ```custom_field
+  %{Environment instructions}
+  ```
+- Further instructions for accessing the test environment
+
+---
+
+- **Environment username** /
+  ```custom_field
+  %{Environment_username}
+  ```
+- Test environment username
+
+---
+
+- **Environment password** /
+  ```custom_field
+  %{Environment_password}
+  ```
+- Test environment password
+
+---
+
+- **Product title** /
+  ```custom_field
+  %{Product title}
+  ```
+- The Product where the bug was found
+
+---
+
+- **Section title** /
+  ```custom_field
+  %{Section title}
+  ```
+- The Product Section where the bug was found
 
 {% /table %}
 
 For better visualization, refer to the **template for a Description custom field** provided above:
+
 {% code language="xml" showLineNumbers=false %}
 
 ```
-Test ID: %{test_cycle_id}
-URL: %{test_cycle_url}
-Bug ID: %{testio_idx}
-Link: %{bug_url}
-Feature: %{feature}
-Date: %{submission_date}
-Tester: %{author}
-URL: %{url}
+Test ID: %{Testcycle ID}
+URL: %{test IO testcycle url}
+Bug ID: %{Bug ID}
+Feature: %{Feature}
+Date: %{Date of submission}
+Tester: %{Tester}
 
 h3. Steps
 ---------------------------
-%{steps}
+%{Steps}
 
 h3. Expected Result
 ---------------------------
-%{expected_result}
+%{Expected results}
 
 h3. Actual Result
 ---------------------------
@@ -242,11 +235,11 @@ h3. Actual Result
 
 h3. Attachments
 ---------------------------
-%{attachments}
+%{Attachments}
 
 h3. Environment
 ---------------------------
-%{environment}
+%{Environment}
 ```
 
 {% /code %}
