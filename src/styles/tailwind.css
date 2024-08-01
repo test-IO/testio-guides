@@ -24,14 +24,7 @@ td {
   padding-top: 16px;
   padding-bottom: 16px !important;
   background-color: #f4f5f7;
-}
-
-pre[data-language="custom_field"] {
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  color: black;
-  box-shadow: none;
+  @apply dark:bg-slate-700/40;
 }
 
 .narrow.inline {
@@ -42,4 +35,8 @@ pre[data-language="custom_field"] {
 
 .narrow img {
   width: auto !important;
+}
+
+.x-large {
+  font-size: x-large;
 }

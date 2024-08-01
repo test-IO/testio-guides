@@ -3,7 +3,7 @@ title: Custom field in Configuration
 description: Learn how to work with Custom Fields in Configuration.
 ---
 
-The Custom Text field is a powerful tool that allows you to create pre-formatted bug reports with dynamically changing content, tailored to your preferences. To use the attributes, simply click on them to make them appear in the editor, then use their content as needed.
+The Custom Field is a powerful editor that allows you to create pre-formatted bug reports with dynamically changing content, tailored to your preferences. To use the attributes, simply click on them to make them appear in the editor, then use their content as needed.
 
 When working with Custom Fields, you have two options:
 
@@ -207,7 +207,7 @@ You can find the list of attributes and their corresponding terms in the Test IO
 
 ---
 
-- **URL where the bug occurred** /
+- **The location of the bug** /
   ```custom_field
   %{url}
   ```
@@ -216,7 +216,7 @@ You can find the list of attributes and their corresponding terms in the Test IO
 {% /table %}
 
 For better visualization, refer to the **template for a Description custom field** provided above:
-{% code language="xml" showLineNumbers=false %}
+{% code language="plaintext" showLineNumbers=false %}
 
 ```
 Test ID: %{test_cycle_id}

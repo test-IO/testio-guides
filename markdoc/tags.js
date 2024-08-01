@@ -125,6 +125,12 @@ const tags = {
       return children
     },
   },
+  span: {
+    attributes: {
+      type: String,
+    },
+    render: ({ children, type }) => <span className={type}>{children}</span>,
+  },
 }
 
 export default tags

@@ -20,7 +20,7 @@ const navigation = [
   {
     title: "Jira Cloud Plugin",
     links: [
-      { title: "QA Service for Jira: About us", href: "/docs/jira_cloud/qa_jira_about" },
+      { title: "QA Service for Jira: About Us", href: "/docs/jira_cloud/qa_jira_about" },
       { title: "Installation", href: "/docs/jira_cloud/installation" },
       { title: "Authentication", href: "/docs/jira_cloud/authentication" },
       { title: "Configuration", href: "/docs/jira_cloud/configuration" },
@@ -48,9 +48,7 @@ const navigation = [
       { title: "Copy and Share Bug Link", href: "/docs/jira_cloud/share_bug_link" },
       { title: "Bug Reporductions", href: "/docs/jira_cloud/bug_reporductions" },
       { title: "Test IO Bugs: All Bugs page", href: "/docs/jira_cloud/all_bugs_page" },
-      { title: "Exploratory Tests", href: "/docs/jira_cloud/exploratory_tests" },
-      { title: "Exploratory Test types", href: "/docs/jira_cloud/exploratory_test_types" },
-      { title: "Bug Severities", href: "/docs/jira_cloud/bug_severities" },
+      { title: "Exploratory Tests and Bug types in Test", href: "/docs/jira_cloud/test_bug_types" },
       { title: "Create New Exploratory Test", href: "/docs/jira_cloud/create_exploratory_test" },
       { title: "User Stories execution", href: "/docs/jira_cloud/user_stories" },
       { title: "Bug Fix Confirmation", href: "/docs/jira_cloud/bug_fix_confirm" },

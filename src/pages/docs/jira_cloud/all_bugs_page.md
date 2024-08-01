@@ -10,7 +10,7 @@ The Jira Cloud plugin provides comprehensive access to Test IO bugs, even after 
 - **Rejected Bugs**: Bugs that have been reviewed and dismissed with any of the rejection reasons.
 - **Bugs with Pending Status**: Bugs that are awaiting confirmation or further information after Send request action.
 
-First, **apply a search** to view results based on your specified criteria. You can search for bugs on the "All Bugs" page by their **Title**, **ID** and **Test Cycle ID**.
+First, **apply a search** to view results based on your specified criteria. On the "All Bugs" page, you can **search for bugs by Title, ID, Test Cycle ID, or use the "All Options"** feature to find matching bugs across all search criteria based on your input.
 
 The advanced search functionality streamlines bug management and tracking, offering quick access to relevant information and enhancing efficiency.
-{% screenshot src="/assets/jira_cloud/all_bugs.png" caption="You can search for bugs on the All Bugs page by their Title, ID, and Test Cycle ID" /%}
+{% screenshot src="/assets/jira_cloud/all_bugs.png" caption="All Bugs page in Jira Cloud" /%}
