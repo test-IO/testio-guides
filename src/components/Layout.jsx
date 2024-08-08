@@ -55,8 +55,8 @@ function Header({ main, navigation }) {
           </span>
         </Link>
       </div>
-      <div className="-my-5 mr-6 sm:mr-8 md:mr-0">{/*<Search />*/}</div>
-      <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
+      <div className="-my-5 mr-6 sm:mr-8 md:mr-4">{/* <Search /> */}</div>
+      <div className="relative flex basis-0 justify-end gap-6 sm:gap-8">
         <ThemeSelector className="relative z-10" />
         <Link
           href="https://github.com/test-IO/testio-guides"
