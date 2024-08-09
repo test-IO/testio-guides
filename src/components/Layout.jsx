@@ -7,6 +7,7 @@ import { Search } from "@/components/Search"
 import { ThemeSelector } from "@/components/ThemeSelector"
 import main from "@/data/main"
 import navigation from "@/data/navigation"
+import { getAllLinks, isLinkInChildren } from "@/utils/helpers"
 import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -116,13 +117,23 @@ function useTableOfContents(tableOfContents) {
 export function Layout({ children, title, tableOfContents }) {
   let router = useRouter()
   let isHomePage = router.pathname === "/"
-  let allLinks = navigation.flatMap((section) => section.links)
+  let allLinks = navigation.flatMap((section) => getAllLinks(section.links))
   let linkIndex = allLinks.findIndex((link) => link.href === router.pathname)
   let previousPage = allLinks[linkIndex - 1]
   let nextPage = allLinks[linkIndex + 1]
+  let childSection
   let section = navigation.find((section) =>
-    section.links.find((link) => link.href === router.pathname)
+    section.links.find((link) => {
+      if (link.href === router.pathname) {
+        return true
+      } else if (link.children && isLinkInChildren(link.children, router.pathname)) {
+        childSection = link
+      }
+      return false
+    })
   )
+  if (!section) section = childSection
+
   let currentSection = useTableOfContents(tableOfContents)
 
   function isActive(section) {
