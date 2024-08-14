@@ -1,5 +1,5 @@
 ---
-title: "Bug Triage: Reject a Test IO Bug"
+title: Reject Test IO Bug
 description: Learn how to reject a Test IO bug.
 ---
 
@@ -13,8 +13,9 @@ Once you have reviewed the received Test IO bug with an open status, you can beg
 
 4. **Add Comment**: Optionally, add a comment for more details.
 
-{% screenshot src="/assets/jira_server/bug_triage/reject_bug.png" /%}
+   {% screenshot src="/assets/jira_server/bug_triage/reject_bug.png" caption="\"Reject bug\" modal on Bug Triage" /%}
 
 5. **Confirm Rejection**: Click the “Reject” button.
 
-The bug is rejected on the Test IO side, removed from the Open bugs list, and later can be found in the "All Bugs" list with the rejection reason included in the comments.
+The bug is rejected in both Jira Plugin and Test IO, **removed from the Bugs / Received bugs list**, and later **can be found in the Jira Plugin's "All Bugs" list**
+with the rejection reason included in the comments.

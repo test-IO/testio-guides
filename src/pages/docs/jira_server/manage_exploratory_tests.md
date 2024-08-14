@@ -3,7 +3,8 @@ title: Manage Exploratory Tests
 description: Learn how to manage exploratory tests.
 ---
 
-**Edit Test**  
+## Edit Test
+
 You can edit tests that are in the "Initialized" status, meaning the test creation process has been started but not yet finally submitted.
 
 **Where to Find the Edit Button for Initialized Tests**
@@ -44,10 +45,13 @@ The Edit button is available in the following locations:
 
    {% /list %}
 
-{% screenshot src="/assets/jira_server/manage_tests/1.png" /%}
-{% screenshot src="/assets/jira_server/manage_tests/2.gif" /%}
+{% screenshot src="/assets/jira_server/manage_tests/1.png"
+caption="\"Edit\" button on Exploratory Test card" /%}
 
-**Duplicate a Test**  
+{% screenshot src="/assets/jira_server/manage_tests/2.gif" caption="Edit an Exploratory Test" /%}
+
+## Duplicate a Test
+
 The Duplicate feature allows you to create an identical copy of an existing test, preserving the original test configuration while enabling you to reuse or modify it for new testing scenarios.
 
 **Where to Find the Duplicate Button**
@@ -91,9 +95,10 @@ The Duplicate button is available in the following locations:
 
 By using the Duplicate feature, you can efficiently create multiple tests with similar settings, ensuring consistency and saving time in test preparation.
 
-{% screenshot src="/assets/jira_server/manage_tests/3.gif" /%}
+{% screenshot src="/assets/jira_server/manage_tests/3.gif" caption="Duplicate a Test" /%}
 
-**Save Test as Template**  
+## Save Test as Template
+
 The Save as Template feature allows you to create reusable test templates from existing tests. This functionality helps standardize your testing processes and saves time when creating new tests with similar configurations.
 
 **Where to Find the Save as Template Button**
@@ -136,7 +141,7 @@ The Save as Template button is available in the following locations:
 
    {% /list %}
 
-{% screenshot src="/assets/jira_server/manage_tests/4.gif" /%}
+{% screenshot src="/assets/jira_server/manage_tests/4.gif" caption="Add title for template" /%}
 
 **Using Templates for Quick Exploratory Test Creation**
 
@@ -180,4 +185,4 @@ Templates created from either Jira or the Test IO platform can be used to stream
 
 Using templates in this way helps you save time and ensures consistency in your testing processes.
 
-{% screenshot src="/assets/jira_server/manage_tests/5.gif" /%}
+{% screenshot src="/assets/jira_server/manage_tests/5.gif" caption="Initiate test using Template" /%}

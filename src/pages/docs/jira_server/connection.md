@@ -3,27 +3,27 @@ title: Connection
 description: Learn how to set up and manage the Jira Server Plugin's connections.
 ---
 
-The Jira Data Center (Server) Plugin supports two types of connections: **Default** and **Jira Project specific**. Follow the instructions below to set up and manage these connections effectively.
+The Jira Data Center (Server) Plugin supports two types of connections: **Global (default)** and **Jira Project specific**. Follow the instructions below to set up and manage these connections effectively.
 
-**Connection Types**
+## Connection Types
 
-**1. Default Connection**: A default connection applies globally across all Jira projects in your instance. Only one default connection can exist, and it is inactive by default.
+**1. Global (default) Connection**: Global (default) connection applies globally across all Jira projects in your instance. Only one Global (default) connection can exist, and it is inactive by default.
 
-**2. Project-Specific Connection**: This type of connection links a specific Jira project to your Test IO account, ideal when a particular project requires a different configuration from the global default or when establishing Test IO and Jira integration for only one Jira Project.
+**2. Project-Specific Connection**: This type of connection links a specific Jira project to your Test IO account, ideal when a particular project requires a different configuration from the Default (Global) one or when establishing Test IO and Jira integration for only one Jira Project.
 
-**Setting Up a Default Connection**
+## Setting up a Global (default) Connection
 
 1. **Navigate to Connection**: Go to the "Connection" page found in the Manage Apps section under the Test IO Plugin details.
 
 2. **Enter API Key**: Obtain your Test IO Personal API key from the Test IO Customer Account (found on the Integrations -> API page) and enter it.
 
-{% screenshot src="/assets/jira_server/connect/1.png" /%}
+   {% screenshot src="/assets/jira_server/connect/1.png" caption="Test IO Personal API Token" /%}
 
 3. **Save Changes**: Click "Save" to complete the authentication process.
 
-{% screenshot src="/assets/jira_server/connect/2.png" /%}
+   {% screenshot src="/assets/jira_server/connect/2.png" caption="Global (default) Connection in Jira Server (Data Center) plugin" /%}
 
-**Setting Up a Jira Project specific connection**
+## Setting up a Jira Project specific Connection
 
 1. **Navigate to Connection**: Go to the "Connection" page in the Manage Apps section under the Test IO details.
 
@@ -31,19 +31,19 @@ The Jira Data Center (Server) Plugin supports two types of connections: **Defaul
 
 3. **Select Jira Project**: From the dropdown menu, select the Jira project you want to connect to your Test IO account.
 
-{% screenshot src="/assets/jira_server/connect/3.png" /%}
+   {% screenshot src="/assets/jira_server/connect/3.png" caption="Select Jira Project for Project-specific Connection" /%}
 
 4. **Add connection**: Click the “Add connection” button. The new connection will appear under the “Jira Project specific” connections section.
 
-{% screenshot src="/assets/jira_server/connect/4.png" /%}
+   {% screenshot src="/assets/jira_server/connect/4.png" caption="Jira Project-specific Connection" /%}
 
 5. **Enter API Key**: Obtain your Test IO Personal API key from the Test IO Customer Account (found on the Integrations -> API page) and enter it.
 
-{% screenshot src="/assets/jira_server/connect/1.png" /%}
+   {% screenshot src="/assets/jira_server/connect/1.png" caption="Test IO Personal API Token" /%}
 
 6. **Save Changes**: Click "Save" to complete the authentication process.
 
-**Multi-Customer support**
+## Multi-Customer support
 
 The Jira Data Center (Server) Plugin supports **Multi-Customer connections**, allowing you to **integrate Jira with multiple Test IO accounts**. This can be achieved through different combinations of Global (Default) and Jira Project-specific connections.
 
@@ -77,8 +77,24 @@ The Jira Data Center (Server) Plugin supports **Multi-Customer connections**, al
 
 By utilizing the multi-customer support feature, you can efficiently manage integrations with multiple Test IO accounts, ensuring each Jira project operates with the specific integration rules and capabilities it needs.
 
-{% screenshot src="/assets/jira_server/connect/5.gif" /%}
+{% screenshot src="/assets/jira_server/connect/5.gif" caption="Multi-Customer support" /%}
 
 **Post-Connection Setup**
 
-After setting up the connection, proceed to the Configuration page to configure synchronization settings and define integration rules as per your requirements.
+After setting up the connection, **proceed to the Configuration page** to configure synchronization settings and define integration rules as per your requirements.
+
+{% quick-links %}
+
+{% quick-link title="Configuration" icon="shield_check"
+href="/docs/jira_server/configuration"
+description="Configure integration between Jira and Test IO platform" /%}
+
+{% quick-link title="Advanced Integration" icon="shield_check"
+href="/docs/jira_server/advanced_integration"
+description="Configure two-way integration between Jira аnd Test IO platform" /%}
+
+{% quick-link title="Maintenance" icon="shield_check"
+href="/docs/jira_server/maintenance"
+description="Мanage and troubleshoot the Test IO integration with your Jira instance" /%}
+
+{% /quick-links %}

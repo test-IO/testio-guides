@@ -7,15 +7,15 @@ description: Learn about User Stories execution.
 
 You can review the results of user story executions included in your tests on the separate **"User Stories"** page. User story executions are grouped and displayed by the features they belong to. You can access them in the Test IO Product/Feature/User Stories preview. Expand the Test IO product, then the selected feature to see the included user stories.
 
-{% screenshot src="/assets/media/2.png" /%}
+{% screenshot src="/assets/jira_server/user_stories/2.png" caption="User stories page" /%}
+
+## User Story Execution Details
 
 User story executions can have three possible statuses:
 
 - **Passed**: The user story has been successfully executed and met all the acceptance criteria.
 - **Blocked**: The user story could not be executed due to a blocking issue that prevented testing.
 - **Failed**: The user story did not meet the acceptance criteria or encountered errors during execution.
-
-**User Story Execution Details**
 
 User story executions can be viewed in expanded mode at various levels:
 
@@ -37,7 +37,7 @@ To see detailed information about a specific user story execution, **click on th
 
 If a single user story has more than one execution, all executions will be expanded one after the other, allowing you to see the detailed history of each execution attempt.
 
-{% screenshot src="/assets/media/3.gif" /%}
+{% screenshot src="/assets/jira_server/user_stories/3.gif" caption="User stories executions" /%}
 
 Additionally, you can filter the list of user stories on the “User Stories” page using the following filters:
 

@@ -17,7 +17,7 @@ const navigation = [
       { title: "Migrate Server Plugin To Cloud", href: "/docs/jira_plugins/migration_to_cloud" },
       {
         title: "Jira Cloud Plugin",
-        href: "/docs/jira_cloud/qa_jira_about",
+        href: "/docs/jira_plugins/cloud",
         children: [
           { title: "Installation", href: "/docs/jira_cloud/installation" },
           { title: "Authentication", href: "/docs/jira_cloud/authentication" },
@@ -27,9 +27,9 @@ const navigation = [
             children: [
               {
                 title: "Custom field",
-                href: "/docs/jira_cloud/custom_field_in_config",
+                href: "/docs/jira_cloud/custom_field",
               },
-              { title: "Demo Bug", href: "/docs/jira_cloud/demo_bug_in_config" },
+              { title: "Demo Bug", href: "/docs/jira_cloud/demo_bug" },
               {
                 title: "Advanced Integration",
                 href: "/docs/jira_cloud/advanced_integration",
@@ -40,28 +40,28 @@ const navigation = [
             title: "Test IO Bugs: Bug Triage",
             href: "/docs/jira_cloud/test_io_bugs_triage",
             children: [
-              { title: "Accepting Test IO Bug", href: "/docs/jira_cloud/accepting_bug" },
+              { title: "Accept Test IO Bug", href: "/docs/jira_cloud/accept_bug" },
               {
-                title: "Rejection of Test IO Bug",
-                href: "/docs/jira_cloud/rejection_of_bug",
+                title: "Reject Test IO Bug",
+                href: "/docs/jira_cloud/reject_bug",
               },
               {
-                title: "Changing Severity of Test IO Bug",
-                href: "/docs/jira_cloud/changing_severity_of_bug",
+                title: "Change Severity of Test IO Bug",
+                href: "/docs/jira_cloud/change_severity",
               },
               {
-                title: "Sending a request to the Test IO tester",
-                href: "/docs/jira_cloud/sending_request_to_tester",
+                title: "Send a Request to Test IO Tester",
+                href: "/docs/jira_cloud/send_request_to_tester",
               },
+              {
+                title: "Confirm Bug with an experienced Tester",
+                href: "/docs/jira_cloud/confirm_bug_with_tester",
+              },
+              { title: "Bug Reporductions", href: "/docs/jira_cloud/bug_reporductions" },
             ],
           },
-          {
-            title: "Confirm Bug with an Experienced Tester",
-            href: "/docs/jira_cloud/confirm_bug_with_tester",
-          },
-          { title: "Copy and Share Bug Link", href: "/docs/jira_cloud/share_bug_link" },
-          { title: "Bug Reporductions", href: "/docs/jira_cloud/bug_reporductions" },
           { title: "Test IO Bugs: All Bugs page", href: "/docs/jira_cloud/all_bugs_page" },
+          { title: "Copy and Share Bug Link", href: "/docs/jira_cloud/share_bug_link" },
           {
             title: "Exploratory Tests and Bug types",
             href: "/docs/jira_cloud/test_bug_types",
@@ -70,13 +70,13 @@ const navigation = [
             title: "Create New Exploratory Test",
             href: "/docs/jira_cloud/create_exploratory_test",
           },
-          { title: "User Stories execution", href: "/docs/jira_cloud/user_stories" },
           { title: "Bug Fix Confirmation", href: "/docs/jira_cloud/bug_fix_confirm" },
+          { title: "User Stories execution", href: "/docs/jira_cloud/user_stories" },
         ],
       },
       {
         title: "Jira Server (Data Center)",
-        href: "/docs/jira_server/qa_jira_about",
+        href: "/docs/jira_plugins/server",
         children: [
           { title: "Installation", href: "/docs/jira_server/installation" },
           { title: "Connection", href: "/docs/jira_server/connection" },
@@ -86,10 +86,10 @@ const navigation = [
             children: [
               {
                 title: "Custom field",
-                href: "/docs/jira_server/custom_field_in_config",
+                href: "/docs/jira_server/custom_field",
               },
-              { title: "Demo Bug", href: "/docs/jira_server/demo_bug_in_config" },
-              { title: "Comments Synchronization", href: "/docs/jira_server/comments_sync" },
+              { title: "Demo Bug", href: "/docs/jira_server/demo_bug" },
+              { title: "Comments", href: "/docs/jira_server/comments" },
               {
                 title: "Advanced Integration",
                 href: "/docs/jira_server/advanced_integration",
@@ -101,42 +101,36 @@ const navigation = [
             title: "Test IO Bugs: Received Bugs and All Bugs",
             href: "/docs/jira_server/bugs_preview_modes",
             children: [
-              { title: "Accept a Test IO Bug", href: "/docs/jira_server/accept_bug" },
-              { title: "Reject a Test IO Bug", href: "/docs/jira_server/reject_bug" },
+              { title: "Accept Test IO Bug", href: "/docs/jira_server/accept_bug" },
+              { title: "Reject Test IO Bug", href: "/docs/jira_server/reject_bug" },
               {
-                title: "Changing Severity of Test IO Bug",
+                title: "Change Severity of Test IO Bug",
                 href: "/docs/jira_server/change_severity",
               },
               {
-                title: "Send a request to the Test IO tester",
+                title: "Send a Request to Test IO Tester",
                 href: "/docs/jira_server/send_request",
               },
               {
-                title: "Confirm Bug with an Experienced Tester",
+                title: "Confirm Bug with an experienced Tester",
                 href: "/docs/jira_server/confirm_bug",
               },
               {
                 title: "Leave a Comment under Test IO Bug",
                 href: "/docs/jira_server/leave_comment",
               },
+              { title: "Bug Reporductions", href: "/docs/jira_server/bug_reporductions" },
             ],
           },
           { title: "Copy and Share Bug Link", href: "/docs/jira_server/share_bug_link" },
-          { title: "Bug Reporductions", href: "/docs/jira_server/bug_reporductions" },
-          { title: "Exploratory Tests", href: "/docs/jira_server/exploratory_tests" },
-          { title: "Exploratory Test types", href: "/docs/jira_server/exploratory_test_types" },
-          { title: "Bug Severities", href: "/docs/jira_server/bug_severities" },
+          { title: "Exploratory Tests and Bug types", href: "/docs/jira_server/test_bug_types" },
           {
             title: "Create New Exploratory Test",
             href: "/docs/jira_server/create_exploratory_test",
           },
           { title: "Manage Exploratory Tests", href: "/docs/jira_server/manage_exploratory_tests" },
-          { title: "User Stories execution", href: "/docs/jira_server/user_stories" },
           { title: "Bug Fix Confirmation", href: "/docs/jira_server/bug_fix_confirm" },
-          {
-            title: "Synchronization with Test IO after Jira issue movement",
-            href: "/docs/jira_server/sync_after_movement",
-          },
+          { title: "User Stories execution", href: "/docs/jira_server/user_stories" },
         ],
       },
     ],

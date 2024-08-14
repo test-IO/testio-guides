@@ -12,3 +12,15 @@ Follow these steps to configure the Authentication for Jira Cloud plugin:
    {% screenshot src="/assets/jira_cloud/auth/2.png" caption="Authentication page in Jira Cloud plugin" /%}
 
 Authentication has been successfully completed. Now, proceed to the Configuration page to set up synchronization and define the integration rules.
+
+{% quick-links %}
+
+{% quick-link title="Configuration" icon="shield_check"
+href="/docs/jira_cloud/configuration"
+description="Configure integration between Jira Cloud and Test IO platform" /%}
+
+{% quick-link title="Advanced Integration" icon="shield_check"
+href="/docs/jira_cloud/advanced_integration"
+description="Configure two-way integration between Jira Cloud and Test IO platform" /%}
+
+{% /quick-links %}

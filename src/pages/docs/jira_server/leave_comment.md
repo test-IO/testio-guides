@@ -1,9 +1,9 @@
 ---
-title: "Bug Triage: Leave a Comment under Test IO Bug"
+title: Leave a Comment under Test IO Bug
 description: Learn how to leave a comment under Test IO Bug.
 ---
 
-Users can leave comments on Test IO Bugs directly from the Jira Bugs page. This feature is available in both the "All Bugs" and "Received Bugs" sections. Comments added in Jira will appear under the dedicated "Comments" section in both the Jira Bugs page and on the Test IO platform. This enhancement facilitates better communication and collaboration with testers.
+Users can leave comments on Test IO Bugs directly from the Jira Bugs page. This feature is available in both the "All Bugs" and "Received Bugs" sections. **Comments added in Jira will appear under the dedicated "Comments" section in both the Jira Bugs page and on the Test IO platform**. This enhancement facilitates better communication and collaboration with testers.
 
 **Steps to Leave Comments**:
 
@@ -32,7 +32,7 @@ Users can leave comments on Test IO Bugs directly from the Jira Bugs page. This 
 
    {% /list %}
 
-{% screenshot src="/assets/jira_server/bug_triage/leave_comment.png" /%}
+{% screenshot src="/assets/jira_server/bug_triage/leave_comment.png" caption="Leave a comment for Test IO bug modal" /%}
 
 **Note**:
 

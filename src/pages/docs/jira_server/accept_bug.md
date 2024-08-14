@@ -1,5 +1,5 @@
 ---
-title: "Bug Triage: Accept a Test IO Bug"
+title: Accept Test IO Bug
 description: Learn how to accept a Test IO bug.
 ---
 
@@ -13,7 +13,7 @@ The Test IO bug is accepted, and an associated **Jira ticket is created** based 
 
 The accepted bug is removed from the open bugs list and moved to a new **"Accepted Bugs"** section, which temporarily appears after the list of open bugs. After reloading the page, this section is no longer accessible.
 
-{% screenshot src="/assets/jira_server/bug_triage/accept_1.gif" /%}
+{% screenshot src="/assets/jira_server/bug_triage/accept_1.gif" caption="Accepting a Test IO bug from Bug Triage" /%}
 
 **Actions for Accepted Bugs**:
 
@@ -23,8 +23,16 @@ The accepted bug is removed from the open bugs list and moved to a new **"Accept
 
 - **View Issue Details**: Navigate to the newly created Jira issue page via Jira issue link.
 
-{% screenshot src="/assets/jira_server/bug_triage/accept_2.png" /%}
+{% screenshot src="/assets/jira_server/bug_triage/accept_2.png" caption="Available action buttons for Accepted Bug" /%}
 
 Once the Test IO Bug is exported to Jira, a new Jira issue link is added as an **External link** under the Test IO bug details on the Test IO side.
 
-{% screenshot src="/assets/jira_server/bug_triage/accept_3.png" /%}
+{% screenshot src="/assets/jira_server/bug_triage/accept_3.png" caption="External link under the Test IO bug details on the Test IO side" /%}
+
+{% quick-links %}
+
+{% quick-link title="Bug Fix Confirmation" icon="shield_check"
+href="/docs/jira_server/bug_fix_confirm"
+description="Verify bug fixes for Test IO and Jira Bugs" /%}
+
+{% /quick-links %}

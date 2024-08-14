@@ -5,7 +5,7 @@ description: Learn how to triage the Test IO Bugs.
 
 With the Jira Cloud plugin configured, you'll see a new **"Test IO"** section in the left-side navigation menu of your Jira Project. Click on the "Test IO" section and navigate to **"Bug Triage"** under **"Test IO Bugs"**.
 
-{% screenshot src="/assets/jira_cloud/bug_triage/bug_triage_page.gif" /%}
+{% screenshot src="/assets/jira_cloud/bug_triage/bug_triage_page.gif" caption="Test IO Bugs: Bug Triage" /%}
 
 The Bug Triage page displays a list of open bugs from the configured Test IO Products and Sections that need to be triaged. You can filter this list using the following options:
 
@@ -48,3 +48,19 @@ To preview an individual Test IO bug and view its details, follow these steps:
    - **Comments of Bug**: Represents details about the Bug related to specific actions taken with it, for example: Rejection reason after performing a Reject action, Comment for Change Severity action, Comment for Send request action from Customer side, and Tester’s answer, Details of Bug Report confirmations from Tester’s side, etc.
 
      {% screenshot src="/assets/jira_cloud/bug_triage/bug_comments.png" caption="Comments section" /%}
+
+{% quick-links %}
+
+{% quick-link title="Accept Test IO Bug" icon="shield_check"
+href="/docs/jira_cloud/accepting_bug"
+description="Export Test IO Bug to your Jira Cloud" /%}
+
+{% quick-link title="Reject Test IO Bug" icon="shield_check"
+href="/docs/jira_cloud/rejection_of_bug"
+description="Reject invalid Test IO Bug reports from your Jira Cloud" /%}
+
+{% quick-link title="All Bugs page" icon="shield_check"
+href="/docs/jira_cloud/all_bugs_page"
+description="Review all Test IO Bugs from the configured Test IO Products and Sections" /%}
+
+{% /quick-links %}

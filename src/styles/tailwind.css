@@ -37,6 +37,14 @@ td {
   width: auto !important;
 }
 
+.center img {
+  margin: 0 auto;
+}
+
 .x-large {
   font-size: x-large;
+}
+
+.title-small {
+  font-size: 1.125rem;
 }

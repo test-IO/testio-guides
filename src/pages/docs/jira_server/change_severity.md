@@ -1,5 +1,5 @@
 ---
-title: "Bug Triage: Changing Severity of Test IO Bug"
+title: Change Severity of Test IO Bug
 description: Learn how to change severity of the Test IO Bug.
 ---
 
@@ -13,8 +13,8 @@ Once you have reviewed the received Test IO bug with an open status, you can sta
 
 4. **Add Comment**: Fill in the comment field for more details.
 
-{% screenshot src="/assets/jira_server/bug_triage/change_severity.png" /%}
+   {% screenshot src="/assets/jira_server/bug_triage/change_severity.png" caption="\"Change severity\" modal on Bug Triage" /%}
 
 5. **Confirm Change**: Click the “Change” button.
 
-The severity of the Test IO bug is updated in both Jira and Test IO, and the comment is added under the Comments section of the selected bug.
+The severity of the Test IO bug is updated in both Jira Plugin and Test IO, and the comment is added under the Comments section of the selected bug.

@@ -1,7 +1,9 @@
 ---
-title: "Bug Triage: Confirm Bug with an Experienced Tester"
+title: Confirm Bug with an Experienced Tester
 description: Learn how to confirm a bug with an experienced tester.
 ---
+
+## Overview
 
 Bug Report Confirmation is an individual bug action, that helps you to triage your bugs with more certainty. Each confirmation is executed **by an experienced tester who will reproduce and verify the initial bug on a device type of your choice**. In addition, you can ask for further information (e.g. screen size) or specific attachments (e.g. display of internet speed) to get deeper insight. Follow the steps below to take the action:
 
@@ -36,7 +38,7 @@ For BRC requests with Pending, Canceled and Expired statuses, an icon on the req
 
 {% screenshot src="/assets/jira_cloud/bug_triage/status_icon.png" caption="Bug report confirmation section under Bug details" /%}
 
-**Notification Banners**
+## Notification Banners
 
 Once a BRC request is submitted, a **notification banner is displayed under the bug title**. Additional notification banners appear when the **BRC has expired** and when **reaching the maximum number of BRCs per bug** according to the customer pricing plan on the Test IO platform.
 
@@ -44,7 +46,7 @@ Once a BRC request is submitted, a **notification banner is displayed under the 
 
 {% screenshot src="/assets/jira_cloud/bug_triage/banner_brc_max.png" caption="Notification banner for BRC limit reached" /%}
 
-**Tester Feedback**
+## Tester Feedback
 
 When a tester completes the bug report confirmation, **the result (Confirmed, Not Confirmed, or Blocked) will be added as a comment** under the selected bug, along with attachments and additional comments from the tester.
 

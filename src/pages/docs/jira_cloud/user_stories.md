@@ -4,21 +4,24 @@ description: Learn about User Stories execution.
 ---
 
 {% screenshot src="/assets/jira_cloud/user_stories/1.png" /%}
+
 You can review the results of user story executions included in your tests on the separate **"User Stories"** page. User story executions are displayed on this page in two formats:
 
 - **Features**: User stories are grouped and displayed by the features they belong to. You can access them in the Test IO Product/Feature/User Stories preview. Expand the Test IO product, then the selected feature to see the included user stories.
-  {% screenshot src="/assets/jira_cloud/user_stories/2.png" /%}
+
+  {% screenshot src="/assets/jira_cloud/user_stories/2.png" caption="User Stories displayed by Feature" /%}
 
 - **Tests**: User stories are grouped and displayed by the tests they were included in. You can access them in the Test IO Product/Test/User Stories preview. Expand the Test IO product, then the selected Test to see the included user stories.
-  {% screenshot src="/assets/jira_cloud/user_stories/3.png" /%}
+
+  {% screenshot src="/assets/jira_cloud/user_stories/3.png" caption="User Stories displayed by Test" /%}
+
+**User Story Execution Details**
 
 User story executions can have three possible statuses:
 
 - **Passed**: The user story has been successfully executed and met all the acceptance criteria.
 - **Blocked**: The user story could not be executed due to a blocking issue that prevented testing.
 - **Failed**: The user story did not meet the acceptance criteria or encountered errors during execution.
-
-**User Story Execution Details**
 
 User story executions can be viewed in expanded mode at various levels:
 
@@ -36,10 +39,12 @@ To see detailed information about a specific user story execution, **click on th
 - **Executed by**: The tester name who executed the user story.
 - **Comment**: Any comments or observations made by the tester during execution.
 - **Device**: The specific device used to execute the user story.
-  {% screenshot src="/assets/jira_cloud/user_stories/4.png" /%}
+
+{% screenshot src="/assets/jira_cloud/user_stories/4.png" caption="User Stories Executions" /%}
 
 If a single user story has more than one execution, all executions will be expanded one after the other, allowing you to see the detailed history of each execution attempt.
-{% screenshot src="/assets/jira_cloud/user_stories/5.png" /%}
+
+{% screenshot src="/assets/jira_cloud/user_stories/5.png" caption="User Stories Executions" /%}
 
 Additionally, you can filter the list of user stories on the “User Stories” page using the following filters:
 

@@ -10,7 +10,7 @@ Executing a bug reproduction involves retesting a bug reported by another tester
 
 **Viewing Bug Reproductions**
 
-Bug reproductions for open Test IO bugs are accessible via the Jira Data Center (Server) Add-on. When previewing bug details, you can find a dedicated section for bug reproductions under Attachments. This section includes:
+Bug reproductions for Test IO bugs are accessible via the Jira Server (Data Center) Add-on. When previewing bug details, you can find a **dedicated section for bug reproductions under Attachments**. This section includes following sub-sections:
 
 - **Reproduced on**: Indicates a Positive Reproduction.
 - **Not reproduced on**: Indicates a Negative Reproduction.
@@ -22,7 +22,8 @@ The bug reproduction section provides the following details:
 - **Browser**: The browser used for reproduction.
 - **Tester Name**: The name of the tester who performed the reproduction.
 
-This information helps in understanding the context of the reproduction and verifying the bug under various conditions.
+A single Test IO bug can have multiple reproductions, with each displayed under the appropriate sub-section of Bug reproductions. This information helps in understanding the reproduction scenarios and verifying the bug across different conditions.
 
-{% screenshot src="/assets/jira_server/reproduced.png" /%}
-{% screenshot src="/assets/jira_server/not_reproduced.png" /%}
+{% screenshot src="/assets/jira_server/reproduced.png" caption="Positive Reproduction" /%}
+
+{% screenshot src="/assets/jira_server/not_reproduced.png" caption="Negative Reproduction" /%}

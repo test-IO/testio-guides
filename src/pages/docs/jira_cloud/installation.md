@@ -3,13 +3,15 @@ title: Installation
 description: Learn how to install the Jira Cloud Plugin.
 ---
 
+## Overview
+
 To install the Jira Cloud Plugin, follow these steps:
 
 1. **Log in to Jira Cloud**: Ensure you are logged in as an admin user.
    To proceed with the installation, you need to have admin privileges on your Jira Cloud instance. Please contact your Jira Administrator if you need assistance.
 2. **Navigate to Manage Apps**: Click the admin dropdown and select **"Apps"** under Jira Settings.
 
-   {% screenshot src="/assets/jira_cloud/install/1.png" caption="Navigate to Manage Apps" /%}
+   {% screenshot src="/assets/jira_cloud/install/1.png" type="narrow center" caption="Navigate to Manage Apps" /%}
 
 3. **Find QA Service for Jira**:
 
@@ -31,3 +33,11 @@ Alternatively, you can install the Test IO Cloud plugin directly from the {% lin
 {% screenshot src="/assets/jira_cloud/install/4.png" caption="Installation from Atlassian Marketplace" /%}
 
 After installation, a new **"Test IO"** section will appear in the left-side navigation menu under "Apps." This section includes **"Authentication"** and **"Configuration"** subsections. Configure these settings to enable integration between Jira and Test IO.
+
+{% quick-links %}
+
+{% quick-link title="Authentication" icon="shield_check" href="/docs/jira_cloud/authentication" description="Connect your Test IO account to your Jira Cloud" /%}
+
+{% quick-link title="Configuration" icon="shield_check" href="/docs/jira_cloud/configuration" description="Configure integration between Jira Cloud and Test IO platform" /%}
+
+{% /quick-links %}

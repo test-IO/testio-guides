@@ -12,7 +12,13 @@ export default function MenuItem({ item, parents }) {
     if (parents.includes(item.href)) {
       setOpen(true)
     }
-  }, [parents])
+  }, [])
+
+  useEffect(() => {
+    if (item.href === router.pathname) {
+      setOpen(true)
+    }
+  }, [router.pathname])
 
   const handlerClick = (event) => {
     const chevron = event.target.closest("svg")

@@ -1,5 +1,5 @@
 ---
-title: Advanced Integration in Configuration
+title: Advanced Integration
 description: Learn how to configure advanced settings for integration between Jira and Test IO.
 ---
 
@@ -60,3 +60,19 @@ When comments in Jira contain the "@testIO" tag, they will be automatically sync
 {% screenshot src="/assets/jira_cloud/config/sync_comments.png" caption="Synchronize comments between Jira and Test IO" /%}
 
 You have now fully configured the Jira Cloud Plugin. **Next**, navigate to your configured Jira Project to explore and utilize the integration capabilities provided by the plugin.
+
+{% quick-links %}
+
+{% quick-link title="Test IO Bugs: Bug Triage" icon="shield_check"
+href="/docs/jira_cloud/test_io_bugs_triage"
+description="Review open Test IO Bugs from the configured Test IO Products and Sections" /%}
+
+{% quick-link title="Create Exploratory Test" icon="shield_check"
+href="/docs/jira_cloud/create_exploratory_test"
+description="Run a new Test on Test IO platform from Jira Cloud side" /%}
+
+{% quick-link title="Exploratory Tests and Bug types" icon="shield_check"
+href="/docs/jira_cloud/test_bug_types"
+description="Learn about Test IO Exploratory Tests and available Bug types" /%}
+
+{% /quick-links %}
