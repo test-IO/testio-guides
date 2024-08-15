@@ -363,7 +363,6 @@ svg.DocSearch-Hit-Select-Icon {
   justify-content: center;
   overflow-x: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   width: 80%;
 }
 

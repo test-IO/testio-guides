@@ -16,3 +16,15 @@
 .callout code {
   @apply border-none bg-transparent px-0;
 }
+
+pre[data-language="custom_field"] {
+  padding: 0;
+  margin: 0;
+  background-color: transparent !important;
+  color: currentColor;
+  box-shadow: none !important;
+}
+
+code.language-plaintext {
+  @apply dark:text-white !important;
+}

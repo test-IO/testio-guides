@@ -22,9 +22,9 @@ export function CodeRef({ children, language, showLineNumbers = true }) {
   }, [selectedTheme])
 
   useEffect(() => {
-    let handler = (event) => setSelectedTheme(event.detail.newValue)
+    let handler = () => setSelectedTheme(window.localStorage.theme ?? "system")
 
-    window.addEventListener("themechange", handler)
+    window.addEventListener("storage", handler)
 
     return () => window.removeEventListener("storage", handler)
   }, [])

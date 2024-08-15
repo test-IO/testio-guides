@@ -30,6 +30,7 @@ const themeScript = `
     if (newValue !== oldValue) {
       try {
         window.localStorage.setItem('theme', newValue)
+        window.dispatchEvent(new Event("storage"))
       } catch {}
       updateThemeWithoutTransitions(newValue)
     }

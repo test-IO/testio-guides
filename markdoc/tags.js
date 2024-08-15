@@ -63,6 +63,10 @@ const tags = {
         type: String,
         required: false,
       },
+      type: {
+        type: String,
+        required: false,
+      },
     },
   },
   code: {
@@ -109,6 +113,23 @@ const tags = {
         errorLevel: "critical",
       },
     },
+  },
+  list: {
+    attributes: {
+      type: { type: String },
+    },
+    transform(node, config) {
+      const children = node.transformChildren(config)
+      if (children.length && children[0].name === "ul")
+        children[0].attributes.type = node.attributes.type
+      return children
+    },
+  },
+  span: {
+    attributes: {
+      type: String,
+    },
+    render: ({ children, type }) => <span className={type}>{children}</span>,
   },
 }
 
