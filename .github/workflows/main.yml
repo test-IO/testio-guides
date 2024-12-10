@@ -1,0 +1,16 @@
+name: Deploy to staging
+on:
+  push:
+    branches:
+      - EPMTIOOPS-14269/jira_updates
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Cloud66 Deployment
+        env:
+          REDEPLOY_URL: https://hooks.cloud66.com/stacks/redeploy/9b019f283caa6e0bb3cdb06eb543f0fe/0b17715c06272a20729143328335b89e?services=web
+        run: |
+          curl -X POST "$REDEPLOY_URL"
