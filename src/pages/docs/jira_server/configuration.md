@@ -43,7 +43,7 @@ To start, you'll need to **create a configuration**. Follow these steps:
      - **Test IO bug Severity → Jira issue field**  
        Choose a Jira issue field that best fits your use case. For example, you might decide to map the Test IO bug Severity to the Jira ticket Priority field. This mapping will allow the Severity value from Test IO to be displayed in the Jira ticket's Priority field once the Test IO bug is accepted and the Jira ticket is created.
 
-       If you need to start over or make changes to your mappings, simply click the **"Clear Mapping" button**. This will reset all mappings, allowing you to configure them from scratch.
+       If you need to start over or make changes to your mappings, simply click the **"Clear Severity Mapping" button**. This will reset all mappings, allowing you to configure them from scratch.
 
        {% screenshot src="/assets/jira_server/config/4.png" caption="Map Test IO Severity field to specific Jira field" /%}
 
