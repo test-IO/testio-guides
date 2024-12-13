@@ -76,6 +76,10 @@ First, **apply a search** to view results based on your specified criteria. You 
 
 {% screenshot src="/assets/jira_server/bugs_preview_modes/10.png" caption="Search in All Bugs page" type="narrow center" /%}
 
+You can **sort bugs** on the "All Bugs" page by **Newest**, **Oldest**, **A to Z**, **Z to A**.
+
+{% screenshot src="/assets/jira_server/bugs_preview_modes/12.png" caption="Sort by on All Bugs page" type="narrow center" /%}
+
 You will be able to interact with bugs and perform available actions on specific bugs directly from the "All Bugs" page.
 
 {% screenshot src="/assets/jira_server/bugs_preview_modes/11.png" caption="Search results in All Bugs page" /%}
