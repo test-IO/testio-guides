@@ -5,7 +5,7 @@ description: Learn about Test IO exploratory tests and bug types.
 
 ## Exploratory Tests in Jira Plugin
 
-Test IO exploratory tests, whether created on the Jira platform or the Test IO platform, can be seamlessly viewed through the Jira Data Center (Server) Plugin. This integration allows users to access and monitor tests with various statuses, including **Waiting, Running, Initialized** and **Customer Finalized**, directly from Jira.
+Test IO exploratory tests, whether created on the Jira platform or the Test IO platform, can be seamlessly viewed through the Jira Data Center (Server) Plugin. This integration allows users to access and monitor tests with various statuses, including **Waiting, Running, Initialized, Locked** and **Customer Finalized**, directly from Jira.
 
 ### Comprehensive Test Details
 
@@ -33,9 +33,17 @@ This detailed view enables efficient tracking of the progress and status of expl
   - Click on the Test Cycle ID under the Test Title to navigate to the Test IO Platform for a detailed preview.
     {% screenshot src="/assets/jira_server/exploratory_2.png" caption="Test Cycle ID for navigation to Test IO Platform" /%}
 
-  - Click on the **“View”** button at the top right corner of the test card to navigate to a dedicated page where you can see all the details of the test directly within Jira.
+  - Click on the **“Test Title”** button at the top left corner of the test card to navigate to a dedicated page where you can see all the details of the test directly within Jira.
 
     {% screenshot src="/assets/jira_server/exploratory_3.png" caption="View Test details in Jira" /%}
+
+  - Click on the new **“All Bugs”** button on Exploratory test card to navigate to the All Bugs page where "Test ID" filter is prefilled with the selected Test IO Test cycle ID.
+
+  - Click on the new **“Open Bugs”** button on Exploratory test card to navigate to the Bug triage (Received Bugs) page where "Test cycle" filter is prefilled with the selected Test IO Test cycle details.
+
+  - Click on the new **“User Stories”** button on Exploratory test card to navigate to the User Stories page where the page is displayed in Test preview, and "Test cycle" filter is prefilled with the selected Test IO Test cycle details.
+
+    {% screenshot src="/assets/jira_server/exploratory_4.png" caption="View Test details in Jira" /%}
 
   {% /list %}
 
@@ -78,6 +86,7 @@ Different test types include different severity levels in the test scope. To ens
 - **Usability**: Suggested improvements to existing features and functions that would make the product easier and more intuitive to use.
 - **Visual**: The user can accomplish a task, but the interface looks wrong, typically due to responsive design, CSS, HTML, or layout framework problems.
 - **Content**: Bugs related to missing data, images, or broken links.
+- **Custom**: Special Bug Reports that are set up by customer if needed.
 
 **Note**: Non-functional bugs are classified as low-severity bugs by definition.
 
