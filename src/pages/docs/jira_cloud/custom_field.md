@@ -5,12 +5,20 @@ description: Learn how to work with Custom Fields in Configuration.
 
 The Custom Field is a powerful editor that allows you to create pre-formatted bug reports with dynamically changing content, tailored to your preferences. To use the attributes, simply click on them to make them appear in the editor, then use their content as needed.
 
-When working with Custom Fields, you have two options:
+When working with Custom Fields, you have three options:
 
 - **Use predefined attributes**: Click on the attributes to insert them into the editor and enter any additional text.
 - **Enter data manually**: Type directly into the editor to input your custom content.
 
 {% screenshot src="/assets/jira_cloud/config/custom_field.png" caption="Custom Fields in Configuration" /%}
+
+- **Use predefined example with attributes**: Click on 'Example' and copy paste ready example into the editor.
+
+{% screenshot src="/assets/jira_cloud/config/custom_field_example.png" caption="Custom Fields from Example" /%}
+
+After all the attributes are filled, user can see the final result while checking the check box **'Show template preview based on demo bug attributes'**.
+
+{% screenshot src="/assets/jira_cloud/config/custom_preview.png" caption="Preview of Custom Field" /%}
 
 You can find the list of attributes and their corresponding terms in the Test IO Bug Report above:
 {% table .custom %}

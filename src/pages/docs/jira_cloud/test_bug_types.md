@@ -5,7 +5,7 @@ description: Learn about Test IO exploratory tests and bug types.
 
 ## Exploratory Tests in Jira Plugin
 
-Test IO exploratory tests, created on the Jira platform or the Test IO platform, can be seamlessly viewed through the Jira Cloud Plugin. This integration allows users to access and monitor tests with various statuses, including **Customer Finalized**, **Waiting** and **Running** directly from Jira.
+Test IO exploratory tests, created on the Jira platform or the Test IO platform, can be seamlessly viewed through the Jira Cloud Plugin. This integration allows users to access and monitor tests with various statuses, including **Customer Finalized**, **Waiting**, **Locked** and **Running** directly from Jira.
 
 Users can view comprehensive details of these tests, which include:
 
@@ -19,9 +19,31 @@ Users can view comprehensive details of these tests, which include:
 
 This detailed view enables tracking the progress and status of exploratory tests efficiently. By having all relevant information in one place, teams can better coordinate their efforts, ensuring that all aspects of the test are covered.
 
-Additionally, the page includes a convenient **filtering option to sort tests by their current status**. This feature enables users to quickly focus on tests that meet their specific status criteria.
+### Filtering and Navigation Options
+
+- **Filtering Tests**: The page includes a convenient filtering option to sort tests by their current status, enabling users to quickly focus on tests that meet their specific criteria.
 
 {% screenshot src="/assets/jira_cloud/exploratory_tests.png" caption="Test IO Exploratory Tests page" /%}
+
+- **Previewing Test Details**:
+  {% list type="circle" %}
+
+  - Click on the Test Cycle ID under the Test Title to navigate to the Test IO Platform for a detailed preview.
+    {% screenshot src="/assets/jira_cloud/exploratory_2.png" caption="Test Cycle ID for navigation to Test IO Platform" /%}
+
+  - Click on the **“Test Title”** button at the top left corner of the test card to navigate to a dedicated page where you can see all the details of the test directly within Jira.
+
+    {% screenshot src="/assets/jira_cloud/exploratory_3.png" caption="View Test details in Jira" /%}
+
+  - Click on the new **“All Bugs”** button on Exploratory test card to navigate to the All Bugs page where "Test ID" filter is prefilled with the selected Test IO Test cycle ID.
+
+  - Click on the new **“Open Bugs”** button on Exploratory test card to navigate to the Bug triage (Received Bugs) page where "Test cycle" filter is prefilled with the selected Test IO Test cycle details.
+
+  - Click on the new **“User Stories”** button on Exploratory test card to navigate to the User Stories page where the page is displayed in Test preview, and "Test cycle" filter is prefilled with the selected Test IO Test cycle details.
+
+    {% screenshot src="/assets/jira_cloud/exploratory_4.png" caption="View Test details in Jira" /%}
+
+  {% /list %}
 
 ## Exploratory Test types
 
