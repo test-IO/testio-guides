@@ -14,3 +14,7 @@ First, **apply a search** to view results based on your specified criteria. On t
 
 The advanced search functionality streamlines bug management and tracking, offering quick access to relevant information and enhancing efficiency.
 {% screenshot src="/assets/jira_cloud/all_bugs.png" caption="All Bugs page in Jira Cloud" /%}
+
+You can **sort bugs** on the "All Bugs" page by **Newest**, **Oldest**, **A to Z**, **Z to A**.
+
+{% screenshot src="/assets/jira_cloud/all_bugs_sort.png" caption="Sort bugs on All Bugs page" /%}
