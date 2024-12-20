@@ -2,7 +2,7 @@ name: Deploy to staging
 on:
   push:
     branches:
-      - EPMTIOOPS-14269/jira_updates
+      - Guides_updates-EPMTIOOPS-14267
 
 jobs:
   deploy:
