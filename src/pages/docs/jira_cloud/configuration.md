@@ -10,9 +10,9 @@ To start, you'll need to **create a configuration**. Follow these steps:
 1. **Go to Configurations**: Navigate to the "Configurations" page located under the Test IO section in the Manage Apps page.
 2. **Add Configuration**: Click the "Add Configuration" button.
 3. **Specify Project**: Select the Jira project to integrate with Test IO in the "Project" field. The integration between Test IO and Jira will be actual only for the selected Jira Project.
-4. **Name Configuration**: Enter a name for the configuration in the "Config Name" field.
+4. **Name Configuration**: Enter a name for the configuration in the "Configuration Name" field.
    {% screenshot src="/assets/jira_cloud/config/1.png" caption="Create a new configuration for your Jira project" /%}
-5. **Create Configuration**: Click the "Add Project" button.
+5. **Create Configuration**: Click the "Add Configuration" button.
    The new configuration will appear under "Configured Projects."  
    &nbsp;
 
