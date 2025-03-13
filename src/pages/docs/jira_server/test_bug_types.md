@@ -30,7 +30,7 @@ This detailed view enables efficient tracking of the progress and status of expl
 - **Previewing Test Details**:
   {% list type="circle" %}
 
-  - Click on the Test Cycle ID under the Test Title to navigate to the Test IO Platform for a detailed preview.
+  - Click on the link *'Open at Test IO'* near Test Cycle ID to navigate to the Test IO Platform for a detailed preview.
     {% screenshot src="/assets/jira_server/exploratory_2.png" caption="Test Cycle ID for navigation to Test IO Platform" /%}
 
   - Click on the **“Test Title”** button at the top left corner of the test card to navigate to a dedicated page where you can see all the details of the test directly within Jira.
@@ -44,6 +44,15 @@ This detailed view enables efficient tracking of the progress and status of expl
   - Click on the new **“User Stories”** button on Exploratory test card to navigate to the User Stories page where the page is displayed in Test preview, and "Test cycle" filter is prefilled with the selected Test IO Test cycle details.
 
     {% screenshot src="/assets/jira_server/exploratory_4.png" caption="View Test details in Jira" /%}
+
+ - **Test Details Infographics**:
+  {% list type="circle" %}
+
+  - Test Cards in status **“Running”**, **“Locked”** have Test Results that contain graphical representations for **Bug types** with counting: low, high, critical, content, visual, UX, custom, **Bug statuses** with counting: open, total, **User Stories Result** with counting: passed, failed, blocked. 
+
+  - Click on the necessary **Bug type** graphical representation on the test card to navigate to **All bugs** page with pre-selected *Severity* filter and *Test Cycle ID*.
+
+    {% screenshot src="/assets/jira_cloud/exploratory_5.png" caption="Test Results representation" /%}
 
   {% /list %}
 
