@@ -45,7 +45,7 @@ This detailed view enables efficient tracking of the progress and status of expl
 
     {% screenshot src="/assets/jira_server/exploratory_4.png" caption="View Test details in Jira" /%}
 
- - **Test Details Infographics**:
+- **Test Details Infographics**:
   {% list type="circle" %}
 
   - Test Cards in status **“Running”**, **“Locked”** have Test Results that contain graphical representations for **Bug types** with counting: low, high, critical, content, visual, UX, custom, **Bug statuses** with counting: open, total, **User Stories Result** with counting: passed, failed, blocked. 
