@@ -45,6 +45,8 @@ This detailed view enables efficient tracking of the progress and status of expl
 
     {% screenshot src="/assets/jira_server/exploratory_4.png" caption="View Test details in Jira" /%}
 
+  {% /list %}
+
 - **Test Details Infographics**:
   {% list type="circle" %}
 
@@ -52,7 +54,7 @@ This detailed view enables efficient tracking of the progress and status of expl
 
   - Click on the necessary **Bug type** graphical representation on the test card to navigate to **All bugs** page with pre-selected *Severity* filter and *Test Cycle ID*.
 
-    {% screenshot src="/assets/jira_cloud/exploratory_5.png" caption="Test Results representation" /%}
+    {% screenshot src="/assets/jira_server/exploratory_5.png" caption="Test Results representation" /%}
 
   {% /list %}
 
