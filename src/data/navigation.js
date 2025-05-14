@@ -89,6 +89,7 @@ const navigation = [
                 href: "/docs/jira_server/custom_field",
               },
               { title: "Demo Bug", href: "/docs/jira_server/demo_bug" },
+              { title: "Custom Reports", href: "/docs/jira_server/custom_reports" },
               { title: "Comments", href: "/docs/jira_server/comments" },
               {
                 title: "Advanced Integration",
@@ -130,8 +131,7 @@ const navigation = [
           },
           { title: "Manage Exploratory Tests", href: "/docs/jira_server/manage_exploratory_tests" },
           { title: "Bug Fix Confirmation", href: "/docs/jira_server/bug_fix_confirm" },
-          { title: "User Stories execution", href: "/docs/jira_server/user_stories" },
-          { title: "Custom Reports", href: "/docs/jira_server/custom_reports" },
+          { title: "User Stories execution", href: "/docs/jira_server/user_stories" }
         ],
       },
     ],
