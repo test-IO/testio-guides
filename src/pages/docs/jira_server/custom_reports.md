@@ -21,8 +21,8 @@ After adding at least one **"Custom Report"** in the Customer's Product settings
 
 4. **Jira Field Options**: You can map Test IO fields to the following Jira fields:
 
-- *Standard fields*: Description, Labels;
-- *Custom fields*: Text, Number, Label fields.
+- _Standard fields_: Description, Labels;
+- _Custom fields_: Text, Number, Label fields.
 
 5. **Multiple Report Mapping**:
 

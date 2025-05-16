@@ -131,7 +131,7 @@ const navigation = [
           },
           { title: "Manage Exploratory Tests", href: "/docs/jira_server/manage_exploratory_tests" },
           { title: "Bug Fix Confirmation", href: "/docs/jira_server/bug_fix_confirm" },
-          { title: "User Stories execution", href: "/docs/jira_server/user_stories" }
+          { title: "User Stories execution", href: "/docs/jira_server/user_stories" },
         ],
       },
     ],
