@@ -89,6 +89,7 @@ const navigation = [
                 href: "/docs/jira_server/custom_field",
               },
               { title: "Demo Bug", href: "/docs/jira_server/demo_bug" },
+              { title: "Custom Reports", href: "/docs/jira_server/custom_reports" },
               { title: "Comments", href: "/docs/jira_server/comments" },
               {
                 title: "Advanced Integration",

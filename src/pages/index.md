@@ -30,6 +30,8 @@ Please be aware that the Guides are still in development. If you find any issues
 
 Latest changes to the Test IO Guides:
 
+- February 14, 2025 - [Configure Custom Reports on Jira Server](/docs/jira_server/custom_reports) is added, other improvements for Jira Server Plugin.
+
 - December 23, 2024 - Improvements for Jira Cloud and Server Plugins.
 
 - May 14, 2024 - [Configure Notion as Bug Tracker](/docs/integrations/notion) is added.
