@@ -10,6 +10,21 @@ on:
   push:
     branches:
       - main
+      - test-deploy  # temporary branch for testing
+  workflow_dispatch:  # allows manual triggering
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'main'
+        type: string
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'github-pages'
+        type: choice
+        options:
+          - github-pages
 
 permissions:
   contents: read
