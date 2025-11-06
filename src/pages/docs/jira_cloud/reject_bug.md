@@ -14,4 +14,4 @@ Once you have reviewed the received Test IO bug with an open status, you can beg
 
 5. **Confirm Rejection**: Click the “Reject” button.
 
-The bug is rejected in both Jira Plugin and Test IO, **removed from the Bug Triage/ Open bugs list**, and later **can be found in the Jira Plugin's "All Bugs" list** with the rejection reason included in the comments.
+The bug is rejected in both Jira Add-On and Test IO, **removed from the Bug Triage/ Open bugs list**, and later **can be found in the Jira Add-On's "All Bugs" list** with the rejection reason included in the comments.

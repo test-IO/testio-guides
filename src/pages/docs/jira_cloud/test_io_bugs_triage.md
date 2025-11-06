@@ -3,7 +3,7 @@ title: "Test IO Bugs: Bug Triage"
 description: Learn how to triage the Test IO Bugs.
 ---
 
-With the Jira Cloud plugin configured, you'll see a new **"Test IO"** section in the left-side navigation menu of your Jira Project. Click on the "Test IO" section and navigate to **"Bug Triage"** under **"Test IO Bugs"**.
+With the Jira Cloud Add-On configured, you'll see a new **"Test IO"** section in the left-side navigation menu of your Jira Project. Click on the "Test IO" section and navigate to **"Bug Triage"** under **"Test IO Bugs"**.
 
 {% screenshot src="/assets/jira_cloud/bug_triage/bug_triage_page.gif" caption="Test IO Bugs: Bug Triage" /%}
 

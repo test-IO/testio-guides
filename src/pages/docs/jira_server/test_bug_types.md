@@ -3,9 +3,9 @@ title: Exploratory Tests and Bug types
 description: Learn about Test IO exploratory tests and bug types.
 ---
 
-## Exploratory Tests in Jira Plugin
+## Exploratory Tests in Jira Add-On
 
-Test IO exploratory tests, whether created on the Jira platform or the Test IO platform, can be seamlessly viewed through the Jira Data Center (Server) Plugin. This integration allows users to access and monitor tests with various statuses, including **Waiting, Running, Initialized, Locked** and **Customer Finalized**, directly from Jira.
+Test IO exploratory tests, whether created on the Jira platform or the Test IO platform, can be seamlessly viewed through the Jira Data Center Add-On. This integration allows users to access and monitor tests with various statuses, including **Waiting, Running, Initialized, Locked** and **Customer Finalized**, directly from Jira.
 
 ### Comprehensive Test Details
 

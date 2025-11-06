@@ -59,7 +59,7 @@ When comments in Jira contain the "@testIO" tag, they will be automatically sync
 
 {% screenshot src="/assets/jira_cloud/config/sync_comments.png" caption="Synchronize comments between Jira and Test IO" /%}
 
-You have now fully configured the Jira Cloud Plugin. **Next**, navigate to your configured Jira Project to explore and utilize the integration capabilities provided by the plugin.
+You have now fully configured the Jira Cloud Add-On. **Next**, navigate to your configured Jira Project to explore and utilize the integration capabilities provided by the Add-On.
 
 {% quick-links %}
 

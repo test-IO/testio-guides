@@ -7,7 +7,7 @@ This feature allows you to easily **copy and share a link to a single bug from t
 
 **Steps to Copy and Share a Bug Link**:
 
-1. **Navigate to the Jira Plugin Bugs Page**:
+1. **Navigate to the Jira Add-On Bugs Page**:
 
    - Go to your Jira Project.
    - Click on the "Test IO" section in the left-side navigation menu.

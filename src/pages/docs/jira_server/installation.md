@@ -1,14 +1,14 @@
 ---
 title: Installation
-description: Learn how to install the Jira Server Plugin.
+description: Learn how to install the Jira Data Center Add-On.
 ---
 
 ## Overview
 
-To install the Jira Data Center (Server) Plugin, follow these steps:
+To install the Jira Data Center Add-On, follow these steps:
 
 1. **Log in to Jira instance**: Ensure you are logged in as an admin user.
-   To proceed with the installation, you need to have admin privileges on your Jira Data Center (Server) instance. Please contact your Jira Administrator if you need assistance.
+   To proceed with the installation, you need to have admin privileges on your Jira Data Center instance. Please contact your Jira Administrator if you need assistance.
 
 2. **Navigate to Manage Apps**: Click the “Jira Administration” icon and select **"Manage apps"** from the dropdown.
 
@@ -25,7 +25,7 @@ To install the Jira Data Center (Server) Plugin, follow these steps:
 
    {% screenshot src="/assets/jira_server/install/2.png" caption="Find QA Service for Jira" /%}
 
-4. **Install the Plugin**: Select the app and click **"Install"** to download and install it.
+4. **Install the Add-On**: Select the app and click **"Install"** to download and install it.
 
 5. **Confirm app installation**: Accept Test IO’s Privacy Policy and Terms of Use by clicking **“Accept & install”**.
 
@@ -33,15 +33,15 @@ To install the Jira Data Center (Server) Plugin, follow these steps:
 
 6. **Finalize Installation**: Wait for the installation to complete and click "Close" in the “Installed and ready to go!” dialog.
 
-   {% screenshot src="/assets/jira_server/install/4.png" caption="Finalize the installation of the Jira Server (Data Center) Plugin" /%}
+   {% screenshot src="/assets/jira_server/install/4.png" caption="Finalize the installation of the Jira Data Center Add-On" /%}
 
-   The Test IO plugin will appear under the **"User-installed apps"** in the **Manage apps** section. Expand the Test IO plugin section to view details like Version, Vendor, Support, etc.
+   The Test IO Add-On will appear under the **"User-installed apps"** in the **Manage apps** section. Expand the Test IO Add-On section to view details like Version, Vendor, Support, etc.
 
-   {% screenshot src="/assets/jira_server/install/5.png" caption="Jira Server (Data Center) Plugin in User-installed apps" /%}
+   {% screenshot src="/assets/jira_server/install/5.png" caption="Jira Data Center Add-On in User-installed apps" /%}
 
 ## Installation from Atlassian Marketplace
 
-Alternatively, you can install the Test IO Server (Data Center) plugin directly from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1217073/qa-service-for-jira?hosting=datacenter&tab=overview). Download it from Marketplace and upload it in Jira via **"Upload app"** button in the **Manage apps** sub-section under the Atlassian Marketplace section.
+Alternatively, you can install the Test IO Jira Data Center Add-On directly from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1217073/qa-service-for-jira?hosting=datacenter&tab=overview). Download it from Marketplace and upload it in Jira via **"Upload app"** button in the **Manage apps** sub-section under the Atlassian Marketplace section.
 
 {% screenshot src="/assets/jira_server/install/6.png" /%}
 

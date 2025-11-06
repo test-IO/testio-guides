@@ -19,7 +19,7 @@ The accepted bug is removed from the open bugs list and moved to a new **"Accept
 
 - **Re-export**: Re-create another Jira issue ticket for the same Test IO bug.
 
-- **Leave comment**: Leave a comment under Test IO bug from Jira side (availability depends on Jira Plugin Configuration -> Comments tab settings).
+- **Leave comment**: Leave a comment under Test IO bug from Jira side (availability depends on Jira Add-On Configuration -> Comments tab settings).
 
 - **View Issue Details**: Navigate to the newly created Jira issue page via Jira issue link.
 

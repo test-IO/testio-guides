@@ -12,6 +12,10 @@ const docSearchConfig = {
 
 const HITS_PER_PAGE = 20
 
+// Check if DocSearch is properly configured
+const isDocSearchConfigured =
+  docSearchConfig.appId && docSearchConfig.apiKey && docSearchConfig.indexName
+
 function Hit({ hit, children }) {
   return <Link href={hit.url}>{children}</Link>
 }
@@ -29,6 +33,12 @@ export function Search() {
   let [modifierKey, setModifierKey] = useState()
 
   const onOpen = useCallback(() => {
+    if (!isDocSearchConfigured) {
+      console.warn(
+        "DocSearch is not configured. Please set NEXT_PUBLIC_DOCSEARCH_APP_ID, NEXT_PUBLIC_DOCSEARCH_API_KEY, and NEXT_PUBLIC_DOCSEARCH_INDEX_NAME environment variables."
+      )
+      return
+    }
     setIsOpen(true)
   }, [setIsOpen])
 
@@ -41,6 +51,11 @@ export function Search() {
   useEffect(() => {
     setModifierKey(/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? "⌘" : "Ctrl ")
   }, [])
+
+  // Don't render search if not configured
+  if (!isDocSearchConfigured) {
+    return null
+  }
 
   return (
     <>
@@ -75,6 +90,8 @@ export function Search() {
         )}
       </button>
       {isOpen &&
+        isDocSearchConfigured &&
+        typeof window !== "undefined" &&
         createPortal(
           <DocSearchModal
             {...docSearchConfig}

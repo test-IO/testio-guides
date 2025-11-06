@@ -1,22 +1,33 @@
 const navigation = [
   {
-    title: "Introduction",
-    links: [{ title: "Getting started", href: "/" }],
-  },
-  {
-    title: "Integrations",
+    title: "API Reference",
     links: [
-      { title: "Overview", href: "/docs/integrations/overview" },
-      { title: "Jira Plugins", href: "/docs/integrations/jira_plugins" },
-      { title: "Configure Notion as Bug Tracker", href: "/docs/integrations/notion" },
+      { title: "Getting Started", href: "/docs/api/getting-started" },
+      { title: "Authentication", href: "/docs/api/authentication" },
+      { title: "Products", href: "/docs/api/products" },
+      { title: "Features", href: "/docs/api/features" },
+      { title: "User Stories", href: "/docs/api/user-stories" },
+      { title: "Test Environments", href: "/docs/api/test-environments" },
+      { title: "Binary Apps", href: "/docs/api/binary-apps" },
+      { title: "Exploratory Tests", href: "/docs/api/exploratory-tests" },
+      { title: "Test Templates", href: "/docs/api/test-templates" },
+      { title: "Bugs", href: "/docs/api/bugs" },
+      { title: "Bug Report Confirmations", href: "/docs/api/bug-report-confirmations" },
+      { title: "Test Cases", href: "/docs/api/test-cases" },
+      { title: "Test Case Tests", href: "/docs/api/test-case-tests" },
     ],
   },
   {
-    title: "Jira Plugins",
+    title: "MCP Server",
     links: [
-      { title: "Migrate Server Plugin To Cloud", href: "/docs/jira_plugins/migration_to_cloud" },
+      { title: "Overview (Coming Soon)", href: "/docs/mcp_server/overview" },
+    ],
+  },
+  {
+    title: "Jira Add-Ons",
+    links: [
       {
-        title: "Jira Cloud Plugin",
+        title: "Jira Cloud Add-On",
         href: "/docs/jira_plugins/cloud",
         children: [
           { title: "Installation", href: "/docs/jira_cloud/installation" },
@@ -26,7 +37,7 @@ const navigation = [
             href: "/docs/jira_cloud/configuration",
             children: [
               {
-                title: "Custom field",
+                title: "Custom Field",
                 href: "/docs/jira_cloud/custom_field",
               },
               { title: "Demo Bug", href: "/docs/jira_cloud/demo_bug" },
@@ -54,16 +65,16 @@ const navigation = [
                 href: "/docs/jira_cloud/send_request_to_tester",
               },
               {
-                title: "Confirm Bug with an experienced Tester",
+                title: "Confirm Bug with an Experienced Tester",
                 href: "/docs/jira_cloud/confirm_bug_with_tester",
               },
               { title: "Bug Reporductions", href: "/docs/jira_cloud/bug_reporductions" },
             ],
           },
-          { title: "Test IO Bugs: All Bugs page", href: "/docs/jira_cloud/all_bugs_page" },
+          { title: "Test IO Bugs: All Bugs Page", href: "/docs/jira_cloud/all_bugs_page" },
           { title: "Copy and Share Bug Link", href: "/docs/jira_cloud/share_bug_link" },
           {
-            title: "Exploratory Tests and Bug types",
+            title: "Exploratory Tests and Bug Types",
             href: "/docs/jira_cloud/test_bug_types",
           },
           {
@@ -71,11 +82,11 @@ const navigation = [
             href: "/docs/jira_cloud/create_exploratory_test",
           },
           { title: "Bug Fix Confirmation", href: "/docs/jira_cloud/bug_fix_confirm" },
-          { title: "User Stories execution", href: "/docs/jira_cloud/user_stories" },
+          { title: "User Stories Execution", href: "/docs/jira_cloud/user_stories" },
         ],
       },
       {
-        title: "Jira Server (Data Center)",
+        title: "Jira Data Center",
         href: "/docs/jira_plugins/server",
         children: [
           { title: "Installation", href: "/docs/jira_server/installation" },
@@ -85,7 +96,7 @@ const navigation = [
             href: "/docs/jira_server/configuration",
             children: [
               {
-                title: "Custom field",
+                title: "Custom Field",
                 href: "/docs/jira_server/custom_field",
               },
               { title: "Demo Bug", href: "/docs/jira_server/demo_bug" },
@@ -113,7 +124,7 @@ const navigation = [
                 href: "/docs/jira_server/send_request",
               },
               {
-                title: "Confirm Bug with an experienced Tester",
+                title: "Confirm Bug with an Experienced Tester",
                 href: "/docs/jira_server/confirm_bug",
               },
               {
@@ -124,28 +135,35 @@ const navigation = [
             ],
           },
           { title: "Copy and Share Bug Link", href: "/docs/jira_server/share_bug_link" },
-          { title: "Exploratory Tests and Bug types", href: "/docs/jira_server/test_bug_types" },
+          { title: "Exploratory Tests and Bug Types", href: "/docs/jira_server/test_bug_types" },
           {
             title: "Create New Exploratory Test",
             href: "/docs/jira_server/create_exploratory_test",
           },
           { title: "Manage Exploratory Tests", href: "/docs/jira_server/manage_exploratory_tests" },
           { title: "Bug Fix Confirmation", href: "/docs/jira_server/bug_fix_confirm" },
-          { title: "User Stories execution", href: "/docs/jira_server/user_stories" },
+          { title: "User Stories Execution", href: "/docs/jira_server/user_stories" },
         ],
       },
+      { title: "Migrate Server Add-On To Cloud", href: "/docs/jira_plugins/migration_to_cloud" },
     ],
   },
   {
-    title: "Zapier app",
+    title: "Notion Integration",
     links: [
-      { title: "Release notes", href: "/docs/zapier/release" },
-      { title: "Getting started", href: "/docs/zapier/getting_started" },
+      { title: "Configure Notion as Bug Tracker", href: "/docs/integrations/notion" },
+    ],
+  },
+  {
+    title: "Zapier App",
+    links: [
+      { title: "Release Notes", href: "/docs/zapier/release" },
+      { title: "Getting Started", href: "/docs/zapier/getting_started" },
       { title: "Triggers", href: "/docs/zapier/triggers" },
       { title: "Actions and Searches", href: "/docs/zapier/actions" },
-      { title: "Use case 1: Export Test IO bug to Notion", href: "/docs/zapier/use_case_1" },
-      { title: "Use case 2: Mark bug as fixed in Test IO", href: "/docs/zapier/use_case_2" },
-      { title: "Use case 3: Sync Jira Issue status", href: "/docs/zapier/use_case_3" },
+      { title: "Use Case 1: Export Test IO Bug to Notion", href: "/docs/zapier/use_case_1" },
+      { title: "Use Case 2: Mark Bug as Fixed in Test IO", href: "/docs/zapier/use_case_2" },
+      { title: "Use Case 3: Sync Jira Issue Status", href: "/docs/zapier/use_case_3" },
     ],
   },
 ]

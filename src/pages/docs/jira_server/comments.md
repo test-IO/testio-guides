@@ -25,7 +25,7 @@ Now, based on the configuration, all future comments from the Test IO side will 
 
 Consider a scenario where you want to ensure that specific comments made under a Jira ticket created from an accepted Test IO bug are automatically synchronized with Test IO for better collaboration and information sharing.
 
-In the Jira Data Center (Server) Plugin -> Comments section for synchronizing comments between Jira and Test IO set up a specific string or tag, such as "@testIO", to identify which comments should be sent to Test IO.
+In the Jira Data Center Add-On -> Comments section for synchronizing comments between Jira and Test IO set up a specific string or tag, such as "@testIO", to identify which comments should be sent to Test IO.
 
 When comments in Jira contain the "@testIO" tag, they will be automatically synced with the corresponding Test IO bug on the Test IO side. **For example**, if a Jira ticket has a comment like "Issue replicated on multiple devices @testIO", **this comment will be automatically copied to the corresponding Test IO bug**. This ensures that communication and updates are effectively shared with the tester who submitted the Test IO bug.
 

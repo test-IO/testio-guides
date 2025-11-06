@@ -7,14 +7,14 @@ Once Test IO’s crowd testers report a software issue, teams use the detailed b
 
 {% screenshot src="/assets/jira_cloud/bug_fix_confirm/1.png"  /%}
 
-From the Jira Data Center (Server) side, there are two possible ways to request a Bug Fix Confirmation (BFC):
+From the Jira Data Center side, there are two possible ways to request a Bug Fix Confirmation (BFC):
 
 - **Internal BFC**: A confirmation request is done for a Jira ticket created from an accepted Test IO Bug.
 - **External BFC**: A confirmation request is done for a Jira ticket originally created within Jira.
 
 **Steps to Request a Bug Fix Confirmation**:
 
-1.  **Select a Jira Ticket**: On your Jira Data Center (Server) side, select the ticket you want to retest. Click on the Status dropdown on the Jira ticket page and select **"Confirm fix via Test IO"**.
+1.  **Select a Jira Ticket**: On your Jira Data Center side, select the ticket you want to retest. Click on the Status dropdown on the Jira ticket page and select **"Confirm fix via Test IO"**.
 
     {% screenshot src="/assets/jira_server/bug_fix_confirm/2.png"
     caption="\"Confirm fix via Test IO\" button" /%}
@@ -95,7 +95,7 @@ You can view the details of the requested BFC by accessing the linked BFC direct
 
 After submitting the bug fix confirmation, it is assigned to a tester with a matching device. The tester will replicate the steps that led to the bug. Once completed, they will attach a screencast demonstrating either the presence or absence of the bug and may add a comment for additional context. **You can access all this information under the Jira ticket's Comments section**.
 
-If Bug Fix Confirmation status synchronization is configured in the Test IO Plugin Configuration -> Advanced Integration section, **successful confirmation on the Test IO side will automatically update the Jira ticket to the specified status**. Find more details about BFC status sync in Jira Data Center (Server) [here](/docs/jira_server/advanced_integration).
+If Bug Fix Confirmation status synchronization is configured in the Test IO Add-On Configuration -> Advanced Integration section, **successful confirmation on the Test IO side will automatically update the Jira ticket to the specified status**. Find more details about BFC status sync in Jira Data Center [here](/docs/jira_server/advanced_integration).
 
 **Note**: If there is already a Bug Fix Confirmation request with a “Pending” status for the selected Jira ticket, **you cannot request a new BFC until a tester has responded to the existing request**.
 

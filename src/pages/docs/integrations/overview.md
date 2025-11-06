@@ -20,10 +20,10 @@ Here is the list of integrations you can use:
 
 {% quick-links %}
 
-{% quick-link title="Jira Server Plugin" icon="shield_check" href="/docs/jira_plugins/server" description="Integrate Test IO platform to your Jira Server(Data Center)." /%}
+{% quick-link title="Jira Add-Ons" icon="rectangle_stack" href="/docs/jira_plugins/cloud" description="Connect Test IO with Jira Cloud or Jira Data Center for seamless bug tracking." /%}
 
-{% quick-link title="Jira Cloud Plugin" icon="shield_check" href="/docs/jira_plugins/cloud" description="Integrate Test IO platform to your Jira Cloud." /%}
+{% quick-link title="Notion Integration" icon="shield_check" href="/docs/integrations/notion" description="Export bugs from Test IO to your Notion database." /%}
 
-{% quick-link title="Zapier app" icon="shield_check" href="/docs/zapier/getting_started" description="Integrate Test IO platform to million of apps using Zapier." /%}
+{% quick-link title="Zapier app" icon="bolt" href="/docs/zapier/getting_started" description="Integrate Test IO platform to million of apps using Zapier." /%}
 
 {% /quick-links %}

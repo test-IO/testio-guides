@@ -5,6 +5,24 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* Scroll padding for anchor links to account for sticky header */
+html {
+  scroll-padding-top: 5rem; /* 4.5rem header + some padding */
+}
+
+/* Screen reader only / visually hidden - keeps element in flow for anchor links */
+.sr-only-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 ul[type="circle"] {
   list-style-type: circle;
 }

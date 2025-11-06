@@ -10,7 +10,7 @@ Executing a bug reproduction involves retesting a bug reported by another tester
 
 **Viewing Bug Reproductions**
 
-Bug reproductions for Test IO bugs are accessible via the Jira Server (Data Center) Add-on. When previewing bug details, you can find a **dedicated section for bug reproductions under Attachments**. This section includes following sub-sections:
+Bug reproductions for Test IO bugs are accessible via the Jira Data Center Add-On. When previewing bug details, you can find a **dedicated section for bug reproductions under Attachments**. This section includes following sub-sections:
 
 - **Reproduced on**: Indicates a Positive Reproduction.
 - **Not reproduced on**: Indicates a Negative Reproduction.

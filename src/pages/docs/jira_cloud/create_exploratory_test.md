@@ -3,7 +3,7 @@ title: Create New Exploratory Test
 description: Learn how to create a new exploratory test.
 ---
 
-You can **access the "Create Exploratory Test" page** by clicking on the "Create Exploratory Test" section in the Test IO Plugin menu on the left side, or by clicking the **"Create new test"** button on the **Test IO -> Exploratory Tests page**.
+You can **access the "Create Exploratory Test" page** by clicking on the "Create Exploratory Test" section in the Test IO Add-On menu on the left side, or by clicking the **"Create new test"** button on the **Test IO -> Exploratory Tests page**.
 
 **Step 1: Select Test IO Product and Product Section** {% .title-small %}
 
@@ -14,7 +14,7 @@ To send your test to the appropriate Test IO Product, follow these steps:
 
 {% screenshot src="/assets/jira_cloud/create_exploratory_test/step1.png" /%}
 
-These dropdown options are based on the configurations set up in the Jira Cloud Plugin, ensuring that your test is properly linked to the correct Test IO Product in your Jira project.
+These dropdown options are based on the configurations set up in the Jira Cloud Add-On, ensuring that your test is properly linked to the correct Test IO Product in your Jira project.
 
 **Step 2**: Next, **select the type of test** you will be running {% .title-small %}
 

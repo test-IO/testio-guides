@@ -7,7 +7,7 @@ Users can leave comments on Test IO Bugs directly from the Jira Bugs page. This 
 
 **Steps to Leave Comments**:
 
-1. **Navigate to the Jira Plugin**:
+1. **Navigate to the Jira Add-On**:
    {% list type="circle" %}
 
    - Go to your Jira Project.

@@ -1,6 +1,6 @@
 ---
 title: "QA Service for Jira: About Us"
-description: How Jira Server(Data Center) Plugin integrates with Test IO.
+description: How Jira Data Center integrates with Test IO.
 ---
 
 QA Service for Jira connects your Jira instance to Test IO’s network of professional testers. These testers evaluate your software in real-world conditions on real devices, providing detailed bug reports with screencasts and step-by-step reproduction instructions.
@@ -21,7 +21,7 @@ For more details, sign in to [Test IO](https://test.io/) or contact our [Test IO
 
 {% quick-links %}
 
-{% quick-link title="Installation" icon="shield_check" href="/docs/jira_server/installation" description="Install Jira Data Center (Server) in your Jira" /%}
+{% quick-link title="Installation" icon="shield_check" href="/docs/jira_server/installation" description="Install Jira Data Center in your Jira" /%}
 
 {% quick-link title="Connection" icon="shield_check" href="/docs/jira_server/connection" description="Connect your Test IO account to your Jira" /%}
 

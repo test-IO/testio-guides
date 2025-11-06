@@ -7,14 +7,14 @@ const main = [
     icon: BookOpenIcon,
   },
   {
-    title: "Integrations",
-    href: "/docs/integrations/overview",
+    title: "Jira Add-Ons",
+    href: "/docs/jira_plugins/cloud",
     icon: AdjustmentsVerticalIcon,
   },
   {
-    title: "Customer API Reference",
-    href: "https://testio2.docs.apiary.io/",
-    icon: AdjustmentsVerticalIcon,
+    title: "API Reference",
+    href: "/docs/api/overview",
+    icon: CodeBracketIcon,
   },
 ]
 

@@ -1,5 +1,6 @@
 import { Callout } from "@/components/Callout"
 import { CodeRef } from "@/components/CodeRef"
+import { McpBlur } from "@/components/McpBlur"
 import { QuickLink, QuickLinks } from "@/components/QuickLinks"
 import { Screenshot } from "@/components/Screenshot"
 import { YouTube } from "@/components/YouTube"
@@ -130,6 +131,10 @@ const tags = {
       type: String,
     },
     render: ({ children, type }) => <span className={type}>{children}</span>,
+  },
+  "mcp-blur": {
+    render: McpBlur,
+    children: ["paragraph", "heading", "list", "tag", "fence", "code"],
   },
 }
 
