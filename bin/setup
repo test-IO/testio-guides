@@ -3,6 +3,19 @@
 command -v node >/dev/null 2>&1 || { echo >&2 "node is not installed.  Aborting."; exit 1; }
 command -v yarn >/dev/null 2>&1 || { echo >&2 "yarn is not installed.  Aborting."; exit 1; }
 
+# Require Node >= 18.18.0 (Next.js 15 requirement)
+REQUIRED_NODE_MAJOR=18
+REQUIRED_NODE_MINOR=18
+CURRENT_NODE=$(node -v | sed 's/v//')
+CURRENT_NODE_MAJOR=$(echo "$CURRENT_NODE" | cut -d. -f1)
+CURRENT_NODE_MINOR=$(echo "$CURRENT_NODE" | cut -d. -f2)
+if [ "$CURRENT_NODE_MAJOR" -lt "$REQUIRED_NODE_MAJOR" ] || { [ "$CURRENT_NODE_MAJOR" -eq "$REQUIRED_NODE_MAJOR" ] && [ "$CURRENT_NODE_MINOR" -lt "$REQUIRED_NODE_MINOR" ]; }; then
+  echo "Current Node: v$CURRENT_NODE"
+  echo "Required Node: >= 18.18.0"
+  echo "If you use nvm: nvm use || nvm install && nvm use"
+  exit 1
+fi
+
 echo "== Getting Setup =="
 
 echo ""

@@ -7,6 +7,8 @@ Manage test environments for your products.
 
 > **Prerequisites**: You need a product before creating test environments. See [Products](/docs/api/products) to get or create a product. For mobile app tests, you may need to upload a binary app first (see [Binary Apps](/docs/api/binary-apps)).
 
+> **Large files**: For mobile apps larger than typical upload limits, use the direct upload URL flow in [Binary Apps](/docs/api/binary-apps#get-direct-upload-url-large-files) and then reference the resulting `binary_app_id` here.
+
 ## List test environments
 
 Retrieve all test environments for a specific product.

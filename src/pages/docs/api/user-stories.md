@@ -7,6 +7,21 @@ Manage user stories for your products and features.
 
 > **Prerequisites**: You need a product and a feature. See [Products](/docs/api/products) and [Features](/docs/api/features). User stories can also be included directly when creating features.
 
+## What are User Stories?
+
+User Stories describe expected behavior from a user’s perspective. In testing, your task is to confirm whether each User Story works as expected.
+
+Examples of User Stories:
+
+- A user can add a product to the cart
+- A user can remove items from the cart
+- When a valid promo code is applied, the correct discount is applied
+- A user can log in with valid credentials
+
+Executing a User Story typically takes under 5 minutes. You can find them on the test overview page above the Feature description. Not every test will include User Stories.
+
+> Important: A User Story is not executed standalone. It is always executed in the scope of a test, specifically an exploratory test. You can include User Stories via Features and then run them by creating an [Exploratory Test](/docs/api/exploratory-tests).
+
 ## Get user story
 
 Retrieve a specific user story by ID.
@@ -32,8 +47,8 @@ curl -X GET "https://api.test.io/customer/v2/user_stories/1" \
 ```json
 {
   "id": 1,
-  "path": "User story title",
-  "title": "User story title"
+  "path": "As a shopper, I can add a product to my cart",
+  "title": "Add product to cart"
 }
 ```
 {% /code %}
@@ -71,13 +86,13 @@ curl -X GET "https://api.test.io/customer/v2/products/1/user_stories?section_id=
   "user_stories": [
     {
       "id": 1,
-      "path": "First user story",
-      "title": "First user story"
+      "path": "As a shopper, I can add a product to my cart",
+      "title": "Add product to cart"
     },
     {
       "id": 2,
-      "path": "Second user story",
-      "title": "Second user story"
+      "path": "As a shopper, I can remove a product from my cart",
+      "title": "Remove product from cart"
     }
   ]
 }
@@ -105,7 +120,7 @@ All attributes must be provided inside the root object `user_story`.
 **Request Body:**
 
 - `feature_id` (number, **required**) - ID of the feature under which the user story will be created
-- `path` (string, **required**) - Description of the user story
+- `path` (string, **required**) - Description of the user story in the form "As a <user>, I can <action>"
 
 **Example Request:**
 
@@ -117,7 +132,7 @@ curl -X POST "https://api.test.io/customer/v2/products/1/user_stories?section_id
   -d '{
     "user_story": {
       "feature_id": 1,
-      "path": "The greatest title"
+      "path": "As a shopper, I can add a product to my cart"
     }
   }'
 ```
@@ -129,8 +144,8 @@ curl -X POST "https://api.test.io/customer/v2/products/1/user_stories?section_id
 ```json
 {
   "id": 1,
-  "path": "The greatest title",
-  "title": "The greatest title"
+  "path": "As a shopper, I can add a product to my cart",
+  "title": "Add product to cart"
 }
 ```
 {% /code %}
@@ -167,7 +182,7 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/user_stories/2?section_i
   -H "Content-Type: application/json" \
   -d '{
     "user_story": {
-      "path": "The updated title"
+      "path": "As a shopper, I can remove a product from my cart"
     }
   }'
 ```
@@ -179,8 +194,8 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/user_stories/2?section_i
 ```json
 {
   "id": 2,
-  "path": "The updated title",
-  "title": "The updated title"
+  "path": "As a shopper, I can remove a product from my cart",
+  "title": "Remove product from cart"
 }
 ```
 {% /code %}
@@ -217,8 +232,8 @@ curl -X DELETE "https://api.test.io/customer/v2/products/1/user_stories/2?sectio
 ```json
 {
   "id": 2,
-  "path": "The greatest title",
-  "title": "The greatest title"
+  "path": "As a shopper, I can add a product to my cart",
+  "title": "Add product to cart"
 }
 ```
 {% /code %}

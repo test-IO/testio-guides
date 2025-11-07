@@ -5,6 +5,20 @@ description: List test templates
 
 List test templates available for your products and sections.
 
+## What are Test Templates?
+
+Once you’ve identified a test setup that consistently yields the results you want, save it as a Template so you can reuse it.
+
+- You can save tests as Templates and reuse them in future tests
+- Templates can be selected during test setup
+- Templates can be named and deleted individually
+- Limit of 10 templates per product
+
+test IO Best Practice: Name templates so it’s obvious what their purpose is and how they differ from others, e.g.:
+
+- Websites: "Staging - Checkout process"
+- Mobile: "New User Registration - Rapid Test"
+
 > **Prerequisites**: You need a product to list test templates. See [Products](/docs/api/products) to get or create a product. Test templates can be used as an alternative to features when creating exploratory tests (see [Exploratory Tests](/docs/api/exploratory-tests)).
 
 ## List test templates

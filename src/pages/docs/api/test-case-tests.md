@@ -60,3 +60,34 @@ curl -X POST "https://api.test.io/customer/v2/products/1/test_case_test" \
 
 Returns the created test case test object.
 
+### Building the requirements array
+
+Use `requirements` to target devices/platforms exactly. A requirement is a small object with a `type` and `value` (and sometimes additional keys), and you can pass multiple to combine filters.
+
+- Device types: `{ "type": "device_type", "value": "desktop" }`, `{ "type": "device_type", "value": "mobile" }`
+- Operating systems: `{ "type": "os", "value": "ios" }`, `{ "type": "os", "value": "android" }`, `{ "type": "os", "value": "windows" }`, `{ "type": "os", "value": "macos" }`
+- OS versions: `{ "type": "os_version", "value": ">=17" }`, `{ "type": "os_version", "value": "13" }`
+- Browsers: `{ "type": "browser", "value": "chrome" }`, `{ "type": "browser", "value": "safari" }`
+- Locales: `{ "type": "locale", "value": "de-DE" }`
+
+Example:
+
+{% code language="json" showLineNumbers=true %}
+```json
+{
+  "test_case_test": {
+    "test_title": "Checkout - iOS Safari",
+    "requirements": [
+      { "type": "device_type", "value": "mobile" },
+      { "type": "os", "value": "ios" },
+      { "type": "browser", "value": "safari" }
+    ],
+    "test_cases": [{ "id": 1 }],
+    "test_environment": { "title": "Staging", "url": "https://staging.example.com" }
+  }
+}
+```
+{% /code %}
+
+See the dedicated [Requirements](/docs/api/requirements) page for full details and allowed values.
+

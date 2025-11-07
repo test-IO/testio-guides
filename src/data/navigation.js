@@ -12,17 +12,13 @@ const navigation = [
       { title: "Exploratory Tests", href: "/docs/api/exploratory-tests" },
       { title: "Test Templates", href: "/docs/api/test-templates" },
       { title: "Bugs", href: "/docs/api/bugs" },
+      { title: "Custom Bug Export Connections", href: "/docs/api/connections" },
       { title: "Bug Report Confirmations", href: "/docs/api/bug-report-confirmations" },
       { title: "Test Cases", href: "/docs/api/test-cases" },
       { title: "Test Case Tests", href: "/docs/api/test-case-tests" },
     ],
   },
-  {
-    title: "MCP Server",
-    links: [
-      { title: "Overview (Coming Soon)", href: "/docs/mcp_server/overview" },
-    ],
-  },
+  
   {
     title: "Jira Add-Ons",
     links: [
@@ -145,7 +141,7 @@ const navigation = [
           { title: "User Stories Execution", href: "/docs/jira_server/user_stories" },
         ],
       },
-      { title: "Migrate Server Add-On To Cloud", href: "/docs/jira_plugins/migration_to_cloud" },
+      
     ],
   },
   {

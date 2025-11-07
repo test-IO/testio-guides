@@ -1,9 +1,20 @@
-import dynamic from "next/dynamic"
+import { DocSearchModal, useDocSearchKeyboardEvents } from "@docsearch/react"
+import Link from "next/link"
+import Router from "next/router"
 import { useCallback, useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 
-const SearchModal = dynamic(() => import("./SearchModal"), {
-  ssr: false,
-})
+const docSearchConfig = {
+  appId: process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
+  apiKey: process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY,
+  indexName: process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME,
+}
+
+const HITS_PER_PAGE = 20
+
+function Hit({ hit, children }) {
+  return <Link href={hit.url}>{children}</Link>
+}
 
 function SearchIcon(props) {
   return (
@@ -14,35 +25,22 @@ function SearchIcon(props) {
 }
 
 export function Search() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [modifierKey, setModifierKey] = useState()
+  let [isOpen, setIsOpen] = useState(false)
+  let [modifierKey, setModifierKey] = useState()
 
   const onOpen = useCallback(() => {
     setIsOpen(true)
-  }, [])
+  }, [setIsOpen])
 
   const onClose = useCallback(() => {
     setIsOpen(false)
-  }, [])
+  }, [setIsOpen])
+
+  useDocSearchKeyboardEvents({ isOpen, onOpen, onClose })
 
   useEffect(() => {
     setModifierKey(/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? "⌘" : "Ctrl ")
   }, [])
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault()
-        setIsOpen((prev) => !prev)
-      }
-      if (e.key === "Escape" && isOpen) {
-        setIsOpen(false)
-      }
-    }
-
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [isOpen])
 
   return (
     <>
@@ -76,7 +74,22 @@ export function Search() {
           </div>
         )}
       </button>
-      <SearchModal isOpen={isOpen} onClose={onClose} />
+      {isOpen &&
+        createPortal(
+          <DocSearchModal
+            {...docSearchConfig}
+            initialScrollY={window.scrollY}
+            onClose={onClose}
+            hitComponent={Hit}
+            navigator={{
+              navigate({ itemUrl }) {
+                Router.push(itemUrl)
+              },
+            }}
+            maxResultsPerGroup={HITS_PER_PAGE}
+          />, 
+          document.body
+        )}
     </>
   )
 }

@@ -383,7 +383,7 @@ For quick feedback, use `testing_type: "rapid"` with a 2-hour duration:
 
 - Check file size (max 1GB)
 - Verify file extension (`.ipa`, `.apk`, `.xap`, `.appx`, `.zip`, `.wgt`)
-- For large files, use S3 upload URL method (see [Binary Apps](/docs/api/binary-apps))
+- For large files, use the direct upload URL method (see [Binary Apps](/docs/api/binary-apps))
 
 ## Additional Resources
 

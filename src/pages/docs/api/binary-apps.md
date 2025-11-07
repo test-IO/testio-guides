@@ -36,15 +36,15 @@ curl -X POST "https://api.test.io/customer/v2/binary_apps" \
     "id": 123,
     "filename": "MyApp.apk",
     "file_size": 52428800,
-    "url": "https://s3.amazonaws.com/bucket/uploads/binary_app/package/123/MyApp.apk"
+    "url": "https://files.test.io/uploads/binary_app/123/MyApp.apk"
   }
 }
 ```
 {% /code %}
 
-## Get S3 upload URL
+## Get direct upload URL (large files)
 
-Get a pre-signed S3 URL for direct upload to S3. This is useful for large files.
+Request a pre-signed direct upload URL for large files. This lets you upload the file directly from your client to our storage without passing the entire payload through the API server.
 
 **Endpoint:** `GET /binary_apps/upload_url`
 
@@ -63,15 +63,14 @@ curl -X GET "https://api.test.io/customer/v2/binary_apps/upload_url" \
 ```json
 {
   "binary_app_id": 123,
-  "url": "https://my-bucket.s3.eu-west-1.amazonaws.com",
+  "url": "https://upload.test.io/direct",
   "fields": {
-    "key": "uploads/binary_app/package/123/${filename}",
+    "key": "uploads/binary_app/123/${filename}",
     "success_action_status": "201",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNS0xMS0wNFQxNjo0NzoxNVoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJteS1idWNrZXQifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVwbG9hZHMvYmluYXJ5X2FwcC9wYWNrYWdlLzEyMy8iXSx7InN1Y2Nlc3NfYWN0aW9uX3N0YXR1cyI6IjIwMSJ9LFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLDEsMTA3Mzc0MTgyNF1dfQ==",
-    "x-amz-credential": "AKIAEXAMPLE/20251104/eu-west-1/s3/aws4_request",
-    "x-amz-algorithm": "AWS4-HMAC-SHA256",
-    "x-amz-date": "20251104T154715Z",
-    "x-amz-signature": "abc123def456..."
+    "policy": "<opaque-policy>",
+    "algorithm": "<signature-algorithm>",
+    "date": "20251104T154715Z",
+    "signature": "<signature>"
   }
 }
 ```
@@ -79,7 +78,7 @@ curl -X GET "https://api.test.io/customer/v2/binary_apps/upload_url" \
 
 ## Finalize binary app upload
 
-Finalizes a direct S3 upload by validating metadata, verifying the file exists in S3, and generating a public download URL.
+Finalize a direct upload by validating metadata, verifying the file exists in storage, and generating a public download URL.
 
 **Endpoint:** `PUT /binary_apps/{id}`
 
@@ -97,7 +96,7 @@ Finalizes a direct S3 upload by validating metadata, verifying the file exists i
   "content_type": "application/vnd.android.package-archive",
   "bundle_identifier": "com.example.myapp",
   "bundle_version": "1.2.3",
-  "url": "https://testcloud-staging-webapp.s3.eu-west-1.amazonaws.com/uploads/binary_app/package/13/MyApp-v1.2.3.apk"
+  "url": "https://files.test.io/uploads/binary_app/13/MyApp-v1.2.3.apk"
 }
 ```
 {% /code %}
@@ -129,7 +128,7 @@ curl -X PUT "https://api.test.io/customer/v2/binary_apps/123" \
     "id": 123,
     "filename": "MyApp-v1.2.3.apk",
     "file_size": 524288000,
-    "url": "https://s3.amazonaws.com/bucket/uploads/binary_app/package/123/MyApp-v1.2.3.apk"
+    "url": "https://files.test.io/uploads/binary_app/123/MyApp-v1.2.3.apk"
   }
 }
 ```
@@ -137,12 +136,12 @@ curl -X PUT "https://api.test.io/customer/v2/binary_apps/123" \
 
 **Error Response:** `422 Unprocessable Entity`
 
-If the file is not found in S3, returns:
+If the file is not found in storage, returns:
 
 {% code language="json" showLineNumbers=true %}
 ```json
 {
-  "error": "File not found in S3: uploads/binary_app/package/123/MyApp-v1.2.3.apk"
+  "error": "File not found: uploads/binary_app/123/MyApp-v1.2.3.apk"
 }
 ```
 {% /code %}

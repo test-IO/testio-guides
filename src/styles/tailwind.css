@@ -66,3 +66,40 @@ td {
 .title-small {
   font-size: 1.125rem;
 }
+
+/* Connections table styling */
+.connections-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #1e3a8a; /* dark blue */
+}
+.connections-table th,
+.connections-table td {
+  border: 1px solid #1e3a8a; /* dark blue */
+  padding: 12px;
+}
+
+/* Better looking header */
+.connections-table thead th {
+  background-color: #0b1e49; /* darker blue */
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+}
+
+/* Round first/last header corners */
+.connections-table thead th:first-child {
+  border-top-left-radius: 6px;
+}
+.connections-table thead th:last-child {
+  border-top-right-radius: 6px;
+}
+
+/* Make tracker names look like compact pills */
+.connections-table td code {
+  background: #0f172a0d; /* subtle */
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
