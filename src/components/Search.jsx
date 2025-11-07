@@ -1,24 +1,9 @@
-import { DocSearchModal, useDocSearchKeyboardEvents } from "@docsearch/react"
-import Link from "next/link"
-import Router from "next/router"
+import dynamic from "next/dynamic"
 import { useCallback, useEffect, useState } from "react"
-import { createPortal } from "react-dom"
 
-const docSearchConfig = {
-  appId: process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
-  apiKey: process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY,
-  indexName: process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME,
-}
-
-const HITS_PER_PAGE = 20
-
-// Check if DocSearch is properly configured
-const isDocSearchConfigured =
-  docSearchConfig.appId && docSearchConfig.apiKey && docSearchConfig.indexName
-
-function Hit({ hit, children }) {
-  return <Link href={hit.url}>{children}</Link>
-}
+const SearchModal = dynamic(() => import("./SearchModal"), {
+  ssr: false,
+})
 
 function SearchIcon(props) {
   return (
@@ -29,33 +14,35 @@ function SearchIcon(props) {
 }
 
 export function Search() {
-  let [isOpen, setIsOpen] = useState(false)
-  let [modifierKey, setModifierKey] = useState()
+  const [isOpen, setIsOpen] = useState(false)
+  const [modifierKey, setModifierKey] = useState()
 
   const onOpen = useCallback(() => {
-    if (!isDocSearchConfigured) {
-      console.warn(
-        "DocSearch is not configured. Please set NEXT_PUBLIC_DOCSEARCH_APP_ID, NEXT_PUBLIC_DOCSEARCH_API_KEY, and NEXT_PUBLIC_DOCSEARCH_INDEX_NAME environment variables."
-      )
-      return
-    }
     setIsOpen(true)
-  }, [setIsOpen])
+  }, [])
 
   const onClose = useCallback(() => {
     setIsOpen(false)
-  }, [setIsOpen])
-
-  useDocSearchKeyboardEvents({ isOpen, onOpen, onClose })
+  }, [])
 
   useEffect(() => {
     setModifierKey(/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? "⌘" : "Ctrl ")
   }, [])
 
-  // Don't render search if not configured
-  if (!isDocSearchConfigured) {
-    return null
-  }
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault()
+        setIsOpen((prev) => !prev)
+      }
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false)
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isOpen])
 
   return (
     <>
@@ -89,24 +76,7 @@ export function Search() {
           </div>
         )}
       </button>
-      {isOpen &&
-        isDocSearchConfigured &&
-        typeof window !== "undefined" &&
-        createPortal(
-          <DocSearchModal
-            {...docSearchConfig}
-            initialScrollY={window.scrollY}
-            onClose={onClose}
-            hitComponent={Hit}
-            navigator={{
-              navigate({ itemUrl }) {
-                Router.push(itemUrl)
-              },
-            }}
-            maxResultsPerGroup={HITS_PER_PAGE}
-          />,
-          document.body
-        )}
+      <SearchModal isOpen={isOpen} onClose={onClose} />
     </>
   )
 }

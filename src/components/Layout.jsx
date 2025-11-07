@@ -7,7 +7,8 @@ import { Search } from "@/components/Search"
 import { ThemeSelector } from "@/components/ThemeSelector"
 import main from "@/data/main"
 import navigation from "@/data/navigation"
-import { getAllLinks, isLinkInChildren } from "@/utils/helpers"
+import { getAllLinks } from "@/utils/helpers"
+import { scrollToAnchor, findCurrentSection } from "@/utils/navigation"
 import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -21,7 +22,7 @@ function GitHubIcon(props) {
   )
 }
 
-function Header({ main, navigation }) {
+function Header({ main, navigation, isHomePage }) {
   let [isScrolled, setIsScrolled] = useState(false)
   let router = useRouter()
 
@@ -37,15 +38,8 @@ function Header({ main, navigation }) {
   }, [])
 
   const handleNavClick = (e, anchor) => {
-    if (router.pathname === "/") {
-      e.preventDefault()
-      const element = document.getElementById(anchor)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" })
-        window.history.pushState(null, "", `/#${anchor}`)
-      }
-    }
-    // If not on homepage, let the Link component handle navigation normally
+    e.preventDefault()
+    scrollToAnchor(anchor, router)
   }
 
   return (
@@ -70,30 +64,32 @@ function Header({ main, navigation }) {
         </Link>
       </div>
       <div className="-my-5 mr-6 sm:mr-8 md:mr-4">{<Search />}</div>
-      {/* Top Navigation Links */}
-      <nav className="hidden lg:flex items-center gap-6 mr-6">
-        <Link
-          href="/#getting-started"
-          onClick={(e) => handleNavClick(e, "getting-started")}
-          className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
-        >
-          Get Started
-        </Link>
-        <Link
-          href="/#integrations"
-          onClick={(e) => handleNavClick(e, "integrations")}
-          className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
-        >
-          Integrations
-        </Link>
-        <Link
-          href="/#api-reference"
-          onClick={(e) => handleNavClick(e, "api-reference")}
-          className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
-        >
-          API Reference
-        </Link>
-      </nav>
+      {/* Top Navigation Links - Only show when NOT on homepage */}
+      {!isHomePage && (
+        <nav className="hidden lg:flex items-center gap-6 mr-6">
+          <Link
+            href="/#getting-started"
+            onClick={(e) => handleNavClick(e, "getting-started")}
+            className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
+          >
+            Get Started
+          </Link>
+          <Link
+            href="/#integrations"
+            onClick={(e) => handleNavClick(e, "integrations")}
+            className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
+          >
+            Integrations
+          </Link>
+          <Link
+            href="/#api-reference"
+            onClick={(e) => handleNavClick(e, "api-reference")}
+            className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
+          >
+            API Reference
+          </Link>
+        </nav>
+      )}
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8">
         <ThemeSelector className="relative z-10" />
         <Link
@@ -158,17 +154,7 @@ export function Layout({ children, title, tableOfContents }) {
   let linkIndex = allLinks.findIndex((link) => link.href === router.pathname)
   let previousPage = allLinks[linkIndex - 1]
   let nextPage = allLinks[linkIndex + 1]
-  let childSection
-  let section = navigation.find((section) =>
-    section.links.find((link) => {
-      if (link.href === router.pathname) {
-        return true
-      } else if (link.children && isLinkInChildren(link.children, router.pathname)) {
-        childSection = link
-      }
-      return false
-    })
-  )
+  let { section, childSection } = findCurrentSection(navigation, router.pathname)
   if (!section) section = childSection
 
   let currentSection = useTableOfContents(tableOfContents)
@@ -185,7 +171,7 @@ export function Layout({ children, title, tableOfContents }) {
 
   return (
     <>
-      <Header main={main} navigation={navigation} />
+      <Header main={main} navigation={navigation} isHomePage={isHomePage} />
 
       {isHomePage && <Hero />}
 

@@ -6,6 +6,8 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { Prism as ReactSyntaxHighlighter } from "react-syntax-highlighter"
+import { scrollToAnchor } from "@/utils/navigation"
+import { useSyntaxHighlighterStyle } from "@/hooks/useSyntaxHighlighterStyle"
 
 function TrafficLightsIcon(props) {
   return (
@@ -25,49 +27,16 @@ export function Hero() {
     if (router.pathname === "/" && typeof window !== "undefined") {
       const hash = window.location.hash.slice(1) // Remove the #
       if (hash) {
-          setTimeout(() => {
-            const element = document.getElementById(hash)
-            if (element) {
-              element.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-          }, 100)
+        setTimeout(() => {
+          scrollToAnchor(hash, router)
+        }, 100)
       }
     }
   }, [router.pathname])
 
   const handleNavigation = (href, anchor, e) => {
     e.preventDefault()
-    
-    // If on homepage, use anchor links
-    if (router.pathname === "/") {
-      if (anchor) {
-        const element = document.getElementById(anchor)
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" })
-          // Update URL without reload
-          window.history.pushState(null, "", `/#${anchor}`)
-        }
-      } else {
-        // Scroll to top for "Get started"
-        window.scrollTo({ top: 0, behavior: "smooth" })
-        window.history.pushState(null, "", "/")
-      }
-    } else {
-      // Navigate to homepage with anchor
-      const targetUrl = anchor ? `/#${anchor}` : "/"
-      router.push(targetUrl).then(() => {
-        if (anchor) {
-          setTimeout(() => {
-            const element = document.getElementById(anchor)
-            if (element) {
-              element.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-          }, 200)
-        } else {
-          window.scrollTo({ top: 0, behavior: "smooth" })
-        }
-      })
-    }
+    scrollToAnchor(anchor, router)
   }
 
   return (
@@ -95,7 +64,7 @@ export function Hero() {
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
                 <Button href="/#getting-started" onClick={(e) => handleNavigation("/", "getting-started", e)}>
-                  Get started
+                  Get Started
                 </Button>
                 <Button
                   href="/#integrations"
@@ -150,15 +119,8 @@ export function Hero() {
 }
 
 function CodeSample() {
-  const [codeStyle, setCodeStyle] = useState({})
   const [selectedLanguage, setSelectedLanguage] = useState("javascript")
-
-  useEffect(() => {
-    // Use a dark theme for the code sample
-    import("react-syntax-highlighter/dist/esm/styles/prism/synthwave84").then((mod) =>
-      setCodeStyle(mod.default)
-    )
-  }, [])
+  const codeStyle = useSyntaxHighlighterStyle(true) // Force dark theme
 
   const codeSnippets = {
     javascript: `const response = await fetch(

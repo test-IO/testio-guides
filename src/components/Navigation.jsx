@@ -1,4 +1,5 @@
-import { getAllParentLinks, isLinkInChildren } from "@/utils/helpers"
+import { getAllParentLinks } from "@/utils/helpers"
+import { findCurrentSection } from "@/utils/navigation"
 import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -9,20 +10,10 @@ export function Navigation({ navigation, main, className }) {
   const router = useRouter()
 
   const allAncestors = []
-  let ancestor
-  let section = navigation.find((section) =>
-    section.links.find((link) => {
-      if (link.href === router.pathname) {
-        return true
-      } else if (link.children && isLinkInChildren(link.children, router.pathname)) {
-        ancestor = link
-      }
-      return false
-    })
-  )
+  const { section, childSection } = findCurrentSection(navigation, router.pathname)
 
-  if (!section && ancestor) {
-    getAllParentLinks(ancestor, router.pathname, allAncestors)
+  if (!section && childSection) {
+    getAllParentLinks(childSection, router.pathname, allAncestors)
   }
 
   return (
