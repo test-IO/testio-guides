@@ -87,7 +87,7 @@ export function Search() {
               },
             }}
             maxResultsPerGroup={HITS_PER_PAGE}
-          />, 
+          />,
           document.body
         )}
     </>

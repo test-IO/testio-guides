@@ -1,8 +1,8 @@
 import { Icon } from "@/components/Icon"
+import { useSyntaxHighlighterStyle } from "@/hooks/useSyntaxHighlighterStyle"
 import copy from "copy-to-clipboard"
 import { useEffect, useState } from "react"
 import { Prism as ReactSyntaxHighlighter } from "react-syntax-highlighter"
-import { useSyntaxHighlighterStyle } from "@/hooks/useSyntaxHighlighterStyle"
 
 export function CodeRef({ children, language, showLineNumbers = true }) {
   const [copied, setCopied] = useState(false)

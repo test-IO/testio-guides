@@ -18,15 +18,18 @@ Retrieve all products, optionally filtered by product IDs.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "products": [
@@ -41,6 +44,7 @@ curl -X GET "https://api.test.io/customer/v2/products" \
   ]
 }
 ```
+
 {% /code %}
 
 ## Get product
@@ -56,15 +60,18 @@ Retrieve a specific product by ID.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products/1" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "product": {
@@ -77,6 +84,7 @@ curl -X GET "https://api.test.io/customer/v2/products/1" \
   }
 }
 ```
+
 {% /code %}
 
 ## Create product
@@ -96,6 +104,7 @@ Create a new product.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -109,11 +118,13 @@ curl -X POST "https://api.test.io/customer/v2/products" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "product": {
@@ -126,6 +137,7 @@ curl -X POST "https://api.test.io/customer/v2/products" \
   }
 }
 ```
+
 {% /code %}
 
 ## Update product
@@ -146,6 +158,7 @@ Update an existing product.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/products/1" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -156,11 +169,13 @@ curl -X PUT "https://api.test.io/customer/v2/products/1" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "product": {
@@ -173,6 +188,7 @@ curl -X PUT "https://api.test.io/customer/v2/products/1" \
   }
 }
 ```
+
 {% /code %}
 
 ## Delete product
@@ -188,15 +204,18 @@ Delete a product.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X DELETE "https://api.test.io/customer/v2/products/1" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "product": {
@@ -209,5 +228,5 @@ curl -X DELETE "https://api.test.io/customer/v2/products/1" \
   }
 }
 ```
-{% /code %}
 
+{% /code %}

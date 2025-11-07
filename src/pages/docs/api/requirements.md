@@ -21,6 +21,7 @@ Use requirements to target devices, platforms, and locales for your tests. Each 
 Target iOS Safari on mobile:
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 [
   { "type": "device_type", "value": "mobile" },
@@ -28,11 +29,13 @@ Target iOS Safari on mobile:
   { "type": "browser", "value": "safari" }
 ]
 ```
+
 {% /code %}
 
 Target German desktop Chrome, latest versions:
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 [
   { "type": "device_type", "value": "desktop" },
@@ -40,9 +43,7 @@ Target German desktop Chrome, latest versions:
   { "type": "locale", "value": "de-DE" }
 ]
 ```
+
 {% /code %}
 
 Use requirements in `exploratory_tests` and `test_case_tests` requests to scope who can join and execute your test.
-
-
-

@@ -51,4 +51,3 @@ All responses are returned in JSON format. The API uses standard HTTP status cod
 ## Error Handling
 
 When an error occurs, the API will return an appropriate HTTP status code along with an error message in the response body.
-

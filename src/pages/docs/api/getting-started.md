@@ -16,10 +16,12 @@ This guide will help you get started with the Test IO API. You'll learn how to a
 All API requests require authentication using your API token in the Authorization header:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 See [Authentication](/docs/api/authentication) for detailed information.
@@ -29,15 +31,18 @@ See [Authentication](/docs/api/authentication) for detailed information.
 First, list your existing products:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 If you need to create a new product:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -51,6 +56,7 @@ curl -X POST "https://api.test.io/customer/v2/products" \
     }
   }'
 ```
+
 {% /code %}
 
 Save the `product_id` from the response. You'll need it for subsequent steps.
@@ -62,6 +68,7 @@ See [Products](/docs/api/products) for more details.
 A test environment defines where testers will access your application:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products/{product_id}/test_environments" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -77,6 +84,7 @@ curl -X POST "https://api.test.io/customer/v2/products/{product_id}/test_environ
     }
   }'
 ```
+
 {% /code %}
 
 > **Note**: For mobile apps, upload your binary app first using [Binary Apps](/docs/api/binary-apps), then reference it with `binary_app_id` in the test environment.
@@ -92,10 +100,12 @@ You have two options for defining what to test:
 List available templates for your product:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/test_templates?product_id={product_id}" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 Use a template ID when creating your test. See [Test Templates](/docs/api/test-templates).
@@ -105,6 +115,7 @@ Use a template ID when creating your test. See [Test Templates](/docs/api/test-t
 Create features that define what testers should focus on:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/features" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -122,6 +133,7 @@ curl -X POST "https://api.test.io/customer/v2/features" \
     }
   }'
 ```
+
 {% /code %}
 
 See [Features](/docs/api/features) for more details.
@@ -131,6 +143,7 @@ See [Features](/docs/api/features) for more details.
 Create an exploratory test that will be executed by testers:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products/{product_id}/exploratory_tests" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -155,9 +168,11 @@ curl -X POST "https://api.test.io/customer/v2/products/{product_id}/exploratory_
     }
   }'
 ```
+
 {% /code %}
 
 **Key parameters:**
+
 - `testing_type`: `coverage` (default), `usability`, `rapid`, or `focused`
 - `duration`: Test duration in hours (default: 28 for coverage, 24 for usability, 2 for rapid)
 - `test_environment`: Can reference an existing environment ID or define inline
@@ -172,31 +187,38 @@ See [Exploratory Tests](/docs/api/exploratory-tests) for all options.
 Once your test is running, bugs will be reported by testers. Fetch them using:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids={product_id}" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 Filter by test cycle to get bugs from a specific test:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/bugs?filter_test_cycle_ids={test_cycle_id}" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 Get a specific bug by ID:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/bugs/{bug_id}" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Bug Management:**
+
 - Accept: `PUT /bugs/{bug_id}/accept`
 - Reject: `PUT /bugs/{bug_id}/reject` (with reason and comment)
 - Mark as fixed: `PUT /bugs/{bug_id}/mark_as_fixed`
@@ -230,6 +252,7 @@ See [Bugs](/docs/api/bugs) for all bug management operations.
 ## Error Handling
 
 The API uses standard HTTP status codes:
+
 - `200 OK` - Successful request
 - `201 Created` - Resource created successfully
 - `400 Bad Request` - Invalid request parameters
@@ -240,6 +263,7 @@ The API uses standard HTTP status codes:
 Always check the response status and handle errors appropriately:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 # Example: Check response status
 response=$(curl -s -w "\n%{http_code}" -X GET "https://api.test.io/customer/v2/products" \
@@ -253,6 +277,7 @@ else
   echo "Error ($http_code): $body"
 fi
 ```
+
 {% /code %}
 
 ## Best Practices
@@ -262,11 +287,13 @@ fi
 Never hardcode your API token. Use environment variables:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 export TESTIO_API_TOKEN="your_token_here"
 curl -X GET "https://api.test.io/customer/v2/products" \
   -H "Authorization: Token $TESTIO_API_TOKEN"
 ```
+
 {% /code %}
 
 ### 2. Poll for Test Completion
@@ -274,11 +301,13 @@ curl -X GET "https://api.test.io/customer/v2/products" \
 Tests run asynchronously. Poll the test status to know when it's complete:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 # Get test status
 curl -X GET "https://api.test.io/customer/v2/exploratory_tests/{test_id}" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 Check the `status` field in the response. Common statuses include `pending`, `running`, `completed`, `cancelled`.
@@ -288,11 +317,13 @@ Check the `status` field in the response. Common statuses include `pending`, `ru
 Use filters to get only relevant bugs:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 # Get only unexported bugs for a specific product
 curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1&export_status=not_exported" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 ### 4. Reuse Test Environments
@@ -300,6 +331,7 @@ curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1&export_st
 Create test environments once and reuse them across multiple tests by referencing the `test_environment_id`:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 # Use existing environment ID instead of inline definition
 {
@@ -309,6 +341,7 @@ Create test environments once and reuse them across multiple tests by referencin
   }
 }
 ```
+
 {% /code %}
 
 ### 5. Handle Pagination
@@ -316,11 +349,13 @@ Create test environments once and reuse them across multiple tests by referencin
 When listing resources, use pagination for large datasets:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 # Paginated request
 curl -X GET "https://api.test.io/customer/v2/products/1/exploratory_tests?page=1&per_page=25" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 ## Common Workflows
@@ -347,6 +382,7 @@ curl -X GET "https://api.test.io/customer/v2/products/1/exploratory_tests?page=1
 For quick feedback, use `testing_type: "rapid"` with a 2-hour duration:
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 {
   "exploratory_test": {
@@ -357,6 +393,7 @@ For quick feedback, use `testing_type: "rapid"` with a 2-hour duration:
   }
 }
 ```
+
 {% /code %}
 
 ## Troubleshooting
@@ -393,4 +430,3 @@ For quick feedback, use `testing_type: "rapid"` with a 2-hour duration:
 - [Bugs](/docs/api/bugs) - Complete bug management reference
 
 For more help, visit the [Test IO Help Center](https://help.test.io/en/).
-

@@ -20,10 +20,12 @@ Authorization: Token YOUR_API_TOKEN
 ### Example Request
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 ## Security Best Practices
@@ -32,4 +34,3 @@ curl -X GET "https://api.test.io/customer/v2/products" \
 - Do not commit API tokens to version control systems
 - Rotate your API token regularly
 - Use environment variables to store your API token
-

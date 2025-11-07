@@ -35,15 +35,18 @@ Retrieve a specific user story by ID.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/user_stories/1" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "id": 1,
@@ -51,6 +54,7 @@ curl -X GET "https://api.test.io/customer/v2/user_stories/1" \
   "title": "Add product to cart"
 }
 ```
+
 {% /code %}
 
 ## List user stories
@@ -72,15 +76,18 @@ Returns user stories of all features under the specified product.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products/1/user_stories?section_id=2" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "user_stories": [
@@ -97,6 +104,7 @@ curl -X GET "https://api.test.io/customer/v2/products/1/user_stories?section_id=
   ]
 }
 ```
+
 {% /code %}
 
 ## Create user story
@@ -125,6 +133,7 @@ All attributes must be provided inside the root object `user_story`.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products/1/user_stories?section_id=2" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -136,11 +145,13 @@ curl -X POST "https://api.test.io/customer/v2/products/1/user_stories?section_id
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "id": 1,
@@ -148,6 +159,7 @@ curl -X POST "https://api.test.io/customer/v2/products/1/user_stories?section_id
   "title": "Add product to cart"
 }
 ```
+
 {% /code %}
 
 ## Update user story
@@ -176,6 +188,7 @@ All attributes must be provided inside the root object `user_story`.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/products/1/user_stories/2?section_id=2" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -186,11 +199,13 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/user_stories/2?section_i
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "id": 2,
@@ -198,6 +213,7 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/user_stories/2?section_i
   "title": "Remove product from cart"
 }
 ```
+
 {% /code %}
 
 ## Delete user story
@@ -220,15 +236,18 @@ Deletes the specified user story from the product.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X DELETE "https://api.test.io/customer/v2/products/1/user_stories/2?section_id=2" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "id": 2,
@@ -236,5 +255,5 @@ curl -X DELETE "https://api.test.io/customer/v2/products/1/user_stories/2?sectio
   "title": "Add product to cart"
 }
 ```
-{% /code %}
 
+{% /code %}

@@ -1,13 +1,13 @@
 import { Button } from "@/components/Button"
 import { HeroBackground } from "@/components/HeroBackground"
+import { useSyntaxHighlighterStyle } from "@/hooks/useSyntaxHighlighterStyle"
 import blurCyanImage from "@/images/blur-cyan.png"
 import blurIndigoImage from "@/images/blur-indigo.png"
+import { scrollToAnchor } from "@/utils/navigation"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { Prism as ReactSyntaxHighlighter } from "react-syntax-highlighter"
-import { scrollToAnchor } from "@/utils/navigation"
-import { useSyntaxHighlighterStyle } from "@/hooks/useSyntaxHighlighterStyle"
 
 function TrafficLightsIcon(props) {
   return (
@@ -63,7 +63,10 @@ export function Hero() {
                 enhance the functionality, usability, and performance of their applications.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <Button href="/#getting-started" onClick={(e) => handleNavigation("/", "getting-started", e)}>
+                <Button
+                  href="/#getting-started"
+                  onClick={(e) => handleNavigation("/", "getting-started", e)}
+                >
                   Get Started
                 </Button>
                 <Button
@@ -87,7 +90,7 @@ export function Hero() {
             <div className="absolute inset-x-[-50vw] -bottom-48 -top-32 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:-bottom-32 lg:-top-32 lg:left-[calc(50%+14rem)] lg:right-0 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
               <HeroBackground className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]" />
             </div>
-            <div className="relative pointer-events-none">
+            <div className="pointer-events-none relative">
               <Image
                 className="absolute -right-64 -top-64"
                 src={blurCyanImage}
@@ -268,22 +271,22 @@ func main() {
   const currentCode = codeSnippets[selectedLanguage] || codeSnippets.javascript
 
   return (
-    <div className="relative mt-8 lg:mt-12 w-full">
+    <div className="relative mt-8 w-full lg:mt-12">
       <div className="w-full">
         {/* Window frame with traffic lights */}
-        <div className="relative rounded-lg border border-sky-500/30 bg-gradient-to-r from-slate-950 to-slate-900 backdrop-blur-sm shadow-[0_0_25px_rgba(56,189,248,0.2),0_0_50px_rgba(56,189,248,0.1)] min-h-[280px] w-full">
+        <div className="relative min-h-[280px] w-full rounded-lg border border-sky-500/30 bg-gradient-to-r from-slate-950 to-slate-900 shadow-[0_0_25px_rgba(56,189,248,0.2),0_0_50px_rgba(56,189,248,0.1)] backdrop-blur-sm">
           {/* Top highlight */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent rounded-t-lg" />
-          
+          <div className="absolute inset-x-0 top-0 h-px rounded-t-lg bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
+
           {/* Traffic lights container */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-700/50 bg-slate-800/30 rounded-t-lg">
+          <div className="flex items-center gap-2 rounded-t-lg border-b border-slate-700/50 bg-slate-800/30 px-4 py-3">
             <TrafficLightsIcon className="h-3.5 w-auto stroke-slate-400/80" />
             <div className="flex-1" />
           </div>
-          
+
           {/* File tabs */}
-          <div className="px-4 pt-3 pb-3">
-            <div className="flex space-x-2 text-xs flex-wrap gap-2">
+          <div className="px-4 pb-3 pt-3">
+            <div className="flex flex-wrap gap-2 space-x-2 text-xs">
               {languages.map((lang) => {
                 const isActive = selectedLanguage === lang.id
                 return (
@@ -309,13 +312,13 @@ func main() {
               })}
             </div>
           </div>
-          
+
           {/* Code content area */}
           <div className="relative overflow-hidden rounded-b-lg">
             {/* Bottom highlight */}
-            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent z-10 rounded-b-lg" />
-            
-            <div className="w-full max-w-full overflow-x-auto min-h-[200px] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&_pre]:!overflow-x-auto [&_pre]:!whitespace-pre [&_code]:!whitespace-pre">
+            <div className="absolute inset-x-0 bottom-0 z-10 h-px rounded-b-lg bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
+
+            <div className="min-h-[200px] w-full max-w-full overflow-x-auto [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&::-webkit-scrollbar]:h-2 [&_code]:!whitespace-pre [&_pre]:!overflow-x-auto [&_pre]:!whitespace-pre">
               {Object.keys(codeStyle).length > 0 && (
                 <ReactSyntaxHighlighter
                   language={selectedLanguage === "bash" ? "bash" : selectedLanguage}

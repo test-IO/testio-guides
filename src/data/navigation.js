@@ -18,7 +18,7 @@ const navigation = [
       { title: "Test Case Tests", href: "/docs/api/test-case-tests" },
     ],
   },
-  
+
   {
     title: "Jira Add-Ons",
     links: [
@@ -141,14 +141,11 @@ const navigation = [
           { title: "User Stories Execution", href: "/docs/jira_server/user_stories" },
         ],
       },
-      
     ],
   },
   {
     title: "Notion Integration",
-    links: [
-      { title: "Configure Notion as Bug Tracker", href: "/docs/integrations/notion" },
-    ],
+    links: [{ title: "Configure Notion as Bug Tracker", href: "/docs/integrations/notion" }],
   },
   {
     title: "Zapier App",

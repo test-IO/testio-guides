@@ -23,15 +23,18 @@ Retrieve bugs with optional filtering.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1,2&export_status=not_exported" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "bugs": [
@@ -50,6 +53,7 @@ curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1,2&export_
   ]
 }
 ```
+
 {% /code %}
 
 ## Get bug
@@ -65,15 +69,18 @@ Retrieve a specific bug by ID.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/bugs/123" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "bug": {
@@ -90,6 +97,7 @@ curl -X GET "https://api.test.io/customer/v2/bugs/123" \
   }
 }
 ```
+
 {% /code %}
 
 ## Search bug
@@ -101,6 +109,7 @@ Search for bugs using external index.
 **Request Body:**
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "bug": {
@@ -108,11 +117,13 @@ Search for bugs using external index.
   }
 }
 ```
+
 {% /code %}
 
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/bugs" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -123,6 +134,7 @@ curl -X POST "https://api.test.io/customer/v2/bugs" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -138,10 +150,12 @@ Get a list of available reject reasons for bugs.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/bugs/reject_reasons" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -161,15 +175,18 @@ Accept a bug.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/bugs/123/accept" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "bug": {
@@ -180,6 +197,7 @@ curl -X PUT "https://api.test.io/customer/v2/bugs/123/accept" \
   }
 }
 ```
+
 {% /code %}
 
 ## Mark As Exported
@@ -195,10 +213,12 @@ Mark a bug as exported.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/bugs/123/mark_as_exported" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -218,10 +238,12 @@ Mark a bug as known.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/bugs/123/mark_as_known" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -241,10 +263,12 @@ Mark a bug as fixed.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/bugs/123/mark_as_fixed" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -269,6 +293,7 @@ Reject a bug with a reason and comment.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/bugs/123/reject" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -278,11 +303,13 @@ curl -X PUT "https://api.test.io/customer/v2/bugs/123/reject" \
     "comment": "This bug is already known and being tracked"
   }'
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "bug": {
@@ -293,5 +320,5 @@ curl -X PUT "https://api.test.io/customer/v2/bugs/123/reject" \
   }
 }
 ```
-{% /code %}
 
+{% /code %}

@@ -31,6 +31,7 @@ Create a new bug report confirmation.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/bug_report_confirmations" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -46,9 +47,9 @@ curl -X POST "https://api.test.io/customer/v2/bug_report_confirmations" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
 
 Returns the created bug report confirmation object.
-

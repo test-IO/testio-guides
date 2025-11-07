@@ -19,9 +19,7 @@ export function GridList({ columns = 1, children }) {
     const existing = child.props.className ? `${child.props.className} ` : ""
     return React.cloneElement(child, { className: `${existing}${className} list-none m-0 p-0` })
   }
-  return <ul className={`${className} list-none m-0 p-0`}>{children}</ul>
+  return <ul className={`${className} m-0 list-none p-0`}>{children}</ul>
 }
 
 export default GridList
-
-

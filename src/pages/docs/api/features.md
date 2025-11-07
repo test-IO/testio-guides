@@ -20,15 +20,18 @@ Retrieve all features for a specific product.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products/1/features" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "features": [
@@ -42,6 +45,7 @@ curl -X GET "https://api.test.io/customer/v2/products/1/features" \
   ]
 }
 ```
+
 {% /code %}
 
 ## Create feature
@@ -65,6 +69,7 @@ Create a new feature.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/features" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -81,11 +86,13 @@ curl -X POST "https://api.test.io/customer/v2/features" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "feature": {
@@ -97,5 +104,5 @@ curl -X POST "https://api.test.io/customer/v2/features" \
   }
 }
 ```
-{% /code %}
 
+{% /code %}

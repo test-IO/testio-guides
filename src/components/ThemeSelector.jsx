@@ -48,9 +48,7 @@ export function ThemeSelector(props) {
   const [selectedTheme, setSelectedTheme] = useState(() => {
     if (typeof window === "undefined") return themes[2] // system
     const themeValue =
-      window.localStorage?.theme ??
-      document.documentElement.getAttribute("data-theme") ??
-      "system"
+      window.localStorage?.theme ?? document.documentElement.getAttribute("data-theme") ?? "system"
     return themes.find((theme) => theme.value === themeValue) || themes[2]
   })
 

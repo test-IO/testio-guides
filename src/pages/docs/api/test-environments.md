@@ -22,10 +22,12 @@ Retrieve all test environments for a specific product.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products/1/test_environments" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -46,10 +48,12 @@ Retrieve a specific test environment by ID.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products/1/test_environments/42" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -85,6 +89,7 @@ Create a new test environment.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products/1/test_environments" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -100,6 +105,7 @@ curl -X POST "https://api.test.io/customer/v2/products/1/test_environments" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
@@ -124,6 +130,7 @@ Update an existing test environment.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/products/1/test_environments/42" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -135,6 +142,7 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/test_environments/42" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -155,13 +163,14 @@ Delete a test environment.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X DELETE "https://api.test.io/customer/v2/products/1/test_environments/42" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 Returns the deleted test environment object.
-

@@ -62,4 +62,3 @@ export function findCurrentSection(navigation, pathname) {
 
   return { section, childSection }
 }
-

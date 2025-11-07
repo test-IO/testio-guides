@@ -22,6 +22,7 @@ Create multiple test cases at once.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products/1/test_cases" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -35,9 +36,9 @@ curl -X POST "https://api.test.io/customer/v2/products/1/test_cases" \
     ]
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
 
 Returns an array of created test case objects.
-

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+
 import { useTheme } from "./useTheme"
 
 /**
@@ -17,8 +18,7 @@ export function useSyntaxHighlighterStyle(forceDark = false) {
     const isDark =
       forceDark ||
       theme === "dark" ||
-      (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
 
     // Use static string literals for webpack to analyze
     if (isDark) {
@@ -38,4 +38,3 @@ export function useSyntaxHighlighterStyle(forceDark = false) {
 
   return style
 }
-

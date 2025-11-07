@@ -32,6 +32,7 @@ Create a new test case test.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/products/1/test_case_test" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -54,6 +55,7 @@ curl -X POST "https://api.test.io/customer/v2/products/1/test_case_test" \
     }
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
@@ -73,6 +75,7 @@ Use `requirements` to target devices/platforms exactly. A requirement is a small
 Example:
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "test_case_test": {
@@ -87,7 +90,7 @@ Example:
   }
 }
 ```
+
 {% /code %}
 
 See the dedicated [Requirements](/docs/api/requirements) page for full details and allowed values.
-

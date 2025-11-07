@@ -8,7 +8,7 @@ import { ThemeSelector } from "@/components/ThemeSelector"
 import main from "@/data/main"
 import navigation from "@/data/navigation"
 import { getAllLinks } from "@/utils/helpers"
-import { scrollToAnchor, findCurrentSection } from "@/utils/navigation"
+import { findCurrentSection, scrollToAnchor } from "@/utils/navigation"
 import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -66,25 +66,25 @@ function Header({ main, navigation, isHomePage }) {
       <div className="-my-5 mr-6 sm:mr-8 md:mr-4">{<Search />}</div>
       {/* Top Navigation Links - Only show when NOT on homepage */}
       {!isHomePage && (
-        <nav className="hidden lg:flex items-center gap-6 mr-6">
+        <nav className="mr-6 hidden items-center gap-6 lg:flex">
           <Link
             href="/#getting-started"
             onClick={(e) => handleNavClick(e, "getting-started")}
-            className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
+            className="text-sm font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400"
           >
             Get Started
           </Link>
           <Link
             href="/#integrations"
             onClick={(e) => handleNavClick(e, "integrations")}
-            className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
+            className="text-sm font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400"
           >
             Integrations
           </Link>
           <Link
             href="/#api-reference"
             onClick={(e) => handleNavClick(e, "api-reference")}
-            className="text-sm font-medium text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors"
+            className="text-sm font-medium text-slate-700 transition-colors hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400"
           >
             API Reference
           </Link>
@@ -180,7 +180,7 @@ export function Layout({ children, title, tableOfContents }) {
           <div className="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
           <div className="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block" />
           <div className="absolute bottom-0 right-0 top-28 hidden w-px bg-slate-800 dark:block" />
-          <div className="sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden pt-4 pb-16 pl-0.5 [scrollbar-width:thin] [scrollbar-color:rgba(71,85,105,0.5)_rgba(30,41,59,0.5)] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-thumb]:border-0">
+          <div className="sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden pb-16 pl-0.5 pt-4 [scrollbar-color:rgba(71,85,105,0.5)_rgba(30,41,59,0.5)] [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-0 [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&::-webkit-scrollbar]:w-2">
             <Navigation navigation={navigation} main={main} className="w-64 pr-8" />
           </div>
         </div>
@@ -192,7 +192,7 @@ export function Layout({ children, title, tableOfContents }) {
                   <p className="font-display text-sm font-medium text-sky-500">{section.title}</p>
                 )}
                 {title && (
-                  <h1 
+                  <h1
                     id={isHomePage ? "getting-started" : undefined}
                     className="font-display text-3xl tracking-tight text-slate-900 dark:text-white"
                   >
@@ -236,7 +236,7 @@ export function Layout({ children, title, tableOfContents }) {
             )}
           </dl>
         </div>
-        <div className="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6 [scrollbar-width:thin] [scrollbar-color:rgba(71,85,105,0.5)_rgba(30,41,59,0.5)] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-thumb]:border-0">
+        <div className="hidden [scrollbar-color:rgba(71,85,105,0.5)_rgba(30,41,59,0.5)] [scrollbar-width:thin] xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-0 [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&::-webkit-scrollbar]:w-2">
           <nav aria-labelledby="on-this-page-title" className="w-56">
             {tableOfContents.length > 0 && (
               <>

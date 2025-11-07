@@ -20,16 +20,19 @@ Upload a binary application file directly to the API.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/binary_apps" \
   -H "Authorization: Token YOUR_API_TOKEN" \
   -F "file=@MyApp.apk"
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "binary_app": {
@@ -40,6 +43,7 @@ curl -X POST "https://api.test.io/customer/v2/binary_apps" \
   }
 }
 ```
+
 {% /code %}
 
 ## Get direct upload URL (large files)
@@ -51,15 +55,18 @@ Request a URL for large files. This lets you upload the file directly from your 
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/binary_apps/upload_url" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "binary_app_id": 123,
@@ -74,6 +81,7 @@ curl -X GET "https://api.test.io/customer/v2/binary_apps/upload_url" \
   }
 }
 ```
+
 {% /code %}
 
 ## Finalize binary app upload
@@ -89,6 +97,7 @@ Finalize a direct upload by validating metadata, verifying the file exists in st
 **Request Body:**
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "filename": "MyApp-v1.2.3.apk",
@@ -99,11 +108,13 @@ Finalize a direct upload by validating metadata, verifying the file exists in st
   "url": "https://files.test.io/uploads/binary_app/13/MyApp-v1.2.3.apk"
 }
 ```
+
 {% /code %}
 
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/binary_apps/123" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -117,11 +128,13 @@ curl -X PUT "https://api.test.io/customer/v2/binary_apps/123" \
     "url": "https://testcloud-staging-webapp.s3.eu-west-1.amazonaws.com/uploads/binary_app/package/13/MyApp-v1.2.3.apk"
   }'
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "binary_app": {
@@ -132,6 +145,7 @@ curl -X PUT "https://api.test.io/customer/v2/binary_apps/123" \
   }
 }
 ```
+
 {% /code %}
 
 **Error Response:** `422 Unprocessable Entity`
@@ -139,10 +153,11 @@ curl -X PUT "https://api.test.io/customer/v2/binary_apps/123" \
 If the file is not found in storage, returns:
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "error": "File not found: uploads/binary_app/123/MyApp-v1.2.3.apk"
 }
 ```
-{% /code %}
 
+{% /code %}

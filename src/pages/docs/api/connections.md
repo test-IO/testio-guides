@@ -12,7 +12,9 @@ Custom Bug Export Connections let you expose an HTTPS endpoint that receives a b
 Use a Custom Bug Export Connection for any tracker or workflow that can accept an HTTP POST. For native trackers, see our integrations list; otherwise, a custom connection is a flexible alternative.
 
 ### Common trackers used with custom exports
+
 {% grid-list columns="3" %}
+
 - Azure DevOps
 - Bugzilla
 - ClickUp
@@ -35,7 +37,7 @@ Use a Custom Bug Export Connection for any tracker or workflow that can accept a
 - YouTrack
 - Zendesk
 - Zoho
-{% /grid-list %}
+  {% /grid-list %}
 
 ## Create Custom Bug Export Connection
 
@@ -54,6 +56,7 @@ Create a new connection.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X POST "https://api.test.io/customer/v2/connections" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -66,11 +69,13 @@ curl -X POST "https://api.test.io/customer/v2/connections" \
     "section_ids": [5]
   }'
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "connection": {
@@ -81,6 +86,7 @@ curl -X POST "https://api.test.io/customer/v2/connections" \
   }
 }
 ```
+
 {% /code %}
 
 ## Get connection
@@ -96,15 +102,18 @@ Retrieve a specific connection by ID.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/connections/42" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "connection": {
@@ -115,6 +124,7 @@ curl -X GET "https://api.test.io/customer/v2/connections/42" \
   }
 }
 ```
+
 {% /code %}
 
 ## Update connection
@@ -138,6 +148,7 @@ Update an existing connection.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X PUT "https://api.test.io/customer/v2/connections/42" \
   -H "Authorization: Token YOUR_API_TOKEN" \
@@ -148,11 +159,13 @@ curl -X PUT "https://api.test.io/customer/v2/connections/42" \
     "fixed": true
   }'
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "connection": {
@@ -163,6 +176,7 @@ curl -X PUT "https://api.test.io/customer/v2/connections/42" \
   }
 }
 ```
+
 {% /code %}
 
 ## Delete connection
@@ -178,15 +192,18 @@ Delete a connection.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X DELETE "https://api.test.io/customer/v2/connections/42" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "connection": {
@@ -197,6 +214,7 @@ curl -X DELETE "https://api.test.io/customer/v2/connections/42" \
   }
 }
 ```
+
 {% /code %}
 
 ## Export trigger and payload

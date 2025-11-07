@@ -35,10 +35,12 @@ Retrieve all test templates for a specific product, optionally filtered by secti
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/test_templates?product_id=1" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -46,10 +48,10 @@ curl -X GET "https://api.test.io/customer/v2/test_templates?product_id=1" \
 Returns an array of test template objects.
 
 Each test template includes:
+
 - `id` (number) - Template ID
 - `title` (string) - Title of test template
 - `test_scenario_template` (string) - Type of test scenario template
 - `max_test_duration` (number) - Max duration of the test in hours
 - `min_test_duration` (number) - Min duration of the test in hours
 - `default_test_duration` (number) - Default duration of the test in hours
-

@@ -5,7 +5,8 @@ description: Create and manage exploratory tests
 
 Create and manage exploratory tests for your products.
 
-> **Prerequisites**: 
+> **Prerequisites**:
+>
 > - You need a product (see [Products](/docs/api/products))
 > - A test environment is required (see [Test Environments](/docs/api/test-environments))
 > - Either features (see [Features](/docs/api/features)) or a test template (see [Test Templates](/docs/api/test-templates)) must be provided
@@ -24,10 +25,12 @@ Retrieve a specific exploratory test by ID.
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/exploratory_tests/123" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -53,10 +56,12 @@ If `page` parameter is omitted, pagination is not applied and the last 150 tests
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
+
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products/1/exploratory_tests?page=1&per_page=25" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -106,6 +111,7 @@ All attributes must be provided inside the root object `exploratory_test`.
 ### Example Request
 
 {% code language="json" showLineNumbers=true %}
+
 ```json
 {
   "exploratory_test": {
@@ -198,6 +204,7 @@ All attributes must be provided inside the root object `exploratory_test`.
   }
 }
 ```
+
 {% /code %}
 
 **Response:** `201 Created`
@@ -225,4 +232,3 @@ The `requirements` array allows you to specify device targeting for your test. E
 Example: To find available iOS devices, query the Public Device API for devices with `operating_system: "iOS"`, then use the returned IDs in your requirements array.
 
 For a simpler approach using device type, OS, and browser names, see the [Requirements](/docs/api/requirements) page which explains the alternative format used in test case tests.
-
