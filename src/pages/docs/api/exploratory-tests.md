@@ -94,7 +94,7 @@ All attributes must be provided inside the root object `exploratory_test`.
   - `critical` (boolean, optional, default: **false**) - Enable critical-severity bugs
 - `section_id` (number, optional) - Section ID to associate the test with
 - `allow_device_clouds` (boolean, optional, default: **false**) - Allow testers to use device clouds
-- `requirements` (array, optional) - Device requirements
+- `requirements` (array, optional) - Device requirements (see [Building Requirements Array](#building-requirements-array) below)
 - `attachments` (array, optional) - Test attachments
 - `use_default_devices` (boolean, optional, default: **true**) - Whether to use default devices selection
 - `test_environment` (object, **required**) - Test environment related attributes
@@ -203,4 +203,26 @@ All attributes must be provided inside the root object `exploratory_test`.
 **Response:** `201 Created`
 
 Returns the created exploratory test object with full details.
+
+### Building Requirements Array
+
+The `requirements` array allows you to specify device targeting for your test. Each requirement object can include:
+
+- `category` - Device category (e.g., mobile, desktop, tablet)
+- `vendor` - Device manufacturer (e.g., Apple, Samsung)
+- `devices` - Specific device models
+- `operating_system` - OS (e.g., iOS, Android, Windows)
+- `min_operating_system_version` / `max_operating_system_version` - OS version range
+- `browsers` - Browser applications
+- `input_devices` - Input methods (e.g., keyboard, touch)
+
+**Important**: All IDs in the requirements array (category, vendor, devices, operating_system, browsers, etc.) must be retrieved from the [Public Device API](https://api.test.io/public/v2/devices). Use the Public Device API to:
+
+1. List available device categories, vendors, and models
+2. Get operating system and browser options
+3. Retrieve the correct IDs for each requirement field
+
+Example: To find available iOS devices, query the Public Device API for devices with `operating_system: "iOS"`, then use the returned IDs in your requirements array.
+
+For a simpler approach using device type, OS, and browser names, see the [Requirements](/docs/api/requirements) page which explains the alternative format used in test case tests.
 

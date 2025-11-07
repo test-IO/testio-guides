@@ -1,6 +1,5 @@
 import { Layout } from "@/components/Layout"
 import "@/styles/tailwind.css"
-import "@/styles/mcp-blur.css"
 import { slugifyWithCounter } from "@sindresorhus/slugify"
 import "focus-visible"
 import Head from "next/head"

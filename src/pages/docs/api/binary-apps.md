@@ -44,7 +44,7 @@ curl -X POST "https://api.test.io/customer/v2/binary_apps" \
 
 ## Get direct upload URL (large files)
 
-Request a pre-signed direct upload URL for large files. This lets you upload the file directly from your client to our storage without passing the entire payload through the API server.
+Request a URL for large files. This lets you upload the file directly from your client to our storage without passing the entire payload through the API server.
 
 **Endpoint:** `GET /binary_apps/upload_url`
 
