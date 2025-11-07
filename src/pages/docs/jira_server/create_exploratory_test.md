@@ -7,7 +7,7 @@ You can **access the "Create Exploratory Test" page** by clicking the "Create ne
 
 {% screenshot src="/assets/jira_server/create_exploratory_test/create_test_btn.png" caption="Create new test button on Exploratory tests page" /%}
 
-Follow the steps below to create a new Exploratory Test within your Jira Plugin:
+Follow the steps below to create a new Exploratory Test within your Jira Add-On:
 
 **Step 1: Select Test IO Product and Product Section** {% .title-small %}
 
@@ -18,7 +18,7 @@ To send your test to the appropriate Test IO Product, follow these steps:
 
 {% screenshot src="/assets/jira_server/create_exploratory_test/step1.png" /%}
 
-These dropdown options are based on the configurations set up in the Jira Data Center (Server) Plugin, ensuring that your test is properly linked to the correct Test IO Product in your Jira project.
+These dropdown options are based on the configurations set up in the Jira Data Center Add-On, ensuring that your test is properly linked to the correct Test IO Product in your Jira project.
 
 **Step 2**: Next, select **the type of test** you will be running {% .title-small %}
 
@@ -191,7 +191,7 @@ description="Review Test IO Bugs from the configured Test IO Products and Sectio
 
 {% quick-link title="Accept Test IO Bug" icon="shield_check"
 href="/docs/jira_server/accept_bug"
-description="Export Test IO Bug to your Jira Data Center (Server)" /%}
+description="Export Test IO Bug to your Jira Data Center" /%}
 
 {% quick-link title="User Stories execution" icon="shield_check"
 href="/docs/jira_server/user_stories"

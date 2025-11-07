@@ -1,10 +1,13 @@
 import { Button } from "@/components/Button"
 import { HeroBackground } from "@/components/HeroBackground"
+import { useSyntaxHighlighterStyle } from "@/hooks/useSyntaxHighlighterStyle"
 import blurCyanImage from "@/images/blur-cyan.png"
 import blurIndigoImage from "@/images/blur-indigo.png"
-import clsx from "clsx"
+import { scrollToAnchor } from "@/utils/navigation"
 import Image from "next/image"
-import { Fragment, useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
+import { Prism as ReactSyntaxHighlighter } from "react-syntax-highlighter"
 
 function TrafficLightsIcon(props) {
   return (
@@ -17,12 +20,29 @@ function TrafficLightsIcon(props) {
 }
 
 export function Hero() {
-  const [style, setStyle] = useState({})
+  const router = useRouter()
+
+  useEffect(() => {
+    // Handle anchor links on page load
+    if (router.pathname === "/" && typeof window !== "undefined") {
+      const hash = window.location.hash.slice(1) // Remove the #
+      if (hash) {
+        setTimeout(() => {
+          scrollToAnchor(hash, router)
+        }, 100)
+      }
+    }
+  }, [router.pathname])
+
+  const handleNavigation = (href, anchor, e) => {
+    e.preventDefault()
+    scrollToAnchor(anchor, router)
+  }
 
   return (
     <div className="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.5rem] dark:pb-32 dark:pt-[4.5rem] dark:lg:mt-[-4.75rem] dark:lg:pt-[4.75rem]">
       <div className="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
           <div className="relative z-10 md:text-center lg:text-left">
             <Image
               className="absolute bottom-full right-full -mb-56 -mr-72 opacity-50"
@@ -43,12 +63,25 @@ export function Hero() {
                 enhance the functionality, usability, and performance of their applications.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <Button href="/">Get started</Button>
-                <Button href="/docs/integrations/overview" variant="secondary">
+                <Button
+                  href="/#getting-started"
+                  onClick={(e) => handleNavigation("/", "getting-started", e)}
+                >
+                  Get Started
+                </Button>
+                <Button
+                  href="/#integrations"
+                  variant="secondary"
+                  onClick={(e) => handleNavigation("/", "integrations", e)}
+                >
                   Integrations
                 </Button>
-                <Button href="https://testio2.docs.apiary.io/" variant="secondary">
-                  Customer API Reference
+                <Button
+                  href="/#api-reference"
+                  variant="secondary"
+                  onClick={(e) => handleNavigation("/", "api-reference", e)}
+                >
+                  API Reference
                 </Button>
               </div>
             </div>
@@ -57,7 +90,7 @@ export function Hero() {
             <div className="absolute inset-x-[-50vw] -bottom-48 -top-32 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:-bottom-32 lg:-top-32 lg:left-[calc(50%+14rem)] lg:right-0 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
               <HeroBackground className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]" />
             </div>
-            <div className="relative">
+            <div className="pointer-events-none relative">
               <Image
                 className="absolute -right-64 -top-64"
                 src={blurCyanImage}
@@ -77,6 +110,244 @@ export function Hero() {
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10 blur-lg" />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10" />
+            </div>
+            <div className="relative z-10">
+              <CodeSample />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function CodeSample() {
+  const [selectedLanguage, setSelectedLanguage] = useState("javascript")
+  const codeStyle = useSyntaxHighlighterStyle(true) // Force dark theme
+
+  const codeSnippets = {
+    javascript: `const response = await fetch(
+  'https://api.test.io/customer/v2/products/1/exploratory_tests',
+  {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Token YOUR_API_TOKEN',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      exploratory_test: {
+        test_title: 'Checkout Flow Test',
+        goal: 'Validate the checkout process',
+        testing_type: 'focused',
+        test_environment: { id: 123 },
+        features: [{ id: 456 }]
+      }
+    })
+  }
+);
+
+const test = await response.json();`,
+    python: `import requests
+
+response = requests.post(
+    'https://api.test.io/customer/v2/products/1/exploratory_tests',
+    headers={
+        'Authorization': 'Token YOUR_API_TOKEN',
+        'Content-Type': 'application/json',
+    },
+    json={
+        'exploratory_test': {
+            'test_title': 'Checkout Flow Test',
+            'goal': 'Validate the checkout process',
+            'testing_type': 'focused',
+            'test_environment': {'id': 123},
+            'features': [{'id': 456}]
+        }
+    }
+)
+
+test = response.json()`,
+    ruby: `require 'net/http'
+require 'json'
+require 'uri'
+
+uri = URI('https://api.test.io/customer/v2/products/1/exploratory_tests')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(uri.path)
+request['Authorization'] = 'Token YOUR_API_TOKEN'
+request['Content-Type'] = 'application/json'
+request.body = {
+  exploratory_test: {
+    test_title: 'Checkout Flow Test',
+    goal: 'Validate the checkout process',
+    testing_type: 'focused',
+    test_environment: { id: 123 },
+    features: [{ id: 456 }]
+  }
+}.to_json
+
+response = http.request(request)
+test = JSON.parse(response.body)`,
+    bash: `curl -X POST "https://api.test.io/customer/v2/products/1/exploratory_tests" \\
+  -H "Authorization: Token YOUR_API_TOKEN" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "exploratory_test": {
+      "test_title": "Checkout Flow Test",
+      "goal": "Validate the checkout process",
+      "testing_type": "focused",
+      "test_environment": { "id": 123 },
+      "features": [{ "id": 456 }]
+    }
+  }'`,
+    php: `<?php
+
+$ch = curl_init('https://api.test.io/customer/v2/products/1/exploratory_tests');
+
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_HTTPHEADER => [
+        'Authorization: Token YOUR_API_TOKEN',
+        'Content-Type: application/json',
+    ],
+    CURLOPT_POSTFIELDS => json_encode([
+        'exploratory_test' => [
+            'test_title' => 'Checkout Flow Test',
+            'goal' => 'Validate the checkout process',
+            'testing_type' => 'focused',
+            'test_environment' => ['id' => 123],
+            'features' => [['id' => 456]]
+        ]
+    ])
+]);
+
+$response = curl_exec($ch);
+$test = json_decode($response, true);
+curl_close($ch);`,
+    go: `package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "net/http"
+)
+
+func main() {
+    data := map[string]interface{}{
+        "exploratory_test": map[string]interface{}{
+            "test_title":    "Checkout Flow Test",
+            "goal":          "Validate the checkout process",
+            "testing_type":   "focused",
+            "test_environment": map[string]int{"id": 123},
+            "features":      []map[string]int{{"id": 456}},
+        },
+    }
+    
+    jsonData, _ := json.Marshal(data)
+    req, _ := http.NewRequest("POST",
+        "https://api.test.io/customer/v2/products/1/exploratory_tests",
+        bytes.NewBuffer(jsonData))
+    req.Header.Set("Authorization", "Token YOUR_API_TOKEN")
+    req.Header.Set("Content-Type", "application/json")
+    
+    client := &http.Client{}
+    resp, _ := client.Do(req)
+    defer resp.Body.Close()
+}`,
+  }
+
+  const languages = [
+    { id: "javascript", label: "api.js" },
+    { id: "python", label: "api.py" },
+    { id: "ruby", label: "api.rb" },
+    { id: "bash", label: "api.sh" },
+    { id: "php", label: "api.php" },
+    { id: "go", label: "api.go" },
+  ]
+
+  const currentCode = codeSnippets[selectedLanguage] || codeSnippets.javascript
+
+  return (
+    <div className="relative mt-8 w-full lg:mt-12">
+      <div className="w-full">
+        {/* Window frame with traffic lights */}
+        <div className="relative min-h-[280px] w-full rounded-lg border border-sky-500/30 bg-gradient-to-r from-slate-950 to-slate-900 shadow-[0_0_25px_rgba(56,189,248,0.2),0_0_50px_rgba(56,189,248,0.1)] backdrop-blur-sm">
+          {/* Top highlight */}
+          <div className="absolute inset-x-0 top-0 h-px rounded-t-lg bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
+
+          {/* Traffic lights container */}
+          <div className="flex items-center gap-2 rounded-t-lg border-b border-slate-700/50 bg-slate-800/30 px-4 py-3">
+            <TrafficLightsIcon className="h-3.5 w-auto stroke-slate-400/80" />
+            <div className="flex-1" />
+          </div>
+
+          {/* File tabs */}
+          <div className="px-4 pb-3 pt-3">
+            <div className="flex flex-wrap gap-2 space-x-2 text-xs">
+              {languages.map((lang) => {
+                const isActive = selectedLanguage === lang.id
+                return (
+                  <button
+                    key={lang.id}
+                    onClick={() => setSelectedLanguage(lang.id)}
+                    className={`flex h-6 rounded-full transition-all ${
+                      isActive
+                        ? "bg-gradient-to-r from-sky-400/30 via-sky-400 to-sky-400/30 p-px font-medium text-sky-300"
+                        : "text-slate-500 hover:text-slate-400"
+                    }`}
+                    type="button"
+                  >
+                    <div
+                      className={`flex items-center rounded-full px-2.5 ${
+                        isActive ? "bg-slate-800" : ""
+                      }`}
+                    >
+                      {lang.label}
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Code content area */}
+          <div className="relative overflow-hidden rounded-b-lg">
+            {/* Bottom highlight */}
+            <div className="absolute inset-x-0 bottom-0 z-10 h-px rounded-b-lg bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
+
+            <div className="min-h-[200px] w-full max-w-full overflow-x-auto [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&::-webkit-scrollbar]:h-2 [&_code]:!whitespace-pre [&_pre]:!overflow-x-auto [&_pre]:!whitespace-pre">
+              {Object.keys(codeStyle).length > 0 && (
+                <ReactSyntaxHighlighter
+                  language={selectedLanguage === "bash" ? "bash" : selectedLanguage}
+                  style={codeStyle}
+                  customStyle={{
+                    background: "transparent",
+                    margin: 0,
+                    padding: "0.75em 1em",
+                    fontSize: "0.8125rem",
+                    lineHeight: "1.5",
+                    overflow: "visible",
+                    minHeight: "200px",
+                  }}
+                  PreTag="div"
+                  showLineNumbers={true}
+                  lineNumberStyle={{
+                    display: "inline-block",
+                    minWidth: "2em",
+                    paddingRight: "0.75em",
+                    textAlign: "right",
+                    color: "rgb(99, 119, 119)",
+                    fontStyle: "italic",
+                    userSelect: "none",
+                    textDecoration: "none",
+                  }}
+                >
+                  {currentCode}
+                </ReactSyntaxHighlighter>
+              )}
             </div>
           </div>
         </div>

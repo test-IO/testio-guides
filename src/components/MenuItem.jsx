@@ -5,20 +5,16 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 export default function MenuItem({ item, parents }) {
-  const [open, setOpen] = useState(false)
-  let router = useRouter()
-
-  useEffect(() => {
-    if (parents.includes(item.href)) {
-      setOpen(true)
-    }
-  }, [])
+  const router = useRouter()
+  const [open, setOpen] = useState(() => {
+    return parents.includes(item.href) || item.href === router.pathname
+  })
 
   useEffect(() => {
     if (item.href === router.pathname) {
       setOpen(true)
     }
-  }, [router.pathname])
+  }, [item.href, router.pathname])
 
   const handlerClick = (event) => {
     const chevron = event.target.closest("svg")

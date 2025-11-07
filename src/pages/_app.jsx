@@ -22,7 +22,9 @@ function collectHeadings(nodes, slugify = slugifyWithCounter()) {
     if (node.name === "h2" || node.name === "h3") {
       let title = getNodeText(node)
       if (title) {
-        let id = slugify(title)
+        // Use existing ID if present, otherwise generate one
+        let id = node.attributes?.id || slugify(title)
+        node.attributes = node.attributes || {}
         node.attributes.id = id
         if (node.name === "h3") {
           if (!sections[sections.length - 1]) {

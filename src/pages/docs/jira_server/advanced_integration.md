@@ -59,17 +59,17 @@ By configuring these properties, you enhance the ability to manage and track imp
 
 ---
 
-## Configuring the Jira Data Center Plugin from Project Settings
+## Configuring the Jira Data Center Add-On from Project Settings
 
-You can also configure the Jira Data Center Plugin from the Project Settings page using a Jira user account with **non-admin permissions**.
+You can also configure the Jira Data Center Add-On from the Project Settings page using a Jira user account with **non-admin permissions**.
 
-This means you don't need admin-level access to set up the plugin for your specific project, making it more accessible and easier to manage for individual project teams.
+This means you don't need admin-level access to set up the Add-On for your specific project, making it more accessible and easier to manage for individual project teams.
 
-{% screenshot src="/assets/jira_server/advanced_integration/4.png" caption="Configure the Jira Data Center Plugin from Project Settings" /%}
+{% screenshot src="/assets/jira_server/advanced_integration/4.png" caption="Configure the Jira Data Center Add-On from Project Settings" /%}
 
 ---
 
-You have now fully configured the Jira Data Center (Server) Plugin. **Next**, navigate to your configured Jira Project to explore and utilize the integration capabilities provided by the plugin.
+You have now fully configured the Jira Data Center Add-On. **Next**, navigate to your configured Jira Project to explore and utilize the integration capabilities provided by the Add-On.
 
 {% quick-links %}
 

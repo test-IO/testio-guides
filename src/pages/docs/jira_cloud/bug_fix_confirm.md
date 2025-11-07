@@ -89,7 +89,7 @@ You can view the details of the requested BFC by accessing the linked BFC direct
 
 After submitting the bug fix confirmation, it is assigned to a tester with a matching device. The tester will replicate the steps that led to the bug. Once completed, they will attach a screencast demonstrating either the presence or absence of the bug and may add a comment for additional context. **You can access all this information under the Jira ticket's Comments section**.
 
-If Bug Fix Confirmation status synchronization is configured in the Test IO Plugin Configuration -> Advanced Integration section, **successful confirmation on the Test IO side will automatically update the Jira ticket to the specified status**. Find more details about BFC status sync in Jira Cloud [here](/docs/jira_cloud/advanced_integration).
+If Bug Fix Confirmation status synchronization is configured in the Test IO Add-On Configuration -> Advanced Integration section, **successful confirmation on the Test IO side will automatically update the Jira ticket to the specified status**. Find more details about BFC status sync in Jira Cloud [here](/docs/jira_cloud/advanced_integration).
 
 **Note**: If there is already a Bug Fix Confirmation request with a “Pending” status for the selected Jira ticket, **you cannot request a new BFC until a tester has responded to the existing request**.
 

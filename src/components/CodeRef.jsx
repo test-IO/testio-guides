@@ -1,33 +1,12 @@
 import { Icon } from "@/components/Icon"
+import { useSyntaxHighlighterStyle } from "@/hooks/useSyntaxHighlighterStyle"
 import copy from "copy-to-clipboard"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Prism as ReactSyntaxHighlighter } from "react-syntax-highlighter"
 
 export function CodeRef({ children, language, showLineNumbers = true }) {
-  const [style, setStyle] = useState({})
   const [copied, setCopied] = useState(false)
-  const [selectedTheme, setSelectedTheme] = useState("system")
-
-  useEffect(() => {
-    let theme = document.documentElement.classList.contains("dark") ? "dark" : "light"
-    if (theme === "dark") {
-      import("react-syntax-highlighter/dist/esm/styles/prism/synthwave84").then((mod) =>
-        setStyle(mod.default)
-      )
-    } else {
-      import("react-syntax-highlighter/dist/esm/styles/prism/night-owl").then((mod) =>
-        setStyle(mod.default)
-      )
-    }
-  }, [selectedTheme])
-
-  useEffect(() => {
-    let handler = () => setSelectedTheme(window.localStorage.theme ?? "system")
-
-    window.addEventListener("storage", handler)
-
-    return () => window.removeEventListener("storage", handler)
-  }, [])
+  const style = useSyntaxHighlighterStyle()
 
   // Turn React element children into string
   let code = ""
@@ -50,7 +29,7 @@ export function CodeRef({ children, language, showLineNumbers = true }) {
       const to = setTimeout(setCopied, 1000, false)
       return () => clearTimeout(to)
     }
-  }, [copied])
+  }, [copied, code])
 
   const lines = code.split("\n").filter(Boolean)
 

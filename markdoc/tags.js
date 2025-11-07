@@ -1,5 +1,6 @@
 import { Callout } from "@/components/Callout"
 import { CodeRef } from "@/components/CodeRef"
+import { GridList } from "@/components/GridList"
 import { QuickLink, QuickLinks } from "@/components/QuickLinks"
 import { Screenshot } from "@/components/Screenshot"
 import { YouTube } from "@/components/YouTube"
@@ -20,6 +21,13 @@ const tags = {
         <figcaption>{caption}</figcaption>
       </figure>
     ),
+  },
+  "grid-list": {
+    render: GridList,
+    children: ["list"],
+    attributes: {
+      columns: { type: Number, default: 2 },
+    },
   },
   "quick-links": {
     render: QuickLinks,

@@ -13,7 +13,7 @@ The Maintenance page provides essential tools to manage and troubleshoot the Tes
 
 **Steps to Perform a Test**:
 
-1. Navigate to the **Maintenance page** under the Test IO Plugin section in your Jira instance.
+1. Navigate to the **Maintenance page** under the Test IO Add-On section in your Jira instance.
 
 2. Click on the **Test Environment** button.
 
@@ -21,7 +21,7 @@ The Maintenance page provides essential tools to manage and troubleshoot the Tes
 
 {% screenshot src="/assets/jira_server/maintain/2.png" caption="Test environment results" /%}
 
-**Download Logs**: This option provides access to the logs of the Jira Data Center(Server) addon and not only. These logs can be crucial for troubleshooting issues and may be requested by Test IO support for resolving problems. You have the flexibility to **choose between downloading all Jira logs or only the logs specific to the plugin by using the "Download only plugin logs" checkbox**.
+**Download Logs**: This option provides access to the logs of the Jira Data Center Add-On and not only. These logs can be crucial for troubleshooting issues and may be requested by Test IO support for resolving problems. You have the flexibility to **choose between downloading all Jira logs or only the logs specific to the Add-On by using the "Download only Add-On logs" checkbox**.
 
 To further refine your log downloads, you can specify a time range for the logs you need. The available options include:
 
@@ -33,7 +33,7 @@ To further refine your log downloads, you can specify a time range for the logs 
 
   {% screenshot src="/assets/jira_server/maintain/4.png" caption="Download Test IO logs for Custom Date range" /%}
 
-**Clear Test IO data**: This feature allows you to perform a **hard reset**, clearing all Test IO settings created by the Jira Data Center (Server) Plugin. **Use this option with caution, as it will delete all plugin-related setups**.
+**Clear Test IO data**: This feature allows you to perform a **hard reset**, clearing all Test IO settings created by the Jira Data Center Add-On. **Use this option with caution, as it will delete all Add-On-related setups**.
 
 {% screenshot src="/assets/jira_server/maintain/5.png" caption="Clear Test IO data" /%}
 
@@ -61,7 +61,7 @@ In the synchronization job table, you can easily monitor the status, details, la
 
 - **About Column**: Offers explanations for each job's purpose and significance. Click on the info links to learn more about what each job entails.
 
-- **Notifications**: Each job has a checkbox under the Notification column that allows you to turn notifications on or off for that specific job in the Test IO plugin section. This helps you stay informed about the execution and status of each synchronization job as needed.
+- **Notifications**: Each job has a checkbox under the Notification column that allows you to turn notifications on or off for that specific job in the Test IO Add-On section. This helps you stay informed about the execution and status of each synchronization job as needed.
 
 ## Migration to Cloud Tab
 

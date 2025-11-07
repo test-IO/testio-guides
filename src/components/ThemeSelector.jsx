@@ -45,26 +45,25 @@ function SystemIcon(props) {
 }
 
 export function ThemeSelector(props) {
-  let [selectedTheme, setSelectedTheme] = useState("")
+  const [selectedTheme, setSelectedTheme] = useState(() => {
+    if (typeof window === "undefined") return themes[2] // system
+    const themeValue =
+      window.localStorage?.theme ?? document.documentElement.getAttribute("data-theme") ?? "system"
+    return themes.find((theme) => theme.value === themeValue) || themes[2]
+  })
 
   useEffect(() => {
     if (selectedTheme) {
       document.documentElement.setAttribute("data-theme", selectedTheme.value)
-    } else {
-      setSelectedTheme(
-        themes.find((theme) => theme.value === document.documentElement.getAttribute("data-theme"))
-      )
     }
   }, [selectedTheme])
 
   useEffect(() => {
-    let handler = () => console.log("storage changed")
-    setSelectedTheme(
-      themes.find((theme) => theme.value === (window.localStorage.theme ?? "system"))
-    )
-
+    const handler = () => {
+      const themeValue = window.localStorage?.theme ?? "system"
+      setSelectedTheme(themes.find((theme) => theme.value === themeValue) || themes[2])
+    }
     window.addEventListener("storage", handler)
-
     return () => window.removeEventListener("storage", handler)
   }, [])
 

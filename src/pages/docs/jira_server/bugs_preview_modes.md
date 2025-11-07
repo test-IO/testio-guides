@@ -3,7 +3,7 @@ title: "Test IO Bugs: Received Bugs and All Bugs"
 description: Learn about the two preview options of the Test IO Bugs page.
 ---
 
-With the Jira Data Center (Server) plugin configured, a new "**Test IO**" section will appear in the left-side navigation menu of your Jira Project. Click on the "Test IO" section and navigate to the **"Bugs"** page.
+With the Jira Data Center Add-On configured, a new "**Test IO**" section will appear in the left-side navigation menu of your Jira Project. Click on the "Test IO" section and navigate to the **"Bugs"** page.
 
 The Bugs page offers two preview options: **"Received Bugs"** and **"All Bugs"**. You can easily switch between these preview modes using the **Switch filter**.
 
@@ -62,7 +62,7 @@ To preview an individual Test IO bug and view its details, follow these steps:
 
 ## All Bugs
 
-The Jira Data Center (Server) plugin provides comprehensive access to Test IO bugs, even after they have been accepted or rejected. The plugin's **“All Bugs”** preview mode offers a unified view that includes:
+The Jira Data Center Add-On provides comprehensive access to Test IO bugs, even after they have been accepted or rejected. The Add-On's **"All Bugs"** preview mode offers a unified view that includes:
 
 - **Open Bugs**: Bugs that are currently under review or awaiting action.
 
@@ -90,11 +90,11 @@ The advanced search functionality streamlines bug management and tracking, offer
 
 {% quick-link title="Accept Test IO Bug" icon="shield_check"
 href="/docs/jira_server/accept_bug"
-description="Export Test IO Bug to your Jira Data Center (Server)" /%}
+description="Export Test IO Bug to your Jira Data Center" /%}
 
 {% quick-link title="Reject Test IO Bug" icon="shield_check"
 href="/docs/jira_server/reject_bug"
-description="Reject invalid Test IO Bug reports from your Jira Data Center (Server)" /%}
+description="Reject invalid Test IO Bug reports from your Jira Data Center" /%}
 
 {% quick-link title="Copy and Share Bug Link" icon="shield_check"
 href="/docs/jira_server/share_bug_link"

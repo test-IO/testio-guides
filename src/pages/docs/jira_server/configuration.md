@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: Learn how to configure the Jira Server plugin integration with Test IO.
+description: Learn how to configure the Jira Data Center Add-On integration with Test IO.
 ---
 
 ## Create new Configuration
@@ -32,7 +32,7 @@ To start, you'll need to **create a configuration**. Follow these steps:
 
 3. **Issue Type & Fields Mapping Tab**:
 
-   - In the **“Issue type” field**, select the specific type that will be applied to Jira tickets when accepting Test IO bugs and creating the associated Jira tickets. This is usually the Bug issue type, but it could be different depending on the project configuration. Please note, that your Jira Data Center (Server) instance could have multiple Bug issue definitions, please ensure you select the appropriate one.​
+   - In the **"Issue type" field**, select the specific type that will be applied to Jira tickets when accepting Test IO bugs and creating the associated Jira tickets. This is usually the Bug issue type, but it could be different depending on the project configuration. Please note, that your Jira Data Center instance could have multiple Bug issue definitions, please ensure you select the appropriate one.​
 
      {% screenshot src="/assets/jira_server/config/3.png" caption="Select the issue type that will be applied to Jira tickets when you accept Test IO bugs" /%}
 
@@ -180,9 +180,9 @@ To start, you'll need to **create a configuration**. Follow these steps:
 
 Once you have completed setting up the synchronization and mapping rules for the integration between Jira and Test IO, you can proceed to configure the **Comments** and **Advanced Integration** settings.
 
-**Note**: Test IO Plugin configuration can also be performed at the Jira Project settings level. For quick access, navigate to Jira Project -> Test IO Plugin -> Settings/ Configuration page.
+**Note**: Test IO Add-On configuration can also be performed at the Jira Project settings level. For quick access, navigate to Jira Project -> Test IO Add-On -> Settings/ Configuration page.
 
-{% screenshot src="/assets/jira_server/config/22.gif" caption="Setup Jira Plugin Configuration in Jira Project level" /%}
+{% screenshot src="/assets/jira_server/config/22.gif" caption="Setup Jira Add-On Configuration in Jira Project level" /%}
 
 {% quick-links %}
 

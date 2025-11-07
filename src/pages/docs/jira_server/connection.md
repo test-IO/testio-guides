@@ -1,9 +1,9 @@
 ---
 title: Connection
-description: Learn how to set up and manage the Jira Server Plugin's connections.
+description: Learn how to set up and manage the Jira Data Center Add-On's connections.
 ---
 
-The Jira Data Center (Server) Plugin supports two types of connections: **Global (default)** and **Jira Project specific**. Follow the instructions below to set up and manage these connections effectively.
+The Jira Data Center Add-On supports two types of connections: **Global (default)** and **Jira Project specific**. Follow the instructions below to set up and manage these connections effectively.
 
 ## Connection Types
 
@@ -13,7 +13,7 @@ The Jira Data Center (Server) Plugin supports two types of connections: **Global
 
 ## Setting up a Global (default) Connection
 
-1. **Navigate to Connection**: Go to the "Connection" page found in the Manage Apps section under the Test IO Plugin details.
+1. **Navigate to Connection**: Go to the "Connection" page found in the Manage Apps section under the Test IO Add-On details.
 
 2. **Enter API Key**: Obtain your Test IO Personal API key from the Test IO Customer Account (found on the Integrations -> API page) and enter it.
 
@@ -21,7 +21,7 @@ The Jira Data Center (Server) Plugin supports two types of connections: **Global
 
 3. **Save Changes**: Click "Save" to complete the authentication process.
 
-   {% screenshot src="/assets/jira_server/connect/2.png" caption="Global (default) Connection in Jira Server (Data Center) plugin" /%}
+   {% screenshot src="/assets/jira_server/connect/2.png" caption="Global (default) Connection in Jira Data Center Add-On" /%}
 
 ## Setting up a Jira Project specific Connection
 
@@ -45,7 +45,7 @@ The Jira Data Center (Server) Plugin supports two types of connections: **Global
 
 ## Multi-Customer support
 
-The Jira Data Center (Server) Plugin supports **Multi-Customer connections**, allowing you to **integrate Jira with multiple Test IO accounts**. This can be achieved through different combinations of Global (Default) and Jira Project-specific connections.
+The Jira Data Center Add-On supports **Multi-Customer connections**, allowing you to **integrate Jira with multiple Test IO accounts**. This can be achieved through different combinations of Global (Default) and Jira Project-specific connections.
 
 **How Multi-Customer Support Works**
 

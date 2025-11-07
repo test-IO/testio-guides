@@ -1,9 +1,9 @@
 ---
 title: "Test IO Bugs: All Bugs page"
-description: Learn about the Jira Cloud plugin's All Bugs section.
+description: Learn about the Jira Cloud Add-On's All Bugs section.
 ---
 
-The Jira Cloud plugin provides comprehensive access to Test IO bugs, even after they have been accepted or rejected. The plugin's **“All Bugs” section** offers a unified view that includes:
+The Jira Cloud Add-On provides comprehensive access to Test IO bugs, even after they have been accepted or rejected. The Add-On's **"All Bugs" section** offers a unified view that includes:
 
 - **Open Bugs**: Bugs that are currently under review or awaiting action.
 - **Accepted Bugs**: Bugs that have been validated and accepted, and have associated Jira tickets created for them.
