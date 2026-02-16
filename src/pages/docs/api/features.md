@@ -1,6 +1,6 @@
 ---
 title: Features
-description: List and create features
+description: List, create, and copy features
 ---
 
 Manage features for your products.
@@ -17,12 +17,116 @@ Retrieve all features for a specific product.
 
 - `product_id` (number, required) - ID of the Product
 
+**Query Parameters:**
+
+| Parameter    | Type  | Required | Description                                                                                                                                                                        |
+| ------------ | ----- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. When included, `user_stories` returns objects with `id`, `path`, `title`, `feature_id` instead of plain strings. |
+
+> For products **with sections**, use `GET /products/{product_id}/sections/{section_id}/features` to list features scoped to a specific section. See [List features by section](#list-features-by-section) below.
+
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
 
 ```bash
 curl -X GET "https://api.test.io/customer/v2/products/1/features" \
+  -H "Authorization: Token YOUR_API_TOKEN"
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+By default, `user_stories` is an array of path strings:
+
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "features": [
+    {
+      "id": 1,
+      "title": "Account Management",
+      "description": "Manage your account information",
+      "howtofind": "Top right of the screen",
+      "user_stories": ["User story 1", "User story 2"]
+    }
+  ]
+}
+```
+
+{% /code %}
+
+**Example Request (with expanded user stories):**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X GET "https://api.test.io/customer/v2/products/1/features?includes[]=user_stories" \
+  -H "Authorization: Token YOUR_API_TOKEN"
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+When `includes[]=user_stories` is passed, each user story is returned as an object:
+
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "features": [
+    {
+      "id": 1,
+      "title": "Account Management",
+      "description": "Manage your account information",
+      "howtofind": "Top right of the screen",
+      "user_stories": [
+        {
+          "id": 10,
+          "path": "User story 1",
+          "title": "User story 1",
+          "feature_id": 1
+        },
+        {
+          "id": 11,
+          "path": "User story 2",
+          "title": "User story 2",
+          "feature_id": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
+{% /code %}
+
+## List features by section
+
+Retrieve all features for a specific section of a product. Use this endpoint for products that have sections enabled.
+
+**Endpoint:** `GET /products/{product_id}/sections/{section_id}/features`
+
+**Parameters:**
+
+- `product_id` (number, required) - ID of the Product
+- `section_id` (number, required) - ID of the Section
+
+**Query Parameters:**
+
+| Parameter    | Type  | Required | Description                                                                                                        |
+| ------------ | ----- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. See [List features](#list-features) for details. |
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X GET "https://api.test.io/customer/v2/products/1/sections/2/features" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
 
@@ -40,7 +144,7 @@ curl -X GET "https://api.test.io/customer/v2/products/1/features" \
       "title": "Account Management",
       "description": "Manage your account information",
       "howtofind": "Top right of the screen",
-      "user_stories": ["User story 1", "User story 2"]
+      "user_stories": ["User story 1"]
     }
   ]
 }
@@ -102,6 +206,60 @@ curl -X POST "https://api.test.io/customer/v2/features" \
     "howtofind": "Top right of the screen",
     "user_stories": ["User story 1"]
   }
+}
+```
+
+{% /code %}
+
+## Copy features
+
+Copy all features (including their user stories) from one product to another. The features are duplicated into the destination product.
+
+**Endpoint:** `PUT /products/{product_id}/features/copy`
+
+**Parameters:**
+
+- `product_id` (number, required) - ID of the source Product to copy features from
+- `destination_product_id` (number, required) - ID of the destination Product to copy features to
+
+**Query Parameters:**
+
+| Parameter    | Type  | Required | Description                                                                                                        |
+| ------------ | ----- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. See [List features](#list-features) for details. |
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X PUT "https://api.test.io/customer/v2/products/1/features/copy" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "destination_product_id": 2
+  }'
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+Returns the list of features in the destination product after copying.
+
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "features": [
+    {
+      "id": 30,
+      "title": "Account Management",
+      "description": "Manage your account information",
+      "howtofind": "Top right of the screen",
+      "user_stories": ["User story 1"]
+    }
+  ]
 }
 ```
 

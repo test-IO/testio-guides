@@ -34,6 +34,7 @@ The API provides access to the following resources:
 - **[Binary Apps](/docs/api/binary-apps)** - Upload and manage binary application files
 - **[Connections](/docs/api/connections)** - Manage connections
 - **[User Stories](/docs/api/user-stories)** - Create and manage user stories
+- **[User Story Version Executions](/docs/api/user-story-version-executions)** - List execution results for user stories
 - **[Features](/docs/api/features)** - List and create features
 - **[Bugs](/docs/api/bugs)** - Fetch, search, and manage bugs
 - **[Exploratory Tests](/docs/api/exploratory-tests)** - Create and manage exploratory tests
