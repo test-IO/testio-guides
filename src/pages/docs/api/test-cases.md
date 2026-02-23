@@ -24,10 +24,12 @@ Create multiple test cases at once.
 - `title` (string, required) - Title of the test case
 - `feature_id` (number, required) - ID of the Feature the test case belongs to
 - `test_case_steps` (array[Step], required) - Array of step objects
+- `target_idx` (string, optional) - Reference of the test case in other system
 
 **Step Object:**
 
 - `description` (string, required) - Description of the step
+- `target_idx` (string, optional) - Reference of the test case step in other system
 
 **Example Request:**
 
