@@ -19,6 +19,18 @@ Create multiple test cases at once.
 
 - `test_cases` (array[TestCase], required) - Array of test case objects
 
+**TestCase Object:**
+
+- `title` (string, required) - Title of the test case
+- `feature_id` (number, required) - ID of the Feature the test case belongs to
+- `test_case_steps` (array[Step], required) - Array of step objects
+- `target_idx` (string, optional) - Reference of the test case in other system
+
+**Step Object:**
+
+- `description` (string, required) - Description of the step
+- `target_idx` (string, optional) - Reference of the test case step in other system
+
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
@@ -31,7 +43,18 @@ curl -X POST "https://api.test.io/customer/v2/products/1/test_cases" \
     "test_cases": [
       {
         "title": "Login Test",
-        "steps": "1. Navigate to login page\n2. Enter credentials\n3. Click login"
+        "feature_id": 123,
+        "test_case_steps": [
+          {
+            "description": "Navigate to login page"
+          },
+          {
+            "description": "Enter credentials"
+          },
+          {
+            "description": "Click login"
+          }
+        ]
       }
     ]
   }'
@@ -42,3 +65,7 @@ curl -X POST "https://api.test.io/customer/v2/products/1/test_cases" \
 **Response:** `201 Created`
 
 Returns an array of created test case objects.
+
+{% callout type="note" %}
+In the response, the steps field is returned as `steps` (not `test_case_steps` as in the request). Each step object in the response also includes `id`, `test_case_id`, and `target_idx` fields.
+{% /callout %}
