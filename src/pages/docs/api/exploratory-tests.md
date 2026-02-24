@@ -1,6 +1,6 @@
 ---
 title: Exploratory Tests
-description: Create and manage exploratory tests
+description: Create, update, launch, duplicate, and manage exploratory tests
 ---
 
 Create and manage exploratory tests for your products.
@@ -22,6 +22,12 @@ Retrieve a specific exploratory test by ID.
 
 - `exploratory_test_id` (number, required) - ID of the Exploratory test
 
+**Query Parameters:**
+
+| Parameter    | Type  | Required | Description                                                                                                                                                                                        |
+| ------------ | ----- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. When included, `user_stories` in each feature returns objects with `id`, `path`, `title`, `feature_id` instead of plain strings. |
+
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
@@ -35,7 +41,7 @@ curl -X GET "https://api.test.io/customer/v2/exploratory_tests/123" \
 
 **Response:** `200 OK`
 
-Returns the exploratory test object with full details including test environment, features, requirements, and more.
+Returns the exploratory test object with full details including test environment, features, requirements, and more. By default, `user_stories` in each feature is an array of path strings. Pass `includes[]=user_stories` to expand them into objects.
 
 ## List exploratory tests
 
@@ -48,6 +54,12 @@ Returns a paginated list of exploratory tests for the specified product.
 - `product_id` (number, required) - ID of the Product
 - `page` (number, optional) - Page number of the result set
 - `per_page` (number, optional) - Number of items per page when pagination is applied. Used only if **page** is provided. Default: 25
+
+**Query Parameters:**
+
+| Parameter    | Type  | Required | Description                                                                                                                      |
+| ------------ | ----- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. See [Get exploratory test](#get-exploratory-test) for details. |
 
 **Notes:**
 
@@ -210,6 +222,150 @@ All attributes must be provided inside the root object `exploratory_test`.
 **Response:** `201 Created`
 
 Returns the created exploratory test object with full details.
+
+> **Note on `user_stories` in response**: The `user_stories` field in the response is an array of path strings by default. To get expanded user story objects, use `includes[]=user_stories` on the GET endpoints (see [Get exploratory test](#get-exploratory-test)).
+
+## Update exploratory test
+
+Updates an existing exploratory test. You can modify test parameters, features, and the test environment.
+
+**Endpoint:** `PUT /exploratory_tests/{exploratory_test_id}`
+
+**Parameters:**
+
+- `exploratory_test_id` (number, required) - ID of the Exploratory test
+
+All attributes must be provided inside the root object `exploratory_test`. Only provided fields will be updated.
+
+### Attributes
+
+Same attributes as [Create exploratory test](#create-exploratory-test), with the following differences:
+
+- `test_environment` (object, **optional**) - Test environment related attributes. If omitted, the existing test environment is kept
+- `features` (array, optional) - Features to be tested. If omitted, existing features are kept
+- `test_template` is **not available** for updates
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X PUT "https://api.test.io/customer/v2/exploratory_tests/123" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "exploratory_test": {
+      "test_title": "Updated Checkout Flow Test",
+      "goal": "Re-validate the checkout process after fixes",
+      "features": [
+        {
+          "id": 15
+        },
+        {
+          "title": "Payment Flow",
+          "description": "Verify payment methods work correctly.",
+          "howtofind": "Proceed to payment after adding items to cart.",
+          "user_stories": [
+            "As a customer, I want to pay with a credit card.",
+            "As a customer, I want to apply a discount code."
+          ]
+        }
+      ]
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+Returns the updated exploratory test object with full details.
+
+## Launch exploratory test
+
+Launches a previously created exploratory test that has not been launched yet. This is useful when the test was created with `auto_launch: false`.
+
+**Endpoint:** `POST /exploratory_tests/{exploratory_test_id}/launch`
+
+**Parameters:**
+
+- `exploratory_test_id` (number, required) - ID of the Exploratory test
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X POST "https://api.test.io/customer/v2/exploratory_tests/123/launch" \
+  -H "Authorization: Token YOUR_API_TOKEN"
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+Returns the launched exploratory test object with full details.
+
+## Duplicate exploratory test
+
+Creates a copy of an existing exploratory test. The duplicated test will have the same configuration (features, test environment, requirements, etc.) but will be a new, independent test.
+
+**Endpoint:** `POST /exploratory_tests/{exploratory_test_id}/duplicate`
+
+**Parameters:**
+
+- `exploratory_test_id` (number, required) - ID of the Exploratory test to duplicate
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X POST "https://api.test.io/customer/v2/exploratory_tests/123/duplicate" \
+  -H "Authorization: Token YOUR_API_TOKEN"
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+Returns the newly created (duplicated) exploratory test object with full details. The duplicated test will have a new ID.
+
+## Create test template from exploratory test
+
+Creates a reusable test template based on an existing exploratory test's configuration. The template captures the test scenario settings (features, requirements, etc.) so they can be reused when creating future tests.
+
+**Endpoint:** `POST /exploratory_tests/{exploratory_test_id}/templates`
+
+**Parameters:**
+
+- `exploratory_test_id` (number, required) - ID of the Exploratory test to create a template from
+
+**Request Body:**
+
+- `test_template` (object, required)
+  - `title` (string, required) - Title for the new test template
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X POST "https://api.test.io/customer/v2/exploratory_tests/123/templates" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "test_template": {
+      "title": "Checkout Flow Template"
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `201 Created`
+
+Returns the newly created test template object. See [Test Templates](/docs/api/test-templates) for more details on the response format.
 
 ### Building Requirements Array
 

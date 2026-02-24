@@ -7,6 +7,7 @@ const navigation = [
       { title: "Products", href: "/docs/api/products" },
       { title: "Features", href: "/docs/api/features" },
       { title: "User Stories", href: "/docs/api/user-stories" },
+      { title: "User Story Version Executions", href: "/docs/api/user-story-version-executions" },
       { title: "Test Environments", href: "/docs/api/test-environments" },
       { title: "Binary Apps", href: "/docs/api/binary-apps" },
       { title: "Exploratory Tests", href: "/docs/api/exploratory-tests" },
