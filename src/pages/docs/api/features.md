@@ -7,6 +7,28 @@ Manage features for your products.
 
 > **Prerequisites**: You need a product before creating features. See [Products](/docs/api/products) to get or create a product. Features are used when creating exploratory tests (see [Exploratory Tests](/docs/api/exploratory-tests)).
 
+## What are Features?
+
+Features represent distinct areas or capabilities of your product that you want to test. Each feature describes a specific part of your application, along with instructions on how to find it and optional user stories that define expected behavior.
+
+Examples of Features:
+
+- **Login Page** - The authentication screen where users enter their credentials
+- **Shopping Cart** - The area where users review and manage items before checkout
+- **User Profile Settings** - The page where users update their personal information and preferences
+- **Search Functionality** - The search bar and results page used to find products or content
+
+Features are not executed standalone. They are always used within the scope of an [Exploratory Test](/docs/api/exploratory-tests). You can attach [User Stories](/docs/api/user-stories) to features to describe specific behaviors that testers should verify.
+
+## Features and Sections
+
+Features belong to a product and can optionally be organized into sections. Sections allow you to group related features together within a product.
+
+- For products **without sections**, features are created directly under the product. Use `GET /products/{product_id}/features` to retrieve all features and `POST /features` to create new ones.
+- For products **with sections**, features must be associated with one or more sections. When creating a feature, provide `section_ids` to assign it to specific sections. Use `GET /products/{product_id}/sections/{section_id}/features` to retrieve features scoped to a particular section, or use `GET /products/{product_id}/features` to retrieve all features across all sections.
+
+> For more information on managing sections, see [Sections](/docs/api/sections).
+
 ## List features
 
 Retrieve all features for a specific product. This endpoint returns the full list of features regardless of whether sections are enabled for the product.
