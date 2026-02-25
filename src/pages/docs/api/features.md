@@ -9,7 +9,7 @@ Manage features for your products.
 
 ## List features
 
-Retrieve all features for a specific product.
+Retrieve all features for a specific product. This endpoint returns the full list of features regardless of whether sections are enabled for the product.
 
 **Endpoint:** `GET /products/{product_id}/features`
 
@@ -23,7 +23,7 @@ Retrieve all features for a specific product.
 | ------------ | ----- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. When included, `user_stories` returns objects with `id`, `path`, `title`, `feature_id` instead of plain strings. |
 
-> For products **with sections**, use `GET /products/{product_id}/sections/{section_id}/features` to list features scoped to a specific section. See [List features by section](#list-features-by-section) below.
+> To retrieve features for a particular section (when sections are enabled for the product), use `GET /products/{product_id}/sections/{section_id}/features`. See [List features by section](#list-features-by-section) below.
 
 **Example Request:**
 
