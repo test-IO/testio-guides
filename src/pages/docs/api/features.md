@@ -27,8 +27,6 @@ Features belong to a product and can optionally be organized into sections. Sect
 - For products **without sections**, features are created directly under the product. Use `GET /products/{product_id}/features` to retrieve all features and `POST /features` to create new ones.
 - For products **with sections**, features must be associated with one or more sections. When creating a feature, provide `section_ids` to assign it to specific sections. Use `GET /products/{product_id}/sections/{section_id}/features` to retrieve features scoped to a particular section, or use `GET /products/{product_id}/features` to retrieve all features across all sections.
 
-> For more information on managing sections, see [Sections](/docs/api/sections).
-
 ## List features
 
 Retrieve all features for a specific product. This endpoint returns the full list of features regardless of whether sections are enabled for the product.
