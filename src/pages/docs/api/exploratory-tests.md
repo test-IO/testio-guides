@@ -24,8 +24,8 @@ Retrieve a specific exploratory test by ID.
 
 **Query Parameters:**
 
-| Parameter    | Type  | Required | Description                                                                                                                                                                                        |
-| ------------ | ----- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter    | Type  | Required | Description                                                                                                                                                                                                                                                                                 |
+| ------------ | ----- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. When included, `user_stories` in each feature returns objects with `id`, `path`, `title`, `feature_id`, `user_story_version_id`, `execution_status`, `tested_by_count`, `bugs_found`, `bug_ids` instead of plain strings. |
 
 **Example Request:**
@@ -49,42 +49,42 @@ The response includes execution metrics at multiple levels, computed from custom
 
 **Analytics** (top-level `analytics` object):
 
-| Field                  | Type   | Description                                      |
-| ---------------------- | ------ | ------------------------------------------------ |
-| `testers_count`        | number | Number of testers who participated               |
-| `devices_count`        | number | Number of devices used                           |
-| `total_features`       | number | Total number of features in the test             |
-| `tested_features`      | number | Features with at least one tested user story     |
-| `passed_features`      | number | Tested features with zero bugs                   |
-| `failed_features`      | number | Tested features with one or more bugs            |
-| `total_user_stories`   | number | Total number of user stories across all features |
-| `tested_user_stories`  | number | User stories with at least one execution         |
-| `passed_user_stories`  | number | Tested user stories with zero bugs               |
-| `failed_user_stories`  | number | Tested user stories with one or more bugs        |
-| `total_bugs`           | number | Total number of customer-visible bugs            |
+| Field                 | Type   | Description                                      |
+| --------------------- | ------ | ------------------------------------------------ |
+| `testers_count`       | number | Number of testers who participated               |
+| `devices_count`       | number | Number of devices used                           |
+| `total_features`      | number | Total number of features in the test             |
+| `tested_features`     | number | Features with at least one tested user story     |
+| `passed_features`     | number | Tested features with zero bugs                   |
+| `failed_features`     | number | Tested features with one or more bugs            |
+| `total_user_stories`  | number | Total number of user stories across all features |
+| `tested_user_stories` | number | User stories with at least one execution         |
+| `passed_user_stories` | number | Tested user stories with zero bugs               |
+| `failed_user_stories` | number | Tested user stories with one or more bugs        |
+| `total_bugs`          | number | Total number of customer-visible bugs            |
 
 **Feature-level** (each object in `features` array):
 
-| Field              | Type   | Description                                         |
-| ------------------ | ------ | --------------------------------------------------- |
-| `execution_status` | string | `"not_tested"`, `"passed"`, or `"failed"`           |
-| `tester_count`     | number | Number of distinct testers who tested this feature  |
-| `bugs_found`       | number | Number of customer-visible bugs for this feature    |
-| `bug_ids`          | array  | Array of bug IDs associated with this feature       |
+| Field              | Type   | Description                                        |
+| ------------------ | ------ | -------------------------------------------------- |
+| `execution_status` | string | `"not_tested"`, `"passed"`, or `"failed"`          |
+| `tester_count`     | number | Number of distinct testers who tested this feature |
+| `bugs_found`       | number | Number of customer-visible bugs for this feature   |
+| `bug_ids`          | array  | Array of bug IDs associated with this feature      |
 
 **User story-level** (each object in `user_stories` when using `includes[]=user_stories`):
 
-| Field                    | Type   | Description                                              |
-| ------------------------ | ------ | -------------------------------------------------------- |
-| `id`                     | number | User story ID (same as the standalone user story)        |
-| `path`                   | string | User story description                                   |
-| `title`                  | string | User story title                                         |
-| `feature_id`             | number | ID of the parent feature                                 |
-| `user_story_version_id`  | number | ID of the user story version within this test cycle      |
-| `execution_status`       | string | `"not_tested"`, `"passed"`, or `"failed"`                |
-| `tested_by_count`        | number | Number of distinct testers who tested this user story    |
-| `bugs_found`             | number | Number of bugs found for this user story                 |
-| `bug_ids`                | array  | Array of bug IDs associated with this user story         |
+| Field                   | Type   | Description                                           |
+| ----------------------- | ------ | ----------------------------------------------------- |
+| `id`                    | number | User story ID (same as the standalone user story)     |
+| `path`                  | string | User story description                                |
+| `title`                 | string | User story title                                      |
+| `feature_id`            | number | ID of the parent feature                              |
+| `user_story_version_id` | number | ID of the user story version within this test cycle   |
+| `execution_status`      | string | `"not_tested"`, `"passed"`, or `"failed"`             |
+| `tested_by_count`       | number | Number of distinct testers who tested this user story |
+| `bugs_found`            | number | Number of bugs found for this user story              |
+| `bug_ids`               | array  | Array of bug IDs associated with this user story      |
 
 ### Example Response
 
@@ -181,8 +181,8 @@ Returns a paginated list of exploratory tests for the specified product.
 
 **Query Parameters:**
 
-| Parameter    | Type  | Required | Description                                                                                                                      |
-| ------------ | ----- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter    | Type  | Required | Description                                                                                                                                                                 |
+| ------------ | ----- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. Note: execution metrics are only available on the [Get exploratory test](#get-exploratory-test) endpoint. |
 
 **Notes:**
