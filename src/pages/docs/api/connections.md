@@ -37,7 +37,8 @@ Use a Custom Bug Export Connection for any tracker or workflow that can accept a
 - YouTrack
 - Zendesk
 - Zoho
-  {% /grid-list %}
+
+{% /grid-list %}
 
 ## Create Custom Bug Export Connection
 
