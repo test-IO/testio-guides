@@ -24,8 +24,8 @@ Retrieve a specific exploratory test by ID.
 
 **Query Parameters:**
 
-| Parameter    | Type  | Required | Description                                                                                                                                                                                                                                                                                 |
-| ------------ | ----- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter    | Type  | Required | Description                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------ | ----- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. When included, `user_stories` in each feature returns objects with `id`, `path`, `title`, `feature_id`, `user_story_version_id`, `execution_status`, `tested_by_count`, `bugs_found`, `bug_ids` instead of plain strings. `execution_status` can be `"not_tested"`, `"passed"`, `"failed"`, or `"blocked"`. |
 
 **Example Request:**
@@ -49,52 +49,52 @@ The response includes execution metrics at multiple levels, computed from custom
 
 **Analytics** (top-level `analytics` object):
 
-| Field                 | Type   | Description                                      |
-| --------------------- | ------ | ------------------------------------------------ |
-| `testers_count`       | number | Number of testers who participated               |
-| `devices_count`       | number | Number of devices used                           |
-| `total_features`      | number | Total number of features in the test             |
-| `tested_features`      | number | Features with at least one tested user story or bug                                  |
-| `passed_features`      | number | Tested features where all user stories passed and no bugs                            |
-| `failed_features`      | number | Tested features with at least one failed execution or bug                            |
-| `total_user_stories`   | number | Total number of user stories across all features                                     |
-| `tested_user_stories`  | number | User stories with at least one execution                                             |
-| `passed_user_stories`  | number | Tested user stories where all executions passed and no bugs                          |
-| `failed_user_stories`  | number | Tested user stories with at least one failed execution or bug                        |
-| `blocked_user_stories` | number | Tested user stories where at least one execution is blocked (and none are failed)    |
-| `total_bugs`           | number | Total number of customer-visible bugs                                                |
+| Field                  | Type   | Description                                                                       |
+| ---------------------- | ------ | --------------------------------------------------------------------------------- |
+| `testers_count`        | number | Number of testers who participated                                                |
+| `devices_count`        | number | Number of devices used                                                            |
+| `total_features`       | number | Total number of features in the test                                              |
+| `tested_features`      | number | Features with at least one tested user story or bug                               |
+| `passed_features`      | number | Tested features where all user stories passed and no bugs                         |
+| `failed_features`      | number | Tested features with at least one failed execution or bug                         |
+| `total_user_stories`   | number | Total number of user stories across all features                                  |
+| `tested_user_stories`  | number | User stories with at least one execution                                          |
+| `passed_user_stories`  | number | Tested user stories where all executions passed and no bugs                       |
+| `failed_user_stories`  | number | Tested user stories with at least one failed execution or bug                     |
+| `blocked_user_stories` | number | Tested user stories where at least one execution is blocked (and none are failed) |
+| `total_bugs`           | number | Total number of customer-visible bugs                                             |
 
 **Feature-level** (each object in `features` array):
 
-| Field              | Type   | Description                                        |
-| ------------------ | ------ | -------------------------------------------------- |
+| Field              | Type   | Description                                            |
+| ------------------ | ------ | ------------------------------------------------------ |
 | `execution_status` | string | `"not_tested"`, `"passed"`, `"failed"`, or `"blocked"` |
-| `tester_count`     | number | Number of distinct testers who tested this feature      |
-| `bugs_found`       | number | Number of customer-visible bugs for this feature   |
-| `bug_ids`          | array  | Array of bug IDs associated with this feature      |
+| `tester_count`     | number | Number of distinct testers who tested this feature     |
+| `bugs_found`       | number | Number of customer-visible bugs for this feature       |
+| `bug_ids`          | array  | Array of bug IDs associated with this feature          |
 
 **User story-level** (each object in `user_stories` when using `includes[]=user_stories`):
 
-| Field                   | Type   | Description                                           |
-| ----------------------- | ------ | ----------------------------------------------------- |
-| `id`                    | number | User story ID (same as the standalone user story)     |
-| `path`                  | string | User story description                                |
-| `title`                 | string | User story title                                      |
-| `feature_id`            | number | ID of the parent feature                              |
-| `user_story_version_id` | number | ID of the user story version within this test cycle   |
+| Field                   | Type   | Description                                            |
+| ----------------------- | ------ | ------------------------------------------------------ |
+| `id`                    | number | User story ID (same as the standalone user story)      |
+| `path`                  | string | User story description                                 |
+| `title`                 | string | User story title                                       |
+| `feature_id`            | number | ID of the parent feature                               |
+| `user_story_version_id` | number | ID of the user story version within this test cycle    |
 | `execution_status`      | string | `"not_tested"`, `"passed"`, `"failed"`, or `"blocked"` |
-| `tested_by_count`       | number | Number of distinct testers who tested this user story |
-| `bugs_found`            | number | Number of bugs found for this user story              |
-| `bug_ids`               | array  | Array of bug IDs associated with this user story      |
+| `tested_by_count`       | number | Number of distinct testers who tested this user story  |
+| `bugs_found`            | number | Number of bugs found for this user story               |
+| `bug_ids`               | array  | Array of bug IDs associated with this user story       |
 
 **Execution status logic:**
 
-| Status         | Condition                                                                      |
-| -------------- | ------------------------------------------------------------------------------ |
-| `"not_tested"` | No executions exist for this user story or feature                             |
-| `"failed"`     | At least one execution has failed, OR at least one bug is linked               |
-| `"blocked"`    | At least one execution is blocked, and none are failed                         |
-| `"passed"`     | All executions passed with no bugs                                             |
+| Status         | Condition                                                        |
+| -------------- | ---------------------------------------------------------------- |
+| `"not_tested"` | No executions exist for this user story or feature               |
+| `"failed"`     | At least one execution has failed, OR at least one bug is linked |
+| `"blocked"`    | At least one execution is blocked, and none are failed           |
+| `"passed"`     | All executions passed with no bugs                               |
 
 At the feature level, `execution_status` is derived from its user stories. A feature without user stories can only be `"not_tested"` or `"failed"` (if it has bugs).
 
