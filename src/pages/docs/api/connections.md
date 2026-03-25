@@ -37,6 +37,7 @@ Use a Custom Bug Export Connection for any tracker or workflow that can accept a
 - YouTrack
 - Zendesk
 - Zoho
+
 {% /grid-list %}
 
 ## Create Custom Bug Export Connection
@@ -229,11 +230,11 @@ Bugs are sent to your endpoint when a user clicks "Export" or when auto-export i
 
 An HTTP POST request is sent to your endpoint URL with JSON content and your configured authentication.
 
-| Property       | Value                                    |
-| -------------- | ---------------------------------------- |
-| Method         | `POST`                                   |
-| Content-Type   | `application/json`                       |
-| Authentication | As configured in your connection         |
+| Property       | Value                            |
+| -------------- | -------------------------------- |
+| Method         | `POST`                           |
+| Content-Type   | `application/json`               |
+| Authentication | As configured in your connection |
 
 ### JSON payload
 
@@ -302,8 +303,8 @@ The payload contains the bug title, severity, description, steps to reproduce, e
 
 Return `200-299` for success. Return `400-499` for client errors (no retry). Return `500-599` for server errors (may retry). Respond within 30 seconds.
 
-| Status Code | Meaning      | Test IO Behavior                     |
-| ----------- | ------------ | ------------------------------------ |
-| 200-299     | Success      | Marks bug as exported                |
-| 400-499     | Client error | Marks as failed; no automatic retry  |
-| 500-599     | Server error | Marks as failed; may retry later     |
+| Status Code | Meaning      | Test IO Behavior                    |
+| ----------- | ------------ | ----------------------------------- |
+| 200-299     | Success      | Marks bug as exported               |
+| 400-499     | Client error | Marks as failed; no automatic retry |
+| 500-599     | Server error | Marks as failed; may retry later    |
