@@ -24,9 +24,9 @@ Retrieve a specific exploratory test by ID.
 
 **Query Parameters:**
 
-| Parameter    | Type  | Required | Description                                                                                                                                                                                        |
-| ------------ | ----- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. When included, `user_stories` in each feature returns objects with `id`, `path`, `title`, `feature_id` instead of plain strings. |
+| Parameter    | Type  | Required | Description                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------ | ----- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. When included, `user_stories` in each feature returns objects with `id`, `path`, `title`, `feature_id`, `user_story_version_id`, `execution_status`, `tested_by_count`, `bugs_found`, `bug_ids` instead of plain strings. `execution_status` can be `"not_tested"`, `"passed"`, `"failed"`, or `"blocked"`. |
 
 **Example Request:**
 
@@ -41,7 +41,144 @@ curl -X GET "https://api.test.io/customer/v2/exploratory_tests/123" \
 
 **Response:** `200 OK`
 
-Returns the exploratory test object with full details including test environment, features, requirements, and more. By default, `user_stories` in each feature is an array of path strings. Pass `includes[]=user_stories` to expand them into objects.
+Returns the exploratory test object with full details including test environment, features, requirements, execution metrics, and more. By default, `user_stories` in each feature is an array of path strings. Pass `includes[]=user_stories` to expand them into objects.
+
+### Execution Metrics
+
+The response includes execution metrics at multiple levels, computed from customer-visible test results only (reviewed/verified data):
+
+**Analytics** (top-level `analytics` object):
+
+| Field                  | Type   | Description                                                                       |
+| ---------------------- | ------ | --------------------------------------------------------------------------------- |
+| `testers_count`        | number | Number of testers who participated                                                |
+| `devices_count`        | number | Number of devices used                                                            |
+| `total_features`       | number | Total number of features in the test                                              |
+| `tested_features`      | number | Features with at least one tested user story or bug                               |
+| `passed_features`      | number | Tested features where all user stories passed and no bugs                         |
+| `failed_features`      | number | Tested features with at least one failed execution or bug                         |
+| `total_user_stories`   | number | Total number of user stories across all features                                  |
+| `tested_user_stories`  | number | User stories with at least one execution                                          |
+| `passed_user_stories`  | number | Tested user stories where all executions passed and no bugs                       |
+| `failed_user_stories`  | number | Tested user stories with at least one failed execution or bug                     |
+| `blocked_user_stories` | number | Tested user stories where at least one execution is blocked (and none are failed) |
+| `total_bugs`           | number | Total number of customer-visible bugs                                             |
+
+**Feature-level** (each object in `features` array):
+
+| Field              | Type   | Description                                            |
+| ------------------ | ------ | ------------------------------------------------------ |
+| `execution_status` | string | `"not_tested"`, `"passed"`, `"failed"`, or `"blocked"` |
+| `tester_count`     | number | Number of distinct testers who tested this feature     |
+| `bugs_found`       | number | Number of customer-visible bugs for this feature       |
+| `bug_ids`          | array  | Array of bug IDs associated with this feature          |
+
+**User story-level** (each object in `user_stories` when using `includes[]=user_stories`):
+
+| Field                   | Type   | Description                                            |
+| ----------------------- | ------ | ------------------------------------------------------ |
+| `id`                    | number | User story ID (same as the standalone user story)      |
+| `path`                  | string | User story description                                 |
+| `title`                 | string | User story title                                       |
+| `feature_id`            | number | ID of the parent feature                               |
+| `user_story_version_id` | number | ID of the user story version within this test cycle    |
+| `execution_status`      | string | `"not_tested"`, `"passed"`, `"failed"`, or `"blocked"` |
+| `tested_by_count`       | number | Number of distinct testers who tested this user story  |
+| `bugs_found`            | number | Number of bugs found for this user story               |
+| `bug_ids`               | array  | Array of bug IDs associated with this user story       |
+
+**Execution status logic:**
+
+| Status         | Condition                                                        |
+| -------------- | ---------------------------------------------------------------- |
+| `"not_tested"` | No executions exist for this user story or feature               |
+| `"failed"`     | At least one execution has failed, OR at least one bug is linked |
+| `"blocked"`    | At least one execution is blocked, and none are failed           |
+| `"passed"`     | All executions passed with no bugs                               |
+
+At the feature level, `execution_status` is derived from its user stories. A feature without user stories can only be `"not_tested"` or `"failed"` (if it has bugs).
+
+### Example Response
+
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "exploratory_test": {
+    "id": 123,
+    "test_title": "Checkout Flow Test",
+    "status": "completed",
+    "analytics": {
+      "testers_count": 5,
+      "devices_count": 8,
+      "total_features": 3,
+      "tested_features": 2,
+      "passed_features": 1,
+      "failed_features": 1,
+      "total_user_stories": 10,
+      "tested_user_stories": 7,
+      "passed_user_stories": 5,
+      "failed_user_stories": 1,
+      "blocked_user_stories": 1,
+      "total_bugs": 4
+    },
+    "features": [
+      {
+        "id": 1,
+        "feature_id": 500,
+        "title": "Shopping Cart",
+        "description": "Verify cart functionality",
+        "howtofind": "Navigate to cart",
+        "execution_status": "failed",
+        "tester_count": 3,
+        "bugs_found": 2,
+        "bug_ids": [101, 102],
+        "user_stories": ["As a customer, I want to add items to my cart"]
+      }
+    ]
+  }
+}
+```
+
+{% /code %}
+
+**Example Response (with `includes[]=user_stories`):**
+
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "exploratory_test": {
+    "id": 123,
+    "features": [
+      {
+        "id": 1,
+        "feature_id": 500,
+        "title": "Shopping Cart",
+        "execution_status": "failed",
+        "tester_count": 3,
+        "bugs_found": 2,
+        "bug_ids": [101, 102],
+        "user_stories": [
+          {
+            "id": 10,
+            "path": "As a customer, I want to add items to my cart",
+            "title": "As a customer, I want to add items to my cart",
+            "feature_id": 500,
+            "user_story_version_id": 9001,
+            "execution_status": "passed",
+            "tested_by_count": 2,
+            "bugs_found": 0,
+            "bug_ids": []
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+{% /code %}
 
 ## List exploratory tests
 
@@ -57,9 +194,9 @@ Returns a paginated list of exploratory tests for the specified product.
 
 **Query Parameters:**
 
-| Parameter    | Type  | Required | Description                                                                                                                      |
-| ------------ | ----- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. See [Get exploratory test](#get-exploratory-test) for details. |
+| Parameter    | Type  | Required | Description                                                                                                                                                                 |
+| ------------ | ----- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. Note: execution metrics are only available on the [Get exploratory test](#get-exploratory-test) endpoint. |
 
 **Notes:**
 
