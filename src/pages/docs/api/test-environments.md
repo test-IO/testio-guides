@@ -72,18 +72,20 @@ Create a new test environment.
 
 **Request Body:**
 
+> **Note:** Exactly one access method must be provided: `url` for web environments, `file_url` or `file_base_64`/`file_name` for mobile app uploads, or `binary_app_id` for a previously uploaded binary app.
+
 - `test_environment` (TestEnvironment Create, required) - Test environment object
   - `title` (string, required) - Title of the test environment
-  - `url` (string, optional) - URL of the website or app
+  - `url` (string) - URL of the website or app. Required when `file_url` and `file_base_64` are not provided
   - `username` (string, optional) - Username to access the test environment
   - `password` (string, optional) - Password to access the test environment
   - `access` (string, optional) - Additional access information
   - `proxy` (boolean, optional, default: false) - Set true to use test IO proxy
   - `allow_orders` (boolean, optional, default: false) - Allowing testers to place orders and bookings
-  - `binary_app_id` (number, optional) - ID of the binary app
-  - `file_url` (string, optional) - URL of the app build to be downloaded
-  - `file_base_64` (string, optional) - App file APK, IPA for mobile app tests encoded in base 64
-  - `file_name` (string, optional) - Name the app file APK, IPA for mobile app tests, required when file_base_64 is provided
+  - `binary_app_id` (number, optional) - ID of the binary app. Cannot be used together with `url`
+  - `file_url` (string, optional) - URL of the app build to be downloaded. Cannot be used together with `url`
+  - `file_base_64` (string, optional) - App file APK, IPA for mobile app tests encoded in base 64. Cannot be used together with `url` or `file_url`
+  - `file_name` (string, optional) - Name of the app file APK, IPA for mobile app tests. Required when `file_base_64` is provided
   - `environment_test_information` (EnvironmentTestInformation Create, optional) - Environment test information
 
 **Example Request:**
