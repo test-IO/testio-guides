@@ -127,8 +127,6 @@ Update an existing test environment.
 
 **Request Body:**
 
-> **Note:** Exactly one access method must be provided: `url` for web environments, `file_url` or `file_base_64`/`file_name` for mobile app uploads, or `binary_app_id` for a previously uploaded binary app.
-
 - `test_environment` (TestEnvironment Create, required) - Test environment object (same structure as create)
 
 **Example Request:**
