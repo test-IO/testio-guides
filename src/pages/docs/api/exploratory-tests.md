@@ -516,7 +516,7 @@ The `requirements` array allows you to specify device targeting for your test. E
 - `browsers` - Browser applications
 - `input_devices` - Input methods (e.g., keyboard, touch)
 
-**Important**: All IDs in the requirements array (category, vendor, devices, operating_system, browsers, etc.) must be retrieved from the [Public Device API](https://api.test.io/public/v2/devices). Use the Public Device API to:
+**Important**: All IDs in the requirements array (category, vendor, devices, operating_system, browsers, etc.) must be retrieved from the [Public Device API](https://testiodevicesapi.docs.apiary.io/). Use the Public Device API to:
 
 1. List available device categories, vendors, and models
 2. Get operating system and browser options
