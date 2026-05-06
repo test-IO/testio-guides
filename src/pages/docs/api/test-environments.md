@@ -74,12 +74,12 @@ Create a new test environment.
 
 A test environment must have exactly **one** access method. Pick the one that fits your case and provide only its fields — combining fields from different access methods will be rejected.
 
-| Access method | When to use | Required field(s) |
-| --- | --- | --- |
-| **Web URL** | Testing a website or web app | `url` |
-| **Existing binary app** | Mobile app already uploaded via [Binary Apps](/docs/api/binary-apps) | `binary_app_id` |
-| **Remote binary download** | Mobile app hosted at a URL we should fetch | `file_url` |
-| **Inline binary upload** | Mobile app sent inline as base64 | `file_base_64` + `file_name` |
+| Access method              | When to use                                                          | Required field(s)            |
+| -------------------------- | -------------------------------------------------------------------- | ---------------------------- |
+| **Web URL**                | Testing a website or web app                                         | `url`                        |
+| **Existing binary app**    | Mobile app already uploaded via [Binary Apps](/docs/api/binary-apps) | `binary_app_id`              |
+| **Remote binary download** | Mobile app hosted at a URL we should fetch                           | `file_url`                   |
+| **Inline binary upload**   | Mobile app sent inline as base64                                     | `file_base_64` + `file_name` |
 
 ### Request body
 
