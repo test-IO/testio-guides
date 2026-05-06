@@ -70,25 +70,48 @@ Create a new test environment.
 
 - `product_id` (number, required) - ID of the Product
 
-**Request Body:**
+### Access methods
 
-> **Note:** Exactly one access method must be provided: `url` for web environments, `file_url` or `file_base_64`/`file_name` for mobile app uploads, or `binary_app_id` for a previously uploaded binary app.
+A test environment must have exactly **one** access method. Pick the one that fits your case and provide only its fields — combining fields from different access methods will be rejected.
 
-- `test_environment` (TestEnvironment Create, required) - Test environment object
-  - `title` (string, required) - Title of the test environment
-  - `url` (string) - URL of the website or app. Required when `file_url` and `file_base_64` are not provided
-  - `username` (string, optional) - Username to access the test environment
-  - `password` (string, optional) - Password to access the test environment
-  - `access` (string, optional) - Additional access information
-  - `proxy` (boolean, optional, default: false) - Set true to use test IO proxy
-  - `allow_orders` (boolean, optional, default: false) - Allowing testers to place orders and bookings
-  - `binary_app_id` (number, optional) - ID of the binary app. Cannot be used together with `url`
-  - `file_url` (string, optional) - URL of the app build to be downloaded. Cannot be used together with `url`
-  - `file_base_64` (string, optional) - App file APK, IPA for mobile app tests encoded in base 64. Cannot be used together with `url` or `file_url`
-  - `file_name` (string, optional) - Name of the app file APK, IPA for mobile app tests. Required when `file_base_64` is provided
-  - `environment_test_information` (EnvironmentTestInformation Create, optional) - Environment test information
+| Access method | When to use | Required field(s) |
+| --- | --- | --- |
+| **Web URL** | Testing a website or web app | `url` |
+| **Existing binary app** | Mobile app already uploaded via [Binary Apps](/docs/api/binary-apps) | `binary_app_id` |
+| **Remote binary download** | Mobile app hosted at a URL we should fetch | `file_url` |
+| **Inline binary upload** | Mobile app sent inline as base64 | `file_base_64` + `file_name` |
 
-**Example Request:**
+### Request body
+
+- `test_environment` (object, required)
+  - `title` (string, required) — Title of the test environment
+  - **One** access method from the table above (see field details below)
+  - `username` (string, optional) — Username to access the test environment
+  - `password` (string, optional) — Password to access the test environment
+  - `access` (string, optional) — Additional access information
+  - `proxy` (boolean, optional, default: `false`) — Set `true` to route traffic through the test IO proxy
+  - `allow_orders` (boolean, optional, default: `false`) — Allow testers to place orders and bookings
+  - `environment_test_information` (object, optional) — Per-environment test guidance. See [Environment test information](#environment-test-information)
+
+**Access method fields:**
+
+- `url` (string) — URL of the website or web app
+- `binary_app_id` (number) — ID of a binary app previously uploaded via [Binary Apps](/docs/api/binary-apps). **Note:** providing `binary_app_id` alone is sufficient — do not also send `url`, `file_url`, or `file_base_64`
+- `file_url` (string) — URL we will download the app build from (APK, IPA, etc.)
+- `file_base_64` (string) — App file (APK, IPA, …) encoded in base64. Must be sent together with `file_name`
+- `file_name` (string) — File name for the base64 upload (e.g. `app-release.apk`)
+
+### Environment test information
+
+Optional structured guidance attached to the environment. When provided, it must be an **object** with these fields:
+
+- `data_type` (string, required) — One of `custom`, `access_claims`
+- `page_url` (string, required) — Absolute `http://` or `https://` URL
+- `description` (string, optional, max 255 chars) — Free-form description
+
+> Sending `environment_test_information` as a plain string will be rejected — it must be an object with at least `data_type` and `page_url`.
+
+### Example: Web URL
 
 {% code language="bash" showLineNumbers=true %}
 
@@ -110,13 +133,52 @@ curl -X POST "https://api.test.io/customer/v2/products/1/test_environments" \
 
 {% /code %}
 
-**Response:** `201 Created`
+### Example: Existing binary app
 
-Returns the created test environment object.
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X POST "https://api.test.io/customer/v2/products/1/test_environments" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "test_environment": {
+      "title": "Android build 47",
+      "binary_app_id": 47
+    }
+  }'
+```
+
+{% /code %}
+
+### Example: With environment test information
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X POST "https://api.test.io/customer/v2/products/1/test_environments" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "test_environment": {
+      "title": "Staging with login flow",
+      "url": "https://staging.example.com",
+      "environment_test_information": {
+        "data_type": "custom",
+        "page_url": "https://staging.example.com/login",
+        "description": "Use the seeded test accounts on this page"
+      }
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `201 Created` — Returns the created test environment object.
 
 ## Update test environment
 
-Update an existing test environment.
+Update an existing test environment. Partial updates are supported: send **only the fields you want to change**, and everything else is preserved.
 
 **Endpoint:** `PUT /products/{product_id}/test_environments/{test_environment_id}`
 
@@ -127,9 +189,11 @@ Update an existing test environment.
 
 **Request Body:**
 
-- `test_environment` (TestEnvironment Create, required) - Test environment object (same structure as create)
+- `test_environment` (object, required) — Any subset of the fields documented under [Create test environment](#create-test-environment)
 
-**Example Request:**
+> Unlike create, **no field is required** on update. To rename an environment, send only `title`. To rotate credentials, send only `username`/`password`. You can also switch the access method (e.g. from `url` to `binary_app_id`) by sending the new access field.
+
+### Example: Rename only
 
 {% code language="bash" showLineNumbers=true %}
 
@@ -139,17 +203,31 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/test_environments/42" \
   -H "Content-Type: application/json" \
   -d '{
     "test_environment": {
-      "title": "Updated Staging Environment",
-      "url": "https://staging-updated.example.com"
+      "title": "Updated Staging Environment"
     }
   }'
 ```
 
 {% /code %}
 
-**Response:** `200 OK`
+### Example: Update URL
 
-Returns the updated test environment object.
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X PUT "https://api.test.io/customer/v2/products/1/test_environments/42" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "test_environment": {
+      "url": "https://staging-v2.example.com"
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `200 OK` — Returns the updated test environment object.
 
 ## Delete test environment
 
