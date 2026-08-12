@@ -15,6 +15,7 @@ const navigation = [
       { title: "Bugs", href: "/docs/api/bugs" },
       { title: "Custom Bug Export Connections", href: "/docs/api/connections" },
       { title: "Bug Report Confirmations", href: "/docs/api/bug-report-confirmations" },
+      { title: "Access Claims", href: "/docs/api/access-claims" },
       { title: "Test Cases", href: "/docs/api/test-cases" },
       { title: "Test Case Tests", href: "/docs/api/test-case-tests" },
     ],

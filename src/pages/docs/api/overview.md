@@ -44,6 +44,7 @@ The API provides access to the following resources:
 - **[Test Environments](/docs/api/test-environments)** - Manage test environments
 - **[Test Templates](/docs/api/test-templates)** - List test templates
 - **[Bug Report Confirmations](/docs/api/bug-report-confirmations)** - Create bug report confirmations
+- **[Access Claims](/docs/api/access-claims)** - Create and manage access claims groups and test accounts
 
 ## Response Format
 
