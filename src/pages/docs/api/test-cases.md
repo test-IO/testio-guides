@@ -175,7 +175,7 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/test_cases/123" \
 Returns the updated test case object. See the response shape in [Create a bulk of test cases](#create-a-bulk-of-test-cases) above.
 
 {% callout type="note" %}
-If the test case is already in use by a test cycle, its steps are not edited in place — a hidden shadow copy of the test case is created (or reused) and the step changes are applied there instead, so historical test results tied to the original steps remain intact. In that case the response is the shadow copy: it has a different `id` from the one in the request URL, and subsequent requests should use that new `id`. The original `test_case_id` will then return `404` from [Get test case](#get-test-case), same as a deleted-but-in-use test case.
+If the test case is already in use by a test cycle, its steps are not edited in place — a hidden shadow copy of the test case is created (or reused) and the step changes are applied there instead, so historical test results tied to the original steps remain intact. In that case the response is the shadow copy: it has a different `id` from the one in the request URL, and subsequent requests should use that new `id`. The original `test_case_id` will then return `404` from [Get test case](#get-test-case).
 {% /callout %}
 
 ## Delete test case
@@ -190,7 +190,7 @@ Deletes the specified test case from the product.
 - `test_case_id` (number, required) - ID of the Test Case
 
 {% callout type="note" %}
-If the test case is already in use by a test cycle, it is not permanently deleted — it is hidden instead so historical test results remain intact. Hidden test cases no longer appear in [List test cases](#list-test-cases).
+If the test case is already in use by a test cycle, it is not permanently deleted — it is hidden instead so historical test results remain intact. Hidden test cases no longer appear in [List test cases](#list-test-cases), and subsequent `GET` requests for that `test_case_id` return `404`.
 {% /callout %}
 
 **Example Request:**
