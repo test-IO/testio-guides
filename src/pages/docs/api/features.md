@@ -1,6 +1,6 @@
 ---
 title: Features
-description: List, create, and copy features
+description: List, create, update, delete, and copy features
 ---
 
 Manage features for your products.
@@ -230,6 +230,82 @@ curl -X POST "https://api.test.io/customer/v2/features" \
 ```
 
 {% /code %}
+
+## Update feature
+
+Updates the top-level fields of a feature. All fields are optional — only the fields you provide are updated.
+
+**Endpoint:** `PUT /features/{feature_id}`
+
+**Parameters:**
+
+- `feature_id` (number, required) - ID of the Feature
+
+All attributes must be provided inside the root object `feature`.
+
+**Request Body:**
+
+- `section_ids` (array[number], optional) - Array of section IDs to assign the feature to, replacing its current sections
+- `feature` (object, optional) - Feature object
+  - `title` (string, optional) - Feature title
+  - `description` (string, optional) - Feature description
+  - `howtofind` (string, optional) - Instructions on how to find the feature
+  - `target_idx` (string, optional) - Target index
+  - `use_markdown` (boolean, optional) - Whether to use markdown formatting
+
+**Query Parameters:**
+
+| Parameter    | Type  | Required | Description                                                                                                        |
+| ------------ | ----- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. See [List features](#list-features) for details. |
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X PUT "https://api.test.io/customer/v2/features/15" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "feature": {
+      "title": "Account Management (updated)"
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+Returns the updated feature object. See the response shape in [Create feature](#create-feature) above.
+
+## Delete feature
+
+Deletes the specified feature.
+
+**Endpoint:** `DELETE /features/{feature_id}`
+
+**Parameters:**
+
+- `feature_id` (number, required) - ID of the Feature
+
+{% callout type="note" %}
+If the feature is already in use by a test cycle, it is not permanently deleted — it is hidden instead so historical test results remain intact. Hidden features no longer appear in [List features](#list-features).
+{% /callout %}
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X DELETE "https://api.test.io/customer/v2/features/15" \
+  -H "Authorization: Token YOUR_API_TOKEN"
+```
+
+{% /code %}
+
+**Response:** `204 No Content`
 
 ## Copy features
 
