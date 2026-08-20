@@ -144,7 +144,6 @@ All attributes must be provided inside the root object `test_case`. All fields a
 
 - `id` (number, optional) - ID of an existing step to update or remove. Omit to add a new step.
 - `description` (string, optional) - Description of the step
-- `target_idx` (string, optional) - Reference of the test case step in other system
 - `_destroy` (boolean, optional) - Set to `true` to remove the step identified by `id`
 
 **Example Request:**
