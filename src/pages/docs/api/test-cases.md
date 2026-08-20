@@ -132,13 +132,12 @@ Updates the top-level fields of a test case, and optionally its test case steps.
 - `product_id` (number, required) - ID of the Product
 - `test_case_id` (number, required) - ID of the Test Case
 
-All attributes must be provided inside the root object `test_case`. All fields are optional — only the fields you provide are updated. `feature_id` is not accepted by this endpoint.
+All attributes must be provided inside the root object `test_case`. All fields are optional — only the fields you provide are updated. `feature_id` and `target_idx` are not accepted by this endpoint.
 
 **Request Body:**
 
 - `title` (string, optional) - Title of the test case
 - `requirements` (string, optional) - Requirements of the test case
-- `target_idx` (string, optional) - Reference of the test case in other system
 - `test_case_steps` (array[Step], optional) - Array of step objects to create, update, or remove
 
 **Step Object:**
