@@ -250,6 +250,10 @@ All attributes must be provided inside the root object `feature`.
   - `title` (string, optional) - Feature title
   - `description` (string, optional) - Feature description
   - `howtofind` (string, optional) - Instructions on how to find the feature
+  - `user_stories` (array[object], optional) - User stories to add, update, or remove
+    - `id` (number, optional) - ID of an existing user story to update or remove. Omit to create a new user story.
+    - `path` (string, optional) - User story description
+    - `_destroy` (boolean, optional) - Set to `true` along with `id` to remove the user story
 
 **Query Parameters:**
 
@@ -277,6 +281,29 @@ curl -X PUT "https://api.test.io/customer/v2/features/15" \
 **Response:** `200 OK`
 
 Returns the updated feature object. See the response shape in [Create feature](#create-feature) above.
+
+**Example Request (managing user stories):**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X PUT "https://api.test.io/customer/v2/features/15" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "feature": {
+      "user_stories": [
+        { "path": "As a user I can reset my password" },
+        { "id": 10, "path": "As a user I can log in (updated)" },
+        { "id": 11, "_destroy": true }
+      ]
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `200 OK`
 
 ## Delete feature
 
