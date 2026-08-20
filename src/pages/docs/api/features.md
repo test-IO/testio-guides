@@ -250,8 +250,6 @@ All attributes must be provided inside the root object `feature`.
   - `title` (string, optional) - Feature title
   - `description` (string, optional) - Feature description
   - `howtofind` (string, optional) - Instructions on how to find the feature
-  - `target_idx` (string, optional) - Target index
-  - `use_markdown` (boolean, optional) - Whether to use markdown formatting
 
 **Query Parameters:**
 
