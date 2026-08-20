@@ -132,7 +132,7 @@ Updates the top-level fields of a test case, and optionally its test case steps.
 - `product_id` (number, required) - ID of the Product
 - `test_case_id` (number, required) - ID of the Test Case
 
-All attributes must be provided inside the root object `test_case`. All fields are optional — only the fields you provide are updated. `feature_id` and `target_idx` are not accepted by this endpoint.
+All attributes must be provided inside the root object `test_case`. All fields are optional — only the fields you provide are updated. `feature_id` is not accepted by this endpoint, and top-level `target_idx` cannot be changed once the test case is created.
 
 **Request Body:**
 
@@ -144,6 +144,7 @@ All attributes must be provided inside the root object `test_case`. All fields a
 
 - `id` (number, optional) - ID of an existing step to update or remove. Omit to add a new step.
 - `description` (string, optional) - Description of the step
+- `target_idx` (string, optional) - Reference of the step in another system. Only used when adding a new step (no `id`); ignored when editing an existing step.
 - `_destroy` (boolean, optional) - Set to `true` to remove the step identified by `id`
 
 **Example Request:**
@@ -159,7 +160,7 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/test_cases/123" \
       "title": "Login Test (updated)",
       "test_case_steps": [
         { "id": 456, "description": "Navigate to login page (updated)" },
-        { "description": "Confirm dashboard is shown" },
+        { "description": "Confirm dashboard is shown", "target_idx": "ext-789" },
         { "id": 789, "_destroy": true }
       ]
     }
