@@ -30,7 +30,7 @@ Returns a paginated list of user story version executions for the current custom
 | Parameter                  | Type    | Required | Description                                                                                                                                    |
 | -------------------------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `page`                     | integer | No       | Page number for pagination (default: 1)                                                                                                        |
-| `per_page`                 | integer | No       | Number of records per page (default: 25)                                                                                                       |
+| `per_page`                 | integer | No       | Number of records per page. Maximum: 500 (default: 25 when `page` is given, 500 otherwise)                                                     |
 | `user_story_ids[]`         | array   | No       | Filter by user story IDs. Only executions for these user stories are returned. Pass multiple values as `user_story_ids[]=1&user_story_ids[]=2` |
 | `user_story_version_ids[]` | array   | No       | Filter by user story version IDs. Pass multiple values as `user_story_version_ids[]=10&user_story_version_ids[]=11`                            |
 | `order`                    | string  | No       | Sort order by creation time: `asc` (oldest first) or `desc` (newest first). Default: `asc`                                                     |
@@ -75,6 +75,8 @@ curl -X GET "https://api.test.io/customer/v2/user_story_version_executions?user_
 | Attribute                       | Type    | Description                                                       |
 | ------------------------------- | ------- | ----------------------------------------------------------------- |
 | `meta.record_count`             | integer | Total number of executions matching the query (before pagination) |
+| `meta.page`                     | integer | Page returned                                                     |
+| `meta.per_page`                 | integer | Page size actually applied, after the 500 maximum is enforced     |
 | `user_story_version_executions` | array   | List of execution objects (see below)                             |
 
 **User story version execution object attributes:**
@@ -124,7 +126,9 @@ curl -X GET "https://api.test.io/customer/v2/user_story_version_executions?user_
 ```json
 {
   "meta": {
-    "record_count": 42
+    "record_count": 42,
+    "page": 1,
+    "per_page": 25
   },
   "user_story_version_executions": [
     {
@@ -174,4 +178,5 @@ curl -X GET "https://api.test.io/customer/v2/user_story_version_executions?user_
 - Use `user_story_ids[]` when you want all executions for specific user stories (e.g. for a feature or product view).
 - Use `user_story_version_ids[]` when you need executions for specific user story versions (e.g. tied to a test cycle or version snapshot).
 - Use `order=desc` and `per_page` to fetch the most recent executions first and control page size.
-- `meta.record_count` reflects the total matching the filters; use it with `per_page` to compute total pages or show “X of Y” in the UI.
+- `meta.record_count` reflects the total matching the filters; use it with the `meta.per_page` returned in the response — not the value you requested — to compute total pages or show “X of Y” in the UI. A `per_page` above 500 is reduced to 500 rather than rejected, so deriving the page count from the requested value would stop short of the last page.
+- `page` and `per_page` must both be 1 or greater; `0` or a negative number returns `400 Bad Request`.
