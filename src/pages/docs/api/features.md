@@ -255,11 +255,7 @@ All attributes must be provided inside the root object `feature`.
     - `path` (string, optional) - User story description
     - `_destroy` (boolean, optional) - Set to `true` along with `id` to remove the user story
 
-**Query Parameters:**
-
-| Parameter    | Type  | Required | Description                                                                                                        |
-| ------------ | ----- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| `includes[]` | array | No       | Optional associations to expand. Supported value: `user_stories`. See [List features](#list-features) for details. |
+> `user_stories` in the response is always returned as expanded objects (`id`, `path`, `title`, `feature_id`) — there is no `includes[]=user_stories` toggle for this endpoint, unlike [List features](#list-features).
 
 **Example Request:**
 
