@@ -80,12 +80,14 @@ curl -X GET "https://api.test.io/customer/v2/products/1/test_cases?page=1&per_pa
 
 **Response Fields:**
 
-| Field                | Type    | Description                                                        |
-| -------------------- | ------- | -------------------------------------------------------------------- |
-| `meta.record_count`  | integer | Total test cases matching the query, across all pages               |
-| `meta.page`          | integer | Page returned                                                       |
-| `meta.per_page`      | integer | Page size actually applied, after the 500 maximum is enforced       |
-| `test_cases`         | array   | Test cases on this page. See the object shape in [Create a bulk of test cases](#create-a-bulk-of-test-cases) below. |
+| Field               | Type    | Description                                                   |
+| ------------------- | ------- | ------------------------------------------------------------- |
+| `meta.record_count` | integer | Total test cases matching the query, across all pages         |
+| `meta.page`         | integer | Page returned                                                 |
+| `meta.per_page`     | integer | Page size actually applied, after the 500 maximum is enforced |
+| `test_cases`        | array   | Test cases on this page                                       |
+
+See the test case object shape in [Create a bulk of test cases](#create-a-bulk-of-test-cases) below.
 
 ## Create a bulk of test cases
 
