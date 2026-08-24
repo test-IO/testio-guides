@@ -1,6 +1,6 @@
 ---
 title: Features
-description: List, create, and copy features
+description: List, create, update, delete, and copy features
 ---
 
 Manage features for your products.
@@ -230,6 +230,103 @@ curl -X POST "https://api.test.io/customer/v2/features" \
 ```
 
 {% /code %}
+
+## Update feature
+
+Updates the top-level fields of a feature. All fields are optional — only the fields you provide are updated.
+
+**Endpoint:** `PUT /features/{feature_id}`
+
+**Parameters:**
+
+- `feature_id` (number, required) - ID of the Feature
+
+All attributes must be provided inside the root object `feature`.
+
+**Request Body:**
+
+- `section_ids` (array[number], optional) - Array of section IDs to assign the feature to, replacing its current sections
+- `feature` (object, optional) - Feature object
+  - `title` (string, optional) - Feature title
+  - `description` (string, optional) - Feature description
+  - `howtofind` (string, optional) - Instructions on how to find the feature
+  - `user_stories` (array[object], optional) - User stories to add, update, or remove
+    - `id` (number, optional) - ID of an existing user story to update or remove. Omit to create a new user story.
+    - `path` (string, optional) - User story description
+    - `_destroy` (boolean, optional) - Set to `true` along with `id` to remove the user story
+
+> `user_stories` in the response is always returned as expanded objects (`id`, `path`, `title`, `feature_id`) — there is no `includes[]=user_stories` toggle for this endpoint, unlike [List features](#list-features).
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X PUT "https://api.test.io/customer/v2/features/15" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "feature": {
+      "title": "Account Management (updated)"
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+Returns the updated feature object. See the response shape in [Create feature](#create-feature) above.
+
+**Example Request (managing user stories):**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X PUT "https://api.test.io/customer/v2/features/15" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "feature": {
+      "user_stories": [
+        { "path": "As a user I can reset my password" },
+        { "id": 10, "path": "As a user I can log in (updated)" },
+        { "id": 11, "_destroy": true }
+      ]
+    }
+  }'
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+## Delete feature
+
+Deletes the specified feature.
+
+**Endpoint:** `DELETE /features/{feature_id}`
+
+**Parameters:**
+
+- `feature_id` (number, required) - ID of the Feature
+
+{% callout type="note" %}
+If the feature is already in use by a test cycle, it is not permanently deleted — it is hidden instead so historical test results remain intact. Hidden features no longer appear in [List features](#list-features).
+{% /callout %}
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X DELETE "https://api.test.io/customer/v2/features/15" \
+  -H "Authorization: Token YOUR_API_TOKEN"
+```
+
+{% /code %}
+
+**Response:** `204 No Content`
 
 ## Copy features
 
