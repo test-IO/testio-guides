@@ -189,8 +189,8 @@ Returns a paginated list of exploratory tests for the specified product.
 **Parameters:**
 
 - `product_id` (number, required) - ID of the Product
-- `page` (number, optional) - Page number of the result set
-- `per_page` (number, optional) - Number of items per page when pagination is applied. Used only if **page** is provided. Default: 25
+- `page` (number, optional) - Page number of the result set. Default: 1
+- `per_page` (number, optional) - Number of items per page. Maximum: 500. Default: 25 when `page` is given, 500 otherwise
 
 **Query Parameters:**
 
@@ -200,7 +200,10 @@ Returns a paginated list of exploratory tests for the specified product.
 
 **Notes:**
 
-If `page` parameter is omitted, pagination is not applied and the last 150 tests are returned.
+Responses are always paginated and never return more than 500 tests. A `per_page` above 500 is
+reduced to 500 rather than rejected, so read `meta.per_page` from the response — not the value you
+requested — when working out how many pages to fetch. `page` and `per_page` must both be 1 or
+greater; `0` or a negative number returns `400 Bad Request`.
 
 **Example Request:**
 
@@ -215,7 +218,28 @@ curl -X GET "https://api.test.io/customer/v2/products/1/exploratory_tests?page=1
 
 **Response:** `200 OK`
 
-Returns an array of exploratory test objects.
+Returns a `meta` object describing the page, and an array of exploratory test objects.
+
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "meta": {
+    "record_count": 6,
+    "page": 1,
+    "per_page": 500
+  },
+  "exploratory_tests": []
+}
+```
+
+{% /code %}
+
+| Field               | Type    | Description                                                   |
+| ------------------- | ------- | ------------------------------------------------------------- |
+| `meta.record_count` | integer | Total tests matching the query, across all pages              |
+| `meta.page`         | integer | Page returned                                                 |
+| `meta.per_page`     | integer | Page size actually applied, after the 500 maximum is enforced |
 
 ## Create exploratory test
 

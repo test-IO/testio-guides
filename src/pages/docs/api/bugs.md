@@ -9,23 +9,32 @@ Manage bugs found during testing.
 
 ## Fetch bugs
 
-Retrieve bugs with optional filtering.
+Returns a paginated list of bugs, with optional filtering.
 
-**Endpoint:** `GET /bugs`
+**Endpoint:** `GET /bugs{?page,per_page}`
 
 **Query Parameters:**
 
+- `page` (number, optional) - Page number of the result set. Default: 1
+- `per_page` (number, optional) - Number of bugs per page. Maximum: 500. Default: 25 when `page` is given, 500 otherwise
 - `filter_product_ids` (string, optional) - Comma-separated product IDs
 - `filter_section_ids` (string, optional) - Comma-separated section IDs
 - `filter_test_cycle_ids` (string, optional) - Comma-separated test cycle IDs
 - `export_status` (string, optional) - Export status filter. Values: `export_requested`, `not_exported`, `exported`
+
+Responses are always paginated and never return more than 500 bugs. A `per_page` above 500 is
+reduced to 500 rather than rejected, so read `meta.per_page` from the response — not the value you
+requested — when working out how many pages to fetch. `page` and `per_page` must both be 1 or
+greater; `0` or a negative number returns `400 Bad Request`.
+
+To retrieve every bug, request successive pages until an empty `bugs` array comes back.
 
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
 
 ```bash
-curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1,2&export_status=not_exported" \
+curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1,2&export_status=not_exported&page=1&per_page=100" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
 
@@ -37,6 +46,11 @@ curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1,2&export_
 
 ```json
 {
+  "meta": {
+    "record_count": 600,
+    "page": 1,
+    "per_page": 100
+  },
   "bugs": [
     {
       "id": 123,
@@ -55,6 +69,15 @@ curl -X GET "https://api.test.io/customer/v2/bugs?filter_product_ids=1,2&export_
 ```
 
 {% /code %}
+
+**Response Fields:**
+
+| Field               | Type    | Description                                                   |
+| ------------------- | ------- | ------------------------------------------------------------- |
+| `meta.record_count` | integer | Total bugs matching the query, across all pages               |
+| `meta.page`         | integer | Page returned                                                 |
+| `meta.per_page`     | integer | Page size actually applied, after the 500 maximum is enforced |
+| `bugs`              | array   | Bugs on this page                                             |
 
 ## Get bug
 

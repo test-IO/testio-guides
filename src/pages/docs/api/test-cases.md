@@ -33,20 +33,29 @@ Returns the test case object. See the response shape in [Create a bulk of test c
 
 ## List test cases
 
-Returns all visible (non-hidden) test cases for a product.
+Returns a paginated list of visible (non-hidden) test cases for a product.
 
-**Endpoint:** `GET /products/{product_id}/test_cases`
+**Endpoint:** `GET /products/{product_id}/test_cases{?page,per_page}`
 
 **Parameters:**
 
 - `product_id` (number, required) - ID of the Product
+- `page` (number, optional) - Page number of the result set. Default: 1
+- `per_page` (number, optional) - Number of test cases per page. Maximum: 500. Default: 25 when `page` is given, 500 otherwise
+
+Responses are always paginated and never return more than 500 test cases. A `per_page` above 500
+is reduced to 500 rather than rejected, so read `meta.per_page` from the response — not the value
+you requested — when working out how many pages to fetch. `page` and `per_page` must both be 1 or
+greater; `0` or a negative number returns `400 Bad Request`.
+
+To retrieve every test case, request successive pages until an empty `test_cases` array comes back.
 
 **Example Request:**
 
 {% code language="bash" showLineNumbers=true %}
 
 ```bash
-curl -X GET "https://api.test.io/customer/v2/products/1/test_cases" \
+curl -X GET "https://api.test.io/customer/v2/products/1/test_cases?page=1&per_page=100" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
 
@@ -54,7 +63,31 @@ curl -X GET "https://api.test.io/customer/v2/products/1/test_cases" \
 
 **Response:** `200 OK`
 
-Returns an array of test case objects. See the response shape in [Create a bulk of test cases](#create-a-bulk-of-test-cases) below.
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "meta": {
+    "record_count": 600,
+    "page": 1,
+    "per_page": 100
+  },
+  "test_cases": []
+}
+```
+
+{% /code %}
+
+**Response Fields:**
+
+| Field               | Type    | Description                                                   |
+| ------------------- | ------- | ------------------------------------------------------------- |
+| `meta.record_count` | integer | Total test cases matching the query, across all pages         |
+| `meta.page`         | integer | Page returned                                                 |
+| `meta.per_page`     | integer | Page size actually applied, after the 500 maximum is enforced |
+| `test_cases`        | array   | Test cases on this page                                       |
+
+See the test case object shape in [Create a bulk of test cases](#create-a-bulk-of-test-cases) below.
 
 ## Create a bulk of test cases
 
