@@ -6,6 +6,8 @@
 [![GitHub Workflow Build Status](https://img.shields.io/github/actions/workflow/status/test-IO/testio-guides/build.yml?label=Build&logo=github&style=flat-square)](https://github.com/test-IO/testio-guides/actions/workflows/build.yml)
 [![GitHub Workflow Lint Status](https://img.shields.io/github/actions/workflow/status/test-IO/testio-guides/lints.yml?label=Lints&logo=github&style=flat-square)](https://github.com/test-IO/testio-guides/actions/workflows/lints.yml)
 
+**Website:** <https://guides.test.io/>
+
 > Test IO Guides for anyone - business or developer - to learn about Test IO and how to use it.
 > This is a [Next.js](https://nextjs.org/) project using [Tailwind CSS](https://tailwindcss.com/) and [Markdoc](https://markdoc.dev/).
 
