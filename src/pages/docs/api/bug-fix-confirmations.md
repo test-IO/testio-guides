@@ -115,7 +115,11 @@ curl -X POST "https://api.test.io/integration/v1/bug_fix_confirmations/bulk" \
 ```json
 {
   "results": [
-    { "bug_id": 123, "status": "created", "bug_fix_confirmation": { "id": 501, "status": "pending", "...": "..." } },
+    {
+      "bug_id": 123,
+      "status": "created",
+      "bug_fix_confirmation": { "id": 501, "status": "pending", "...": "..." }
+    },
     { "bug_id": 124, "status": "error", "error": "Bug Fix Confirmation pending already exists" },
     { "bug_id": 125, "status": "error", "error": "Bug not found" }
   ]
