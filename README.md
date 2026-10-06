@@ -75,8 +75,8 @@ The search currently is not supported.
 ### JavaScript
 
 <p>
-  <img src="https://img.shields.io/badge/node-20.x.x-blue.svg" />
-  <img src="https://img.shields.io/badge/yarn-1.22.x-blue.svg" />
+  <img src="https://img.shields.io/badge/node-20.x.x-blue.svg" alt="node 20.x.x" />
+  <img src="https://img.shields.io/badge/yarn-1.22.x-blue.svg" alt="yarn 1.22.x" />
 </p>
 
 ## Authors

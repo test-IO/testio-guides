@@ -36,7 +36,6 @@ To post comments directly to Test IO bugs from the Bug Triage page in Jira, you 
 - **Scope of Access**: Choose who can post comments:
 
   {% list type="circle" %}
-
   - **Disabled**: Comment posting is turned off.
   - **Enable for All Users**: All Jira users can post comments to Test IO bugs.
   - **Enable for Multiple Users**: Only selected Jira users can post comments.

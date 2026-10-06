@@ -1,8 +1,8 @@
 module.exports = {
-  plugins: [
-    require("@trivago/prettier-plugin-sort-imports"),
-    require("prettier-plugin-tailwindcss"),
-  ],
+  // Prettier 3 loads plugins itself (supports ESM-only packages like
+  // @trivago/prettier-plugin-sort-imports v6); pass package names, not
+  // require() results.
+  plugins: ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
   semi: false,
   singleQuote: false,
   printWidth: 100,

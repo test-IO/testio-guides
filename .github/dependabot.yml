@@ -11,3 +11,16 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # eslint-config-next@16.3.8's plugin chain (eslint-scope et al) crashes
+      # under eslint@10 with "scopeManager.addGlobals is not a function".
+      # Keep on the latest 9.x until eslint-config-next supports eslint 10.
+      # Checked 2026-10-05.
+      - dependency-name: "eslint"
+        versions: [">=10"]
+      # typescript-eslint@8.71 (pulled in by eslint-config-next) declares a
+      # peer range of "typescript@>=4.8.4 <6.1.0"; typescript 7.x exists now
+      # but breaks that peer. Keep on 6.0.x until typescript-eslint widens
+      # its range. Checked 2026-10-05.
+      - dependency-name: "typescript"
+        versions: [">=6.1.0"]

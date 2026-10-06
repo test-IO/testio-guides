@@ -16,18 +16,18 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install Node.js dependencies
         run: yarn install
 
       - name: Run linters
-        uses: wearerequired/lint-action@v2
+        uses: wearerequired/lint-action@v3
         with:
           eslint: true
           prettier: true

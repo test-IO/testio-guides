@@ -16,7 +16,6 @@ To install the Jira Data Center Add-On, follow these steps:
 
 3. **Find QA Service for Jira**:
    {% list type="circle" %}
-
    - Click on **"Find new apps"** on the left-hand side of the page under the Atlassian Marketplace section.
 
    - Search for "**QA Service for Jira**".

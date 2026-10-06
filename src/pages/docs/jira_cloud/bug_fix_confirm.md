@@ -31,7 +31,6 @@ From the Jira Cloud side, there are two possible ways to request a Bug Fix Confi
 
     **To create a new environment**:
     {% list type="circle" %}
-
     - **Title**: Provide a name for the new environment.
     - **Type**: Select whether the environment is a URL or a file upload.
     - **Details**: Enter the URL or upload the file, based on your previous selection.

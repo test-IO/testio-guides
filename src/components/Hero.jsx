@@ -40,12 +40,12 @@ export function Hero() {
   }
 
   return (
-    <div className="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.5rem] dark:pb-32 dark:pt-[4.5rem] dark:lg:mt-[-4.75rem] dark:lg:pt-[4.75rem]">
+    <div className="overflow-hidden bg-slate-900 dark:-mt-18 dark:-mb-32 dark:pt-18 dark:pb-32 dark:lg:-mt-19 dark:lg:pt-19">
       <div className="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
+        <div className="lg:max-w-8xl mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 px-4 lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
           <div className="relative z-10 md:text-center lg:text-left">
             <Image
-              className="absolute bottom-full right-full -mb-56 -mr-72 opacity-50"
+              className="absolute right-full bottom-full -mr-72 -mb-56 opacity-50"
               src={blurCyanImage}
               alt=""
               width={530}
@@ -54,7 +54,7 @@ export function Hero() {
               priority
             />
             <div className="relative">
-              <p className="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+              <p className="font-display inline bg-linear-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text text-5xl tracking-tight text-transparent">
                 Test IO Guides
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
@@ -87,12 +87,12 @@ export function Hero() {
             </div>
           </div>
           <div className="relative lg:static xl:pl-10">
-            <div className="absolute inset-x-[-50vw] -bottom-48 -top-32 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:-bottom-32 lg:-top-32 lg:left-[calc(50%+14rem)] lg:right-0 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
-              <HeroBackground className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]" />
+            <div className="absolute inset-x-[-50vw] -top-32 -bottom-48 mask-[linear-gradient(transparent,white,white)] lg:-top-32 lg:right-0 lg:-bottom-32 lg:left-[calc(50%+14rem)] lg:mask-none dark:mask-[linear-gradient(transparent,white,transparent)] lg:dark:mask-[linear-gradient(white,white,transparent)]">
+              <HeroBackground className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]" />
             </div>
             <div className="pointer-events-none relative">
               <Image
-                className="absolute -right-64 -top-64"
+                className="absolute -top-64 -right-64"
                 src={blurCyanImage}
                 alt=""
                 width={530}
@@ -101,15 +101,15 @@ export function Hero() {
                 priority
               />
               <Image
-                className="absolute -bottom-40 -right-44"
+                className="absolute -right-44 -bottom-40"
                 src={blurIndigoImage}
                 alt=""
                 width={567}
                 unoptimized
                 priority
               />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10 blur-lg" />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10 blur-lg" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10" />
             </div>
             <div className="relative z-10">
               <CodeSample />
@@ -274,9 +274,9 @@ func main() {
     <div className="relative mt-8 w-full lg:mt-12">
       <div className="w-full">
         {/* Window frame with traffic lights */}
-        <div className="relative min-h-[280px] w-full rounded-lg border border-sky-500/30 bg-gradient-to-r from-slate-950 to-slate-900 shadow-[0_0_25px_rgba(56,189,248,0.2),0_0_50px_rgba(56,189,248,0.1)] backdrop-blur-sm">
+        <div className="relative min-h-[280px] w-full rounded-lg border border-sky-500/30 bg-linear-to-r from-slate-950 to-slate-900 shadow-[0_0_25px_rgba(56,189,248,0.2),0_0_50px_rgba(56,189,248,0.1)] backdrop-blur-xs">
           {/* Top highlight */}
-          <div className="absolute inset-x-0 top-0 h-px rounded-t-lg bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-px rounded-t-lg bg-linear-to-r from-transparent via-sky-400/60 to-transparent" />
 
           {/* Traffic lights container */}
           <div className="flex items-center gap-2 rounded-t-lg border-b border-slate-700/50 bg-slate-800/30 px-4 py-3">
@@ -285,7 +285,7 @@ func main() {
           </div>
 
           {/* File tabs */}
-          <div className="px-4 pb-3 pt-3">
+          <div className="px-4 pt-3 pb-3">
             <div className="flex flex-wrap gap-2 space-x-2 text-xs">
               {languages.map((lang) => {
                 const isActive = selectedLanguage === lang.id
@@ -295,7 +295,7 @@ func main() {
                     onClick={() => setSelectedLanguage(lang.id)}
                     className={`flex h-6 rounded-full transition-all ${
                       isActive
-                        ? "bg-gradient-to-r from-sky-400/30 via-sky-400 to-sky-400/30 p-px font-medium text-sky-300"
+                        ? "bg-linear-to-r from-sky-400/30 via-sky-400 to-sky-400/30 p-px font-medium text-sky-300"
                         : "text-slate-500 hover:text-slate-400"
                     }`}
                     type="button"
@@ -316,9 +316,9 @@ func main() {
           {/* Code content area */}
           <div className="relative overflow-hidden rounded-b-lg">
             {/* Bottom highlight */}
-            <div className="absolute inset-x-0 bottom-0 z-10 h-px rounded-b-lg bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 z-10 h-px rounded-b-lg bg-linear-to-r from-transparent via-sky-400/60 to-transparent" />
 
-            <div className="min-h-[200px] w-full max-w-full overflow-x-auto [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-track]:bg-slate-800/50 [&::-webkit-scrollbar]:h-2 [&_code]:!whitespace-pre [&_pre]:!overflow-x-auto [&_pre]:!whitespace-pre">
+            <div className="min-h-[200px] w-full max-w-full overflow-x-auto [&_code]:whitespace-pre! [&_pre]:overflow-x-auto! [&_pre]:whitespace-pre! [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-600/50 [&::-webkit-scrollbar-track]:bg-slate-800/50">
               {Object.keys(codeStyle).length > 0 && (
                 <ReactSyntaxHighlighter
                   language={selectedLanguage === "bash" ? "bash" : selectedLanguage}
