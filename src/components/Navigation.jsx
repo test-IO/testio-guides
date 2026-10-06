@@ -26,7 +26,7 @@ export function Navigation({ navigation, main, className }) {
             </h2>
             <ul
               role="list"
-              className="mt-2 space-y-2 border-l-2 border-slate-100 dark:border-slate-800 lg:border-slate-200"
+              className="mt-2 space-y-2 border-l-2 border-slate-100 lg:border-slate-200 dark:border-slate-800"
             >
               {section.links.map((link, index) => (
                 <MenuItem key={index} item={link} parents={allAncestors} />

@@ -29,7 +29,6 @@ This detailed view enables efficient tracking of the progress and status of expl
 
 - **Previewing Test Details**:
   {% list type="circle" %}
-
   - Click on the link _'Open at Test IO'_ near Test Cycle ID to navigate to the Test IO Platform for a detailed preview.
     {% screenshot src="/assets/jira_server/exploratory_2.png" caption="Test Cycle ID for navigation to Test IO Platform" /%}
 
@@ -49,7 +48,6 @@ This detailed view enables efficient tracking of the progress and status of expl
 
 - **Test Details Infographics**:
   {% list type="circle" %}
-
   - Test Cards in status **“Running”**, **“Locked”** have Test Results that contain graphical representations for **Bug types** with counting: low, high, critical, content, visual, UX, custom, **Bug statuses** with counting: open, total, **User Stories Result** with counting: passed, failed, blocked.
 
   - Click on the necessary **Bug type** graphical representation on the test card to navigate to **All bugs** page with pre-selected _Severity_ filter and _Test Cycle ID_.

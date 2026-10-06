@@ -51,7 +51,6 @@ The Jira Data Center Add-On supports **Multi-Customer connections**, allowing yo
 
 1. **Global (Default) and Project-Specific Connections**:
    {% list type="circle" %}
-
    - Configure one Global (Default) connection to integrate Jira with a Test IO account that is available to all Jira projects.
 
    - In addition, configure one or more Jira Project-specific connections to integrate different Jira projects with different Test IO accounts.
@@ -60,7 +59,6 @@ The Jira Data Center Add-On supports **Multi-Customer connections**, allowing yo
 
 2. **Multiple Project-Specific Connections Without a Global Connection**:
    {% list type="circle" %}
-
    - Configure two or more Jira Project-specific connections without setting up a Global connection.
 
    - Each Jira project can be integrated with a different Test IO account independently.

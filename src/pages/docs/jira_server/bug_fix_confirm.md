@@ -30,7 +30,6 @@ From the Jira Data Center side, there are two possible ways to request a Bug Fix
     **To create a new environment**:
 
     {% list type="circle" %}
-
     - **Title**: Provide a name for the new environment.
     - **Type**: Select whether the environment is a URL or a file upload.
     - **URL / Upload**: Enter the URL or upload the file, based on your previous selection.
@@ -59,7 +58,6 @@ From the Jira Data Center side, there are two possible ways to request a Bug Fix
 
 6.  **Specify Description**: Choose from two options:
     {% list type="circle" %}
-
     - **Description**: Maps the Jira ticket description details.
 
       {% screenshot src="/assets/jira_server/bug_fix_confirm/6.png" /%}

@@ -18,7 +18,6 @@ The Edit button is available in the following locations:
 
 1. **Select a Test**:
    {% list type="circle" %}
-
    - Navigate to the "Exploratory tests" page.
    - Choose a test that is in the Initialized status, or initiate test creation and reach the Test Preview page by clicking the “Save and continue” button.
 
@@ -26,21 +25,18 @@ The Edit button is available in the following locations:
 
 2. **Click on the Edit Button**:
    {% list type="circle" %}
-
    - Locate and click the “Edit” button available on the selected test.
 
    {% /list %}
 
 3. **Perform Desired Changes**:
    {% list type="circle" %}
-
    - Make the necessary changes to the test details, such as modifying the test objectives, scope, devices, or instructions.
 
    {% /list %}
 
 4. **Save the Changes**:
    {% list type="circle" %}
-
    - Click on the “Update” button to apply the changes and save the updated test configuration.
 
    {% /list %}
@@ -65,7 +61,6 @@ The Duplicate button is available in the following locations:
 
 1. **Select a Test to Duplicate**:
    {% list type="circle" %}
-
    - Navigate to the "Test Preview" page by clicking the “Save and continue” button on the Create Exploratory Test page.
    - Navigate to the "Test View" page after the test has been submitted .
 
@@ -73,14 +68,12 @@ The Duplicate button is available in the following locations:
 
 2. **Click on the Duplicate Button**:
    {% list type="circle" %}
-
    - On the selected test, locate and click the “Duplicate” button to create a copy of the test. The newly duplicated test preview page is expanded automatically.
 
    {% /list %}
 
 3. **Review and Modify (Optional)**:
    {% list type="circle" %}
-
    - The duplicated test will be initialized with the same configurations as the original test (besides the default date range for test run).
    - You can review the duplicated test and make any necessary modifications, such as changing the test objectives, scope, devices, or instructions.
 
@@ -88,7 +81,6 @@ The Duplicate button is available in the following locations:
 
 4. **Save the Duplicated Test (Optional)**:
    {% list type="circle" %}
-
    - After reviewing or modifying the duplicated test, click on the “Submit test” button to finalize and submit the duplicated test.
 
    {% /list %}
@@ -113,7 +105,6 @@ The Save as Template button is available in the following locations:
 
 1. **Select a Test to Save as Template**:
    {% list type="circle" %}
-
    - Create New Exploratory Test Page: Fill in all required fields during test creation to enable the Save as Template button.
    - Test Preview Page: Navigate by clicking the “Save and continue” button on the Create Exploratory Test page.
    - Test View Page: Access this page after the test has been submitted.
@@ -122,21 +113,18 @@ The Save as Template button is available in the following locations:
 
 2. **Click on the Save as Template Button**:
    {% list type="circle" %}
-
    - Locate and click the “Save as Template” button on the selected test.
 
    {% /list %}
 
 3. **Name the Template**:
    {% list type="circle" %}
-
    - Provide a title for your template that clearly identifies its purpose.
 
    {% /list %}
 
 4. **Save the Template**:
    {% list type="circle" %}
-
    - After naming and describing the template, click on the “Save” button to finalize and save the template.
 
    {% /list %}
@@ -149,35 +137,30 @@ Templates created from either Jira or the Test IO platform can be used to stream
 
 1. **Initiate New Test Creation**:
    {% list type="circle" %}
-
    - Begin the process to create a new exploratory test as usual.
 
    {% /list %}
 
 2. **Select Template Option**:
    {% list type="circle" %}
-
    - Instead of selecting a test type, click on the "Template" option.
 
    {% /list %}
 
 3. **Choose a Template**:
    {% list type="circle" %}
-
    - Pick the desired template from the available list.
 
    {% /list %}
 
 4. **Apply Template Details**:
    {% list type="circle" %}
-
    - Once selected, the details from the template will be automatically applied to your new test.
 
    {% /list %}
 
 5. **Review and Finalize**:
    {% list type="circle" %}
-
    - Review the pre-filled details to ensure everything meets your requirements.
    - Proceed with the test creation by following the remaining steps.
 

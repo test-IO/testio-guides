@@ -27,7 +27,6 @@ This detailed view enables tracking the progress and status of exploratory tests
 
 - **Previewing Test Details**:
   {% list type="circle" %}
-
   - Click on the Test Cycle ID under the Test Title to navigate to the Test IO Platform for a detailed preview.
     {% screenshot src="/assets/jira_cloud/exploratory_2.png" caption="Test Cycle ID for navigation to Test IO Platform" /%}
 

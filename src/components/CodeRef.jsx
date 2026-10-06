@@ -58,6 +58,7 @@ export function CodeRef({ children, language, showLineNumbers = true }) {
           font-size: 15px;
           width: 1.5em;
           height: 1.5em;
+          cursor: pointer;
         }
       `}
       </style>

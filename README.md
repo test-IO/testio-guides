@@ -6,6 +6,8 @@
 [![GitHub Workflow Build Status](https://img.shields.io/github/actions/workflow/status/test-IO/testio-guides/build.yml?label=Build&logo=github&style=flat-square)](https://github.com/test-IO/testio-guides/actions/workflows/build.yml)
 [![GitHub Workflow Lint Status](https://img.shields.io/github/actions/workflow/status/test-IO/testio-guides/lints.yml?label=Lints&logo=github&style=flat-square)](https://github.com/test-IO/testio-guides/actions/workflows/lints.yml)
 
+**Website:** <https://guides.test.io/>
+
 > Test IO Guides for anyone - business or developer - to learn about Test IO and how to use it.
 > This is a [Next.js](https://nextjs.org/) project using [Tailwind CSS](https://tailwindcss.com/) and [Markdoc](https://markdoc.dev/).
 
@@ -70,13 +72,25 @@ To run the linter, run `bin/lint`. This requires markdownlint to be installed. T
 
 ### Search
 
-The search currently is not supported.
+The search is powered by [Algolia](https://www.algolia.com/). The search index is updated by running a crawler on the deployed site. This crawler is Python based and lives in its own (private) [repository](https://github.com/test-IO/cirro-guides-scraper). All instructions on how to run the crawler can be found in that repository's [README](https://github.com/test-IO/cirro-guides-scraper#readme).
+
+The search bar reads `NEXT_PUBLIC_DOCSEARCH_APP_ID`, `NEXT_PUBLIC_DOCSEARCH_API_KEY` and `NEXT_PUBLIC_DOCSEARCH_INDEX_NAME`. They are repository variables, injected at build time by the deploy workflow, and must point to the same Algolia app and index (`testio_guides`) the scraper writes to. Anything prefixed `NEXT_PUBLIC_` is compiled into the browser JavaScript, so only ever use a search-only key there.
+
+This reindex normally runs automatically: the `algolia_reindex` job in the [deploy workflow](.github/workflows/deploy.yml) re-runs the scraper after every deploy to `main`, using the `ALGOLIA_WRITE_API_KEY` secret and the `SCRAPER_REPO_CLONE_KEY` deploy key — no manual step needed in the common case.
+
+To trigger a reindex manually (e.g. to test a scraper config change before it reaches `main`), clone [cirro-guides-scraper](https://github.com/test-IO/cirro-guides-scraper) and run:
+
+```sh
+./docsearch run configs/testio_guides.json
+```
+
+To try search locally, put the three variables above in a `.env.local` file (git-ignored) and run `yarn dev`.
 
 ### JavaScript
 
 <p>
-  <img src="https://img.shields.io/badge/node-20.x.x-blue.svg" />
-  <img src="https://img.shields.io/badge/yarn-1.22.x-blue.svg" />
+  <img src="https://img.shields.io/badge/node-20.x.x-blue.svg" alt="node 20.x.x" />
+  <img src="https://img.shields.io/badge/yarn-1.22.x-blue.svg" alt="yarn 1.22.x" />
 </p>
 
 ## Authors

@@ -39,7 +39,6 @@ To start, you'll need to **create a configuration**. Follow these steps:
    - **Map specific Test IO fields to Jira fields** to ensure that Test IO bug details are accurately represented in Jira after accepting that bug and creating the associated Jira ticket. Available mappings include:
 
      {% list type="circle" %}
-
      - **Test IO bug Severity → Jira issue field**  
        Choose a Jira issue field that best fits your use case. For example, you might decide to map the Test IO bug Severity to the Jira ticket Priority field. This mapping will allow the Severity value from Test IO to be displayed in the Jira ticket's Priority field once the Test IO bug is accepted and the Jira ticket is created.
 
