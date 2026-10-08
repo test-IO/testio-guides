@@ -11,7 +11,7 @@ Request a Bug Fix Confirmation (BFC) to have testers verify that a bug has been 
 
 Request Bug Fix Confirmations for up to 50 bugs in a single call. Each entry in `bug_fix_confirmations` carries its own `customer_test_environment`, `requirements`, `additional_requirement`, and `allow_device_clouds` — so different bugs in the same call can be confirmed against different environments or requirements.
 
-Each bug is processed independently: a failure on one bug (not found, already has a pending confirmation, or an invalid test environment) doesn't stop the rest of the batch from being processed.
+Each bug is processed independently: a failure on one bug (not found, already has a pending confirmation, an invalid test environment, or an invalid inline requirement) doesn't stop the rest of the batch from being processed.
 
 **Endpoint:** `POST /bug_fix_confirmations/bulk`
 
@@ -36,7 +36,7 @@ Each bug is processed independently: a failure on one bug (not found, already ha
     - `id` (number, optional) - Target idx of an existing Requirement to reuse. Omit to create a new requirement from the fields below instead.
     - `category` (object, optional) - `{ "id": number }` - device category
     - `vendor` (object, optional) - `{ "id": number }` - device vendor
-    - `devices` (array, optional) - `[{ "id": number }]` - specific devices
+    - `devices` (array, optional) - `[{ "id": number }]` - specific devices; must belong to the given `category`, or creation fails for that entry
     - `operating_system` (object, optional) - `{ "id": number }`
     - `min_operating_system_version` (object, optional) - `{ "id": number }`
     - `max_operating_system_version` (object, optional) - `{ "id": number }`
@@ -57,7 +57,8 @@ curl -X POST "https://api.test.io/customer/v2/bug_fix_confirmations/bulk" \
     "bug_fix_confirmations": [
       { "bug_id": 123, "customer_test_environment": { "id": 42 }, "requirements": [{ "id": 7 }] },
       { "bug_id": 124, "customer_test_environment": { "id": 42 }, "requirements": [{ "category": { "id": 3 }, "devices": [{ "id": 101 }] }] },
-      { "bug_id": 125, "customer_test_environment": { "title": "Staging", "url": "https://staging.example.com" } }
+      { "bug_id": 125, "customer_test_environment": { "title": "Staging", "url": "https://staging.example.com" } },
+      { "bug_id": 126, "customer_test_environment": { "id": 42 }, "requirements": [{ "category": { "id": 3 }, "devices": [{ "id": 9999 }] }] }
     ]
   }'
 ```
@@ -75,7 +76,8 @@ curl -X POST "https://api.test.io/customer/v2/bug_fix_confirmations/bulk" \
       "bug_fix_confirmation": { "id": 501, "status": "pending", "...": "..." }
     },
     { "bug_id": 124, "status": "error", "error": "Bug Fix Confirmation pending already exists" },
-    { "bug_id": 125, "status": "error", "error": "Bug not found" }
+    { "bug_id": 125, "status": "error", "error": "Bug not found" },
+    { "bug_id": 126, "status": "error", "error": "Devices should match with the category" }
   ]
 }
 ```
