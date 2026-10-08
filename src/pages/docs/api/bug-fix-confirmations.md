@@ -24,9 +24,17 @@ Each bug is processed independently: a failure on one bug (not found, already ha
   - `additional_requirement` (string, optional) - Free-form extra instructions for testers
   - `allow_device_clouds` (boolean, optional, default: `false`) - Allow testers to use device clouds
   - `requirements` (array, optional) - Device/targeting requirements for this bug. Each entry is an object:
-    - `id` (number, optional) - Target idx of an existing Requirement to reuse
+    - `id` (number, optional) - Target idx of an existing Requirement to reuse. Omit to create a new requirement from the fields below instead.
+    - `category` (object, optional) - `{ "id": number }` - device category
+    - `vendor` (object, optional) - `{ "id": number }` - device vendor
+    - `devices` (array, optional) - `[{ "id": number }]` - specific devices
+    - `operating_system` (object, optional) - `{ "id": number }`
+    - `min_operating_system_version` (object, optional) - `{ "id": number }`
+    - `max_operating_system_version` (object, optional) - `{ "id": number }`
+    - `browsers` (array, optional) - `[{ "id": number }]`
+    - `input_devices` (array, optional) - `[{ "id": number }]`
 
-> If `requirements` is omitted for an entry, requirements are derived automatically from that bug's test's default device targeting. `customer_test_environment` and `requirements` must reference existing resources created beforehand (through the portal or their own endpoints) — this endpoint does not create new test environments or requirements inline.
+> If `requirements` is omitted for an entry, requirements are derived automatically from that bug's test's default device targeting. `customer_test_environment` must reference an existing Customer Test Environment created beforehand (through the portal, or via `POST /products/:product_id/test_environments`) — this endpoint does not create test environments inline. `requirements` entries can either reference an existing Requirement by `id`, or create a new one from the category/vendor/devices/operating_system/browsers/input_devices fields.
 
 **Example Request:**
 
@@ -39,7 +47,7 @@ curl -X POST "https://api.test.io/customer/v2/bug_fix_confirmations/bulk" \
   -d '{
     "bug_fix_confirmations": [
       { "bug_id": 123, "customer_test_environment": { "id": 42 }, "requirements": [{ "id": 7 }] },
-      { "bug_id": 124, "customer_test_environment": { "id": 42 }, "requirements": [{ "id": 7 }] },
+      { "bug_id": 124, "customer_test_environment": { "id": 42 }, "requirements": [{ "category": { "id": 3 }, "devices": [{ "id": 101 }] }] },
       { "bug_id": 125, "customer_test_environment": { "id": 43 } }
     ]
   }'
