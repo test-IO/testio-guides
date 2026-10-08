@@ -9,40 +9,24 @@ Request a Bug Fix Confirmation (BFC) to have testers verify that a bug has been 
 
 ## Confirm bug fixes in bulk
 
-Request Bug Fix Confirmations for up to 50 bugs in a single call. Every `customer_test_environment`, `requirements`, `additional_requirement`, and `allow_device_clouds` value is applied identically to each bug in the request — to use different requirements per bug, call this endpoint multiple times.
+Request Bug Fix Confirmations for up to 50 bugs in a single call. Each entry in `bug_fix_confirmations` carries its own `customer_test_environment`, `requirements`, `additional_requirement`, and `allow_device_clouds` — so different bugs in the same call can be confirmed against different environments or requirements.
 
-Each bug is processed independently: a failure on one bug (not found, or already has a pending confirmation) doesn't stop the rest of the batch from being processed.
+Each bug is processed independently: a failure on one bug (not found, already has a pending confirmation, or an invalid test environment) doesn't stop the rest of the batch from being processed.
 
 **Endpoint:** `POST /bug_fix_confirmations/bulk`
 
 **Request Body:**
 
-- `bug_ids` (array[number], required) - IDs of the bugs to confirm, up to 50 per request
-- `customer_test_environment` (object, required) - Test environment to confirm the fix against
-  - `id` (number, optional) - ID of an existing Customer Test Environment to reuse
-  - `title` (string, optional)
-  - `url` (string, optional)
-  - `file_url` (string, optional) - URL of the app file (APK, IPA) for mobile app tests
-  - `file_base_64` (string, optional) - App file (APK, IPA) for mobile app tests encoded in base 64
-  - `file_name` (string, optional) - File name for the app file (required when `file_base_64` is provided)
-  - `username` (string, optional)
-  - `password` (string, optional)
-  - `access` (string, optional)
-  - `proxy` (boolean, optional)
-- `additional_requirement` (string, optional) - Free-form extra instructions for testers
-- `allow_device_clouds` (boolean, optional, default: `false`) - Allow testers to use device clouds
-- `requirements` (array, optional) - Device/targeting requirements applied to every bug in the request. Each entry is an object:
-  - `id` (number, optional) - Target idx of an existing Requirement to reuse
-  - `category` (object, optional) - `{ "id": number }`
-  - `vendor` (object, optional) - `{ "id": number }`
-  - `devices` (array, optional) - `[{ "id": number }]`
-  - `operating_system` (object, optional) - `{ "id": number }`
-  - `min_operating_system_version` (object, optional) - `{ "id": number }`
-  - `max_operating_system_version` (object, optional) - `{ "id": number }`
-  - `browsers` (array, optional) - `[{ "id": number }]`
-  - `input_devices` (array, optional) - `[{ "id": number }]`
+- `bug_fix_confirmations` (array, required) - Up to 50 entries, one per bug to confirm. Each entry is an object:
+  - `bug_id` (number, required) - ID of the bug to confirm
+  - `customer_test_environment` (object, required) - Test environment to confirm the fix against
+    - `id` (number, required) - ID of an existing Customer Test Environment to reuse
+  - `additional_requirement` (string, optional) - Free-form extra instructions for testers
+  - `allow_device_clouds` (boolean, optional, default: `false`) - Allow testers to use device clouds
+  - `requirements` (array, optional) - Device/targeting requirements for this bug. Each entry is an object:
+    - `id` (number, optional) - Target idx of an existing Requirement to reuse
 
-> If `requirements` is omitted, requirements are derived automatically from the test's default device targeting.
+> If `requirements` is omitted for an entry, requirements are derived automatically from that bug's test's default device targeting. `customer_test_environment` and `requirements` must reference existing resources created beforehand (through the portal or their own endpoints) — this endpoint does not create new test environments or requirements inline.
 
 **Example Request:**
 
@@ -53,9 +37,11 @@ curl -X POST "https://api.test.io/customer/v2/bug_fix_confirmations/bulk" \
   -H "Authorization: Token YOUR_API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "bug_ids": [123, 124, 125],
-    "customer_test_environment": { "id": 42 },
-    "requirements": [{ "id": 7 }]
+    "bug_fix_confirmations": [
+      { "bug_id": 123, "customer_test_environment": { "id": 42 }, "requirements": [{ "id": 7 }] },
+      { "bug_id": 124, "customer_test_environment": { "id": 42 }, "requirements": [{ "id": 7 }] },
+      { "bug_id": 125, "customer_test_environment": { "id": 43 } }
+    ]
   }'
 ```
 
@@ -81,7 +67,7 @@ The response is always `201 Created`, even when some or all of the requested bug
 
 **Response:** `400 Bad Request`
 
-Returned when `bug_ids` contains more than 50 entries.
+Returned when `bug_fix_confirmations` contains more than 50 entries.
 
 ## Fetch bug fix confirmations
 
