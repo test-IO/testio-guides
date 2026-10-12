@@ -8,7 +8,13 @@ const docSearchConfig = {
   appId: process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
   apiKey: process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY,
   // @docsearch/react v5 replaced the single `indexName` prop with `indices`.
-  indices: [process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME],
+  indices: ["testio_guides"],
+  // Index stores absolute prod URLs; make them relative so search works on any host
+  transformItems: (items) =>
+    items.map((item) => {
+      const { pathname, hash } = new URL(item.url)
+      return { ...item, url: pathname + hash }
+    }),
 }
 
 const HITS_PER_PAGE = 20
