@@ -5,6 +5,8 @@ description: Create bug report confirmations
 
 Create bug report confirmations to request additional information from testers when they report bugs.
 
+> Not to be confused with [Bug Fix Confirmations](/docs/api/bug-fix-confirmations), which asks testers to verify that a bug has been fixed.
+
 ## Create a bug report confirmation
 
 Create a new bug report confirmation.
