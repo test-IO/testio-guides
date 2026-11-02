@@ -526,8 +526,11 @@ Cancel a previously created exploratory test that has not been launched yet. The
 **Parameters:**
 
 - `exploratory_test_id` (number, required) - ID of the Exploratory test
+
+**Request Body:**
+
 - `reason` (string, optional) - Exploratory test cancellation reason. If omitted, the default reason will be used. Allowed values: `unclear_instructions`, `environment_unavailable`, `no_longer_required`, `other`, `no_reason`
-- `comment` (string, required if `reason` is `other`) - If `reason` is set to `other`, you can provide a custom comment here. 
+- `comment` (string, required if `reason` is `other`) - If `reason` is set to `other`, you can provide a custom comment here.
 
 - **Example Request:**
 
@@ -535,12 +538,17 @@ Cancel a previously created exploratory test that has not been launched yet. The
 
 ```bash
 curl -X POST "https://api.test.io/customer/v2/exploratory_tests/123/cancel" \
-  -H "Authorization: Token YOUR_API_TOKEN"
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "reason": "other",
+    "comment": "Release was postponed"
+  }'
 ```
 
 {% /code %}
 
-**Response:** `200 OK`
+**Response:** `201 OK`
 
 Returns the cancelled exploratory test object with full details.
 
