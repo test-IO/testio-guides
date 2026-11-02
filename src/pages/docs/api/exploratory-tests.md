@@ -460,7 +460,7 @@ Delete an exploratory test which was just created and in status `initialized`.
 curl -X DELETE "https://api.test.io/customer/v2/exploratory_tests/123" \
   -H "Authorization: Token YOUR_API_TOKEN"
 ```
-  
+
 {% /code %}
 
 **Response:** `200 OK`
@@ -541,7 +541,6 @@ curl -X POST "https://api.test.io/customer/v2/exploratory_tests/123/cancel" \
 **Response:** `200 OK`
 
 Returns the cancelled exploratory test object with full details.
-
 
 ## Create test template from exploratory test
 
