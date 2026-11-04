@@ -49,9 +49,12 @@ curl -X GET "https://api.test.io/customer/v2/user_stories/1" \
 
 ```json
 {
-  "id": 1,
-  "path": "As a shopper, I can add a product to my cart",
-  "title": "Add product to cart"
+  "user_story": {
+    "id": 1,
+    "path": "As a shopper, I can add a product to my cart",
+    "title": "As a shopper, I can add a product to my cart",
+    "feature_id": 1
+  }
 }
 ```
 
@@ -94,12 +97,14 @@ curl -X GET "https://api.test.io/customer/v2/products/1/user_stories?section_id=
     {
       "id": 1,
       "path": "As a shopper, I can add a product to my cart",
-      "title": "Add product to cart"
+      "title": "As a shopper, I can add a product to my cart",
+      "feature_id": 1
     },
     {
       "id": 2,
       "path": "As a shopper, I can remove a product from my cart",
-      "title": "Remove product from cart"
+      "title": "As a shopper, I can remove a product from my cart",
+      "feature_id": 1
     }
   ]
 }
@@ -154,9 +159,12 @@ curl -X POST "https://api.test.io/customer/v2/products/1/user_stories?section_id
 
 ```json
 {
-  "id": 1,
-  "path": "As a shopper, I can add a product to my cart",
-  "title": "Add product to cart"
+  "user_story": {
+    "id": 1,
+    "path": "As a shopper, I can add a product to my cart",
+    "title": "As a shopper, I can add a product to my cart",
+    "feature_id": 1
+  }
 }
 ```
 
@@ -208,9 +216,12 @@ curl -X PUT "https://api.test.io/customer/v2/products/1/user_stories/2?section_i
 
 ```json
 {
-  "id": 2,
-  "path": "As a shopper, I can remove a product from my cart",
-  "title": "Remove product from cart"
+  "user_story": {
+    "id": 2,
+    "path": "As a shopper, I can remove a product from my cart",
+    "title": "As a shopper, I can remove a product from my cart",
+    "feature_id": 1
+  }
 }
 ```
 
@@ -250,9 +261,12 @@ curl -X DELETE "https://api.test.io/customer/v2/products/1/user_stories/2?sectio
 
 ```json
 {
-  "id": 2,
-  "path": "As a shopper, I can add a product to my cart",
-  "title": "Add product to cart"
+  "user_story": {
+    "id": 2,
+    "path": "As a shopper, I can remove a product from my cart",
+    "title": "As a shopper, I can remove a product from my cart",
+    "feature_id": 1
+  }
 }
 ```
 
