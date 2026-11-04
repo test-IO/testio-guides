@@ -1,24 +1,29 @@
+// Keeps API Reference pages alphabetical without manual ordering.
+const sortByTitle = (links) => [...links].sort((a, b) => a.title.localeCompare(b.title))
+
 const navigation = [
   {
     title: "API Reference",
     links: [
       { title: "Getting Started", href: "/docs/api/getting-started" },
       { title: "Authentication", href: "/docs/api/authentication" },
-      { title: "Products", href: "/docs/api/products" },
-      { title: "Features", href: "/docs/api/features" },
-      { title: "User Stories", href: "/docs/api/user-stories" },
-      { title: "User Story Version Executions", href: "/docs/api/user-story-version-executions" },
-      { title: "Test Environments", href: "/docs/api/test-environments" },
-      { title: "Binary Apps", href: "/docs/api/binary-apps" },
-      { title: "Exploratory Tests", href: "/docs/api/exploratory-tests" },
-      { title: "Test Templates", href: "/docs/api/test-templates" },
-      { title: "Bugs", href: "/docs/api/bugs" },
-      { title: "Custom Bug Export Connections", href: "/docs/api/connections" },
-      { title: "Bug Report Confirmations", href: "/docs/api/bug-report-confirmations" },
-      { title: "Bug Fix Confirmations", href: "/docs/api/bug-fix-confirmations" },
-      { title: "Access Claims", href: "/docs/api/access-claims" },
-      { title: "Test Cases", href: "/docs/api/test-cases" },
-      { title: "Test Case Tests", href: "/docs/api/test-case-tests" },
+      ...sortByTitle([
+        { title: "Products", href: "/docs/api/products" },
+        { title: "Features", href: "/docs/api/features" },
+        { title: "User Stories", href: "/docs/api/user-stories" },
+        { title: "User Story Version Executions", href: "/docs/api/user-story-version-executions" },
+        { title: "Test Environments", href: "/docs/api/test-environments" },
+        { title: "Binary Apps", href: "/docs/api/binary-apps" },
+        { title: "Exploratory Tests", href: "/docs/api/exploratory-tests" },
+        { title: "Test Templates", href: "/docs/api/test-templates" },
+        { title: "Bugs", href: "/docs/api/bugs" },
+        { title: "Custom Bug Export Connections", href: "/docs/api/connections" },
+        { title: "Bug Report Confirmations", href: "/docs/api/bug-report-confirmations" },
+        { title: "Bug Fix Confirmations", href: "/docs/api/bug-fix-confirmations" },
+        { title: "Access Claims", href: "/docs/api/access-claims" },
+        { title: "Test Cases", href: "/docs/api/test-cases" },
+        { title: "Test Case Tests", href: "/docs/api/test-case-tests" },
+      ]),
     ],
   },
 
