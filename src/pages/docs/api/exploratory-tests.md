@@ -530,7 +530,7 @@ Cancel a previously created exploratory test that has not been launched yet. The
 **Request Body:**
 
 - `reason` (string, optional) - Exploratory test cancellation reason. If omitted, the default reason will be used. Allowed values: `unclear_instructions`, `environment_unavailable`, `no_longer_required`, `other`, `no_reason`
-- `comment` (string, required if `reason` is `other`) - If `reason` is set to `other`, you can provide a custom comment here.
+- `comment` (string, required if `reason` is `other`) - If `reason` is set to `other`, you should provide a custom comment here.
 
 **Example Request:**
 
