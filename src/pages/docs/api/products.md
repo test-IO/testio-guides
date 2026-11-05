@@ -37,9 +37,23 @@ curl -X GET "https://api.test.io/customer/v2/products" \
       "id": 1,
       "name": "My Product",
       "description": "Description of the product",
+      "type": "website",
       "default_section_id": 2,
       "sections": [],
-      "connection": null
+      "sections_with_default": [
+        {
+          "id": 2,
+          "name": "default-section",
+          "archived": false,
+          "connection": null,
+          "test_templates": {
+            "total": 20,
+            "count": 0
+          }
+        }
+      ],
+      "connection": null,
+      "remote_device_testing": false
     }
   ]
 }
@@ -78,9 +92,23 @@ curl -X GET "https://api.test.io/customer/v2/products/1" \
     "id": 1,
     "name": "My Product",
     "description": "Description of the product",
+    "type": "website",
     "default_section_id": 2,
     "sections": [],
-    "connection": null
+    "sections_with_default": [
+      {
+        "id": 2,
+        "name": "default-section",
+        "archived": false,
+        "connection": null,
+        "test_templates": {
+          "total": 20,
+          "count": 0
+        }
+      }
+    ],
+    "connection": null,
+    "remote_device_testing": false
   }
 }
 ```
@@ -131,9 +159,23 @@ curl -X POST "https://api.test.io/customer/v2/products" \
     "id": 1,
     "name": "My New Product",
     "description": "Description of my product",
+    "type": "website",
     "default_section_id": 2,
     "sections": [],
-    "connection": null
+    "sections_with_default": [
+      {
+        "id": 2,
+        "name": "default-section",
+        "archived": false,
+        "connection": null,
+        "test_templates": {
+          "total": 20,
+          "count": 0
+        }
+      }
+    ],
+    "connection": null,
+    "remote_device_testing": false
   }
 }
 ```
@@ -182,9 +224,23 @@ curl -X PUT "https://api.test.io/customer/v2/products/1" \
     "id": 1,
     "name": "My New Product",
     "description": "Updated description",
+    "type": "website",
     "default_section_id": 2,
     "sections": [],
-    "connection": null
+    "sections_with_default": [
+      {
+        "id": 2,
+        "name": "default-section",
+        "archived": false,
+        "connection": null,
+        "test_templates": {
+          "total": 20,
+          "count": 0
+        }
+      }
+    ],
+    "connection": null,
+    "remote_device_testing": false
   }
 }
 ```
@@ -222,9 +278,23 @@ curl -X DELETE "https://api.test.io/customer/v2/products/1" \
     "id": 1,
     "name": "My New Product",
     "description": "Updated description",
+    "type": "website",
     "default_section_id": 2,
     "sections": [],
-    "connection": null
+    "sections_with_default": [
+      {
+        "id": 2,
+        "name": "default-section",
+        "archived": false,
+        "connection": null,
+        "test_templates": {
+          "total": 20,
+          "count": 0
+        }
+      }
+    ],
+    "connection": null,
+    "remote_device_testing": false
   }
 }
 ```

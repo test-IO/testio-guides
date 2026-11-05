@@ -69,7 +69,9 @@ By default, `user_stories` is an array of path strings:
       "id": 1,
       "title": "Account Management",
       "description": "Manage your account information",
+      "location": "Top right of the screen",
       "howtofind": "Top right of the screen",
+      "target_idx": null,
       "user_stories": ["User story 1", "User story 2"]
     }
   ]
@@ -102,7 +104,9 @@ When `includes[]=user_stories` is passed, each user story is returned as an obje
       "id": 1,
       "title": "Account Management",
       "description": "Manage your account information",
+      "location": "Top right of the screen",
       "howtofind": "Top right of the screen",
+      "target_idx": null,
       "user_stories": [
         {
           "id": 10,
@@ -163,7 +167,9 @@ curl -X GET "https://api.test.io/customer/v2/products/1/sections/2/features" \
       "id": 1,
       "title": "Account Management",
       "description": "Manage your account information",
+      "location": "Top right of the screen",
       "howtofind": "Top right of the screen",
+      "target_idx": null,
       "user_stories": ["User story 1"]
     }
   ]
@@ -223,7 +229,9 @@ curl -X POST "https://api.test.io/customer/v2/features" \
     "id": 15,
     "title": "Account Management",
     "description": "Manage your account information",
+    "location": "Top right of the screen",
     "howtofind": "Top right of the screen",
+    "target_idx": null,
     "user_stories": ["User story 1"]
   }
 }
@@ -276,7 +284,32 @@ curl -X PUT "https://api.test.io/customer/v2/features/15" \
 
 **Response:** `200 OK`
 
-Returns the updated feature object. See the response shape in [Create feature](#create-feature) above.
+Returns the updated feature object, with `user_stories` expanded:
+
+{% code language="json" showLineNumbers=true %}
+
+```json
+{
+  "feature": {
+    "id": 15,
+    "title": "Account Management (updated)",
+    "description": "Manage your account information",
+    "location": "Top right of the screen",
+    "howtofind": "Top right of the screen",
+    "target_idx": null,
+    "user_stories": [
+      {
+        "id": 10,
+        "path": "User story 1",
+        "title": "User story 1",
+        "feature_id": 15
+      }
+    ]
+  }
+}
+```
+
+{% /code %}
 
 **Example Request (managing user stories):**
 
@@ -373,7 +406,9 @@ Returns the list of features in the destination product after copying.
       "id": 30,
       "title": "Account Management",
       "description": "Manage your account information",
+      "location": "Top right of the screen",
       "howtofind": "Top right of the screen",
+      "target_idx": null,
       "user_stories": ["User story 1"]
     }
   ]
