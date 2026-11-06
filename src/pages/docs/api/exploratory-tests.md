@@ -442,6 +442,31 @@ curl -X PUT "https://api.test.io/customer/v2/exploratory_tests/123" \
 
 Returns the updated exploratory test object with full details.
 
+## Delete exploratory test
+
+Delete an exploratory test which was just created and in status `initialized`.
+
+**Endpoint:** `DELETE /exploratory_tests/{exploratory_test_id}`
+
+**Parameters:**
+
+- `exploratory_test_id` (number, required) - ID of the Exploratory test
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X DELETE "https://api.test.io/customer/v2/exploratory_tests/123" \
+  -H "Authorization: Token YOUR_API_TOKEN"
+```
+
+{% /code %}
+
+**Response:** `200 OK`
+
+Returns the deleted exploratory test object with full details.
+
 ## Launch exploratory test
 
 Launches a previously created exploratory test that has not been launched yet. This is useful when the test was created with `auto_launch: false`.
@@ -491,6 +516,41 @@ curl -X POST "https://api.test.io/customer/v2/exploratory_tests/123/duplicate" \
 **Response:** `200 OK`
 
 Returns the newly created (duplicated) exploratory test object with full details. The duplicated test will have a new ID.
+
+## Cancel exploratory test
+
+Cancel a previously created exploratory test that has not been launched yet. The action available for exploratory tests with statuses `customer_finalized` and `waiting`.
+
+**Endpoint:** `POST /exploratory_tests/{exploratory_test_id}/cancel`
+
+**Parameters:**
+
+- `exploratory_test_id` (number, required) - ID of the Exploratory test
+
+**Request Body:**
+
+- `reason` (string, optional) - Exploratory test cancellation reason. If omitted, the default reason will be used. Allowed values: `unclear_instructions`, `environment_unavailable`, `no_longer_required`, `other`, `no_reason`
+- `comment` (string, required if `reason` is `other`) - If `reason` is set to `other`, you should provide a custom comment here.
+
+**Example Request:**
+
+{% code language="bash" showLineNumbers=true %}
+
+```bash
+curl -X POST "https://api.test.io/customer/v2/exploratory_tests/123/cancel" \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "reason": "other",
+    "comment": "Release was postponed"
+  }'
+```
+
+{% /code %}
+
+**Response:** `201 OK`
+
+Returns the cancelled exploratory test object with full details.
 
 ## Create test template from exploratory test
 
