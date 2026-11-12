@@ -20,7 +20,7 @@
     "@heroicons/react": "^2.2.0",
     "@markdoc/markdoc": "0.5.11",
     "@markdoc/next.js": "0.6.1",
-    "@sindresorhus/slugify": "^4.0.0",
+    "@sindresorhus/slugify": "^4.0.1",
     "@tailwindcss/postcss": "^4.3.4",
     "@tailwindcss/typography": "^0.5.20",
     "clsx": "^2.1.1",

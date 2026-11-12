@@ -915,10 +915,10 @@
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"
   integrity sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==
 
-"@sindresorhus/slugify@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-4.0.0.tgz#5f9ecf26665a6b0a65c9018d82795f2c31e9be6a"
-  integrity sha512-/5oEBXpUWCHxaQqcvQE8bLj6JD7KkMkJFy6UxSAETgy2RAZ09VxUo6XFl4YHksORImmdFUvNguwFKDVRP0ZxHQ==
+"@sindresorhus/slugify@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-4.0.1.tgz#86050a42bf4b1ee27acd1a712f8b9f2c9a2c300f"
+  integrity sha512-DsuqdYRMBj9zcLBQ6m0KrkrWi8PuxXcPlO7CEjrhCOZWt8JPEMCuD3LD3FOgET/sHqgOE++xvkZI0HONqFyaug==
   dependencies:
     "@sindresorhus/transliterate" "^3.0.0"
     escape-string-regexp "^5.0.0"
